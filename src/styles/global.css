@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+	--animate-fade-in: fade-in-scale 0.8s  ease-in-out both;
+	--animate-fade-in-delayed1: fade-in-scale 0.8s 0.3s  ease-in-out both;
+	--animate-fade-in-delayed2: fade-in-scale 0.8s 0.3s  ease-in-out both;
+
+	@keyframes fade-in-scale {
+		0% {
+			opacity: 0;
+			transform: translateY(25px);
+		}
+		100% {
+			opacity: 1; 
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fade-in-2 {
+		0% {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		100% {
+			opacity: 1; 
+			transform: translateY(0);
+		}
+	}
+}
+
+.backgroundStyle,
+.borderStyle {
+	background: linear-gradient(72.83deg, #4285f4 11.63%, #9b72cb 40.43%, #d96570 68.07%);
+	padding: 1px;
+	border: none;
+}
+
+.title {
+	color: transparent;
+	background-clip: text;
+	background-image: -webkit-linear-gradient(17.17deg,
+			#4285f4 11.63%,
+			#9b72cb 40.43%,
+			#d96570 68.07%);
+	background-image: linear-gradient(72.83deg,
+			#4285f4 11.63%,
+			#9b72cb 40.43%,
+			#d96570 68.07%);
+}
