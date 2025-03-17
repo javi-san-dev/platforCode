@@ -1,11 +1,31 @@
-<header class=" flex items-center px-6 p-3 w-full fixed bg-transparent z-10">
-    <h1 class=" text-white text-2xl ">Platform</h1>
-    <nav class=" text-white flex gap-3 text-lg ml-20 ">
-        <a href="/" class=" cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg">About</a>
-        <a href="/" class=" cursor-pointer  px-4 py-2 hover:bg-neutral-900 rounded-lg">Learning</a>
-        <a href="/" class=" cursor-pointer  px-4 py-2 hover:bg-neutral-900 rounded-lg">Faq</a>
-        <a href="/" class=" cursor-pointer  px-4 py-2 hover:bg-neutral-900 rounded-lg">Contact</a>
-        <a href="/" class=" cursor-pointer  px-4 py-2 hover:bg-neutral-900 rounded-lg">Pricing</a>
+<header class="flex items-center px-6 p-3 w-full fixed z-10" id="headerMenu">
+    <h1 class="text-white text-2xl">Platform</h1>
+    <nav class="text-white flex gap-3 text-lg ml-20">
+        <a
+            href="/"
+            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
+            >About</a
+        >
+        <a
+            href="/"
+            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
+            >Learning</a
+        >
+        <a
+            href="/"
+            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
+            >Faq</a
+        >
+        <a
+            href="/"
+            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
+            >Contact</a
+        >
+        <a
+            href="/"
+            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
+            >Pricing</a
+        >
     </nav>
     <nav class="flex gap-6 ml-auto">
         <div class="backgroundStyle rounded-full">
@@ -20,3 +40,17 @@
         >
     </nav>
 </header>
+
+<script>
+    const menu = document.getElementById("headerMenu")!;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+            menu.style.backgroundColor = "black";
+            menu.style.borderBottom = "1px solid #424242"
+        } else {
+            menu.style.backgroundColor = "transparent";
+            menu.style.borderBottom = "none"
+        }
+    });
+</script>
