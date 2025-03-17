@@ -1,0 +1,78 @@
+---
+import Image from "astro/components/Image.astro";
+import tree from "../assets/tree.avif";
+---
+
+<section
+    class="mx-auto mt-24 flex max-w-[1350px] flex-col items-center justify-center px-5 border-b border-neutral-700 pb-24"
+>
+    <div class="mx-auto mt-24 flex flex-col items-center justify-center px-5">
+        <h2
+            class="mt-4 text-center text-4xl lg:text-5xl lg:tracking-tight font-light text-white"
+        >
+            Why platform?
+        </h2>
+		<p class="mt-4 text-center text-neutral-800 [text-wrap:pretty] dark:text-neutral-400 font-light text-2xl">Platform offers a guided path to enhance your skills and solve complex problems efficiently.</p>
+    </div>
+    <div class="flex mx-auto mt-24 w-[100%] items-center justify-center gap-4">
+        <div
+            class="flex-1 rounded-2xl p-6 shadow dark:bg-black border border-neutral-700"
+        >
+            <div
+                class="mb-6 rounded-xl shadow bg-gray-50 dark:bg-black border border-gray-200/50 dark:border-neutral-700/30 px-6"
+            >
+                <Image class="" src={tree} alt="github image" />
+            </div>
+
+            <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                1. Conceptual Overview
+            </h1>
+            <p
+                class="mt-2 text-slate-600 dark:text-neutral-500 text-lg font-light"
+            >
+                in-depth exploration of the fundamental principles of data
+                structure and algorithms techniques. Starting by how to approach
+                the problem conceptually.
+            </p>
+        </div>
+        <div
+            class="flex-1 rounded-2xl p-6 shadow dark:bg-black border border-neutral-700"
+        >
+            <div
+                class="mb-6 rounded-xl shadow bg-gray-50 dark:bg-black border border-gray-200/50 dark:border-neutral-700/30 px-6"
+            >
+                <Image class="" src={tree} alt="github image" />
+            </div>
+
+            <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                2. Big O Notation Analysis
+            </h1>
+            <p
+                class="mt-2 text-slate-600 dark:text-neutral-500 text-lg font-light"
+            >
+                Understand how much memory an algorithm uses and how fast it
+                runs is crucial to give an efficiency solution. Explanation on how to analyze an algorithm space-time complexity.
+            </p>
+        </div>
+        <div
+            class="flex-1 rounded-2xl p-6 shadow dark:bg-black border border-neutral-700"
+        >
+            <div
+                class="mb-6 rounded-xl shadow bg-gray-50 dark:bg-black border border-gray-200/50 dark:border-neutral-700/30 px-6"
+            >
+                <Image class="" src={tree} alt="github image" />
+            </div>
+
+            <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                3. Code Implementation
+            </h1>
+            <p
+                class="mt-2 text-slate-600 dark:text-neutral-500 text-lg font-light"
+            >
+                Walkthrough of the code implementation of the algorithm. We provide Solutions with the best time and
+                space complexity analysis to ensure optimal performance and
+                efficiency.
+            </p>
+        </div>
+    </div>
+</section>
