@@ -6,5 +6,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        theme: 'dark-plus',
+      },
+    },
+  },
 });
