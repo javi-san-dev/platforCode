@@ -3,7 +3,8 @@ import Image from "astro/components/Image.astro";
 import platformImage from "../assets/platform.avif";
 ---
     
-<div
+<section class="w-screen overflow-hidden">
+    <div
     class=" text-center items-center h-screen flex flex-col justify-center gap-6 animate-fade-in"
 >
     <h1 class="text-white mt-[-8%] max-[550px]:mt-[-30%] text-[7vw] min-[1200px]:text-8xl max-[700px]:text-5xl text-balance">
@@ -37,3 +38,5 @@ import platformImage from "../assets/platform.avif";
 >
     <Image class=" rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
 </div>
+</section>
+
