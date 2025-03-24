@@ -3,7 +3,7 @@
 @theme {
 	--animate-fade-in: fade-in-scale 0.8s ease-in-out both;
 	--animate-fade-in-delayed1: fade-in-scale 0.8s 0.3s ease-in-out both;
-	--animate-fade-in-delayed2: fade-in-scale 0.8s 0.3s ease-in-out both;
+	--animate-fade-in-3: fade-in-3 0.8s ease-in-out both;
 
 	@keyframes fade-in-scale {
 		0% {
@@ -17,10 +17,10 @@
 		}
 	}
 
-	@keyframes fade-in-2 {
+	@keyframes fade-in-3 {
 		0% {
 			opacity: 0;
-			transform: translateY(40px);
+			transform: translateY(-25px);
 		}
 
 		100% {
