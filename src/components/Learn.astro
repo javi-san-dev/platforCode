@@ -3,515 +3,492 @@ import Image from "astro/components/Image.astro";
 import platformImage from "../assets/platform.avif";
 ---
 
-<section class="px-5">
+<section class="px-5 mt-30">
     <div
-        class="mx-auto mt-40 mb-20 flex flex-col text-center items-center justify-center max-w-[1200px] p-20 max-[900px]:p-20 max-[700px]:p-10 max-[500px]:p-4 border-x border-neutral-800"
+        class="max-w-[1200px] border border-neutral-800 flex flex-col m-auto border-y-0 pt-20 max-[900px]:pt-10"
     >
         <h2
-            class="mt-4 mb-5 text-center text-5xl max-[900px]:text-5xl max-[700px]:text-4xl lg:tracking-tight text-white text-balance"
+            class="mt-4 text-center text-6xl max-[900px]:text-5xl max-[700px]:text-4xl lg:tracking-tight text-white text-balance mb-10 max-[900px]:mb-5"
         >
-            A Better Way to learn <span class="title">algorithms</span>
+            What is <span class="title">platform?</span>
         </h2>
-        <p class="text-neutral-400 text-xl text-balance">
-            Platform offers a structured and guided path, breaking down
-            challenging concepts into manageable steps, to enhance your skills
-            and solve complex problems efficiently.
+        <p class="text-neutral-400 text-balance text-xl text-center mb-20">
+            XXX is a code platform that help you improve your coding skills. It
+            provides a vast collection of coding problems and a
+            structured and guided path to solve them efficiently.
         </p>
-        <div class="flex max-[800px]:flex-col text-neutral-400 gap-30 max-[800px]:gap-20 mt-30 items-center justify-center w-full">
-            <div>
-                <ul class=" text-sm text-left max-[800px]:flex max-[800px]:gap-2">
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Strings</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Arrays</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Linked List</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Stacks & Queues</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Graphs</li>
-                </ul>
-            </div>
-            <div class="w-[20%] border border-neutral-800 flex items-center aspect-4/3 rounded-lg max-[800px]:w-[40%]">
-                <Image
-                class="rounded-xl"
-                src={platformImage}
-                alt="landing image"
-                width="2878"
-                height="1800"
-            />
-                
-            </div>
-            <div>
-                <ul class=" text-sm text-left max-[800px]:flex max-[800px]:gap-2">
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Binary Tree</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Dynamic Programming</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Recursion</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Searching</li>
-                    <li class="border border-neutral-800 rounded-lg px-3 py-2 mb-4">Sorting</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div
-        class="max-w-[1200px] border border-neutral-800 flex m-auto max-[950px]:flex-col border-y-0"
-    >
-        <div
-            class="flex-1 min-[950px]:border-r border-neutral-800 pb-20 pt-10 max-[950px]:border-b max-[950px]:px-0 max-[950px]:pb-0"
-        >
-            <div class="aspect-video flex justify-center relative items-center">
+
+        <div class="max-w-[1200px] flex m-auto max-[900px]:flex-col border-y-0">
+            <div
+                class="flex-1 min-[900px]:border-r border-neutral-800 pb-20 pt-10 max-[900px]:border-b max-[950px]:px-0 max-[950px]:pb-0"
+            >
                 <div
-                    class="w-[48%] h-[60%] flex justify-center border border-neutral-800 rounded-xl absolute translate-x-[-20%] translate-y-[-30%]"
-                >
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[10%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[20%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[30%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[40%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[50%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[60%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[70%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[80%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[90%]"
-                    ></span>
-                    <!-- <span class="w-full bg-neutral-950 absolute h-[1px] top-[100%]"></span> -->
-
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[20%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[30%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[40%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[50%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[60%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[70%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[80%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[90%]"
-                    ></span>
-
-                    <span
-                        class="w-[30%] h-[40%] absolute top-[10%] left-[60%] bg-neutral-900 border border-neutral-800 rounded-[100%]"
-                    ></span>
-                    <span
-                        class="w-[18%] h-[24%] bg-black rounded-[100%] absolute top-[18%] left-[66%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[40%] bg-neutral-900 rounded-lg absolute bottom-0 left-[80%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[30%] bg-neutral-900 rounded-lg absolute bottom-0 left-[68%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[15%] bg-neutral-900 rounded-md absolute bottom-0 left-[56%] border border-neutral-800"
-                    ></span>
-
-                    <span
-                        class="w-[20%] h-[1px] absolute bg-neutral-700 top-[50%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[20%] h-[1px] absolute bg-neutral-700 top-[70%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[30%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[30%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[30%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[50%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[70%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[70%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[50%] translate-[-50%]"
-                    ></span>
-                </div>
-                <div
-                    class="bg-black w-[48%] h-[60%] flex justify-center border border-neutral-800 rounded-xl absolute translate-x-[20%] translate-y-[30%]"
-                >
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[10%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[20%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[30%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[40%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[50%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[60%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[70%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[80%]"
-                    ></span>
-                    <span
-                        class="w-full bg-neutral-900 absolute h-[1px] top-[90%]"
-                    ></span>
-                    <!-- <span class="w-full bg-neutral-950 absolute h-[1px] top-[100%]"></span> -->
-
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[20%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[30%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[40%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[50%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[60%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[70%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[80%]"
-                    ></span>
-                    <span
-                        class="w-[1px] bg-neutral-900 absolute h-full left-[90%]"
-                    ></span>
-
-                    <span
-                        class="w-[30%] h-[40%] absolute top-[10%] left-[60%] bg-neutral-900 border border-neutral-800 rounded-[100%]"
-                    ></span>
-                    <span
-                        class="w-[18%] h-[24%] bg-black rounded-[100%] absolute top-[18%] left-[66%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[40%] bg-neutral-900 rounded-md absolute bottom-0 left-[80%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[30%] bg-neutral-900 rounded-md absolute bottom-0 left-[68%] border border-neutral-800"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[15%] bg-neutral-900 rounded-md absolute bottom-0 left-[56%] border border-neutral-800"
-                    ></span>
-
-                    <span
-                        class="w-[20%] h-[1px] absolute bg-neutral-700 top-[50%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[20%] h-[1px] absolute bg-neutral-700 top-[70%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[30%]"
-                    ></span>
-                    <span
-                        class="w-[1px] h-[20%] absolute bg-neutral-700 top-[30%] left-[10%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[30%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[50%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[70%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[70%] translate-[-50%]"
-                    ></span>
-                    <span
-                        class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[50%] translate-[-50%]"
-                    ></span>
-                </div>
-            </div>
-
-            <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
-                <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
-                    1. Conceptual Overview
-                </h1>
-                <p
-                    class="mt-4 text-slate-600 dark:text-neutral-400 text-lg font-light"
-                >
-                    We begin with a conceptual approach to problem-solving,
-                    followed by an in-depth exploration of the fundamental
-                    principles of <strong class="title">data structure</strong> and
-                    <strong class="title">algorithms</strong> techniques.
-                </p>
-            </div>
-        </div>
-        <div
-            class="flex-1 min-[950px]:border-r border-neutral-800 pb-20 pt-10 max-[950px]:border-b max-[950px]:px-0 max-[950px]:pb-0"
-        >
-            <div class="a aspect-video relative border border-amber-400">
-                <span
-                    class="w-full border border-neutral-800 block absolute top-[20%]"
-                ></span>
-                <span
-                    class="w-full border border-neutral-800 block absolute top-[40%]"
-                ></span>
-                <span
-                    class="w-full border border-neutral-800 block absolute top-[60%]"
-                ></span>
-                <span
-                    class="w-full border border-neutral-800 block absolute top-[80%]"
-                ></span>
-                <span
-                    class="w-full border border-neutral-800 block absolute top-[99%]"
-                ></span>
-
-                <span class="w-[20%] h-[3px] bg-red-900 absolute bottom-0"
-                ></span>
-                <span
-                    class="w-[20%] h-[3px] bg-red-900 absolute top-[80%] left-[30%]"
-                ></span>
-                <span
-                    class="w-[20%] h-[3px] bg-red-900 absolute top-[60%] left-[60%]"
-                ></span>
-                <span
-                    class="w-[10%] h-[3px] bg-red-900 absolute top-[40%] left-[90%]"
-                ></span>
-
-                <span
-                    class="w-[18%] h-[3px] bg-red-900 absolute top-[90%] left-[15.5%] rotate-[-55deg]"
-                ></span>
-                <span
-                    class="w-[18%] h-[3px] bg-red-900 absolute top-[70%] left-[46%] rotate-[-55deg]"
-                ></span>
-                <span
-                    class="w-[18%] h-[3px] bg-red-900 absolute top-[50%] left-[76%] rotate-[-55deg]"
-                ></span>
-
-                <span
-                    class="w-[18px] h-[18px] border-4 bg-red-900 absolute top-[100%] left-[20%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[80%] left-[30%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[80%] left-[50%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[60%] left-[60%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[60%] left-[80%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[40%] left-[90%] translate-[-50%] rounded-full"
-                ></span>
-
-                <span
-                    class="w-[25%] h-[3px] bg-blue-900 absolute top-[60%] left-[0%]"
-                ></span>
-                <span
-                    class="w-[25%] h-[3px] bg-blue-900 absolute top-[40%] left-[40%]"
-                ></span>
-                <span
-                    class="w-[25%] h-[3px] bg-blue-900 absolute top-[20%] left-[80%]"
-                ></span>
-
-                <span
-                    class="w-[20%] h-[3px] bg-blue-900 absolute top-[30%] left-[63%] rotate-[-45deg]"
-                ></span>
-                <span
-                    class="w-[20%] h-[3px] bg-blue-900 absolute top-[50%] left-[23%] rotate-[-45deg]"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[60%] left-[25%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[40%] left-[41%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[40%] left-[66%] translate-[-50%] rounded-full"
-                ></span>
-                <span
-                    class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[20%] left-[81%] translate-[-50%] rounded-full"
-                ></span>
-            </div>
-            <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
-                <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
-                    2. Big O Notation Analysis
-                </h1>
-                <p
-                    class="mt-4 text-slate-600 dark:text-neutral-400 text-lg font-light"
-                >
-                    Understanding how much memory an <strong class="title"
-                        >algorithm</strong
-                    > uses and how fast it runs is crucial for providing an efficient
-                    solution, this involves analyzing the algorithm's space-time
-                    complexity.
-                </p>
-            </div>
-        </div>
-        <div
-            class="flex-1 pb-20 pt-10 max-[050px]:border max-[950px]:px-0 max-[950px]:pb-0"
-        >
-            <div class="aspect-video flex justify-center items-center relative">
-                <div
-                    class="rounded-xl bg-black border border-neutral-800 w-[48%] h-[60%] translate-y-[-30%] translate-x-[20%]"
+                    class="aspect-video flex justify-center relative items-center max-[900px]:w-[70%] max-[500px]:w-[80%] m-auto"
                 >
                     <div
-                        class="w-full py-[3%] border-b border-neutral-800 flex items-center"
+                        class="w-[48%] h-[60%] flex justify-center border border-neutral-700 rounded-xl absolute translate-x-[-20%] translate-y-[-30%]"
                     >
-                        <div
-                            class="w-[10px] h-[10px] bg-red-700 rounded-full ml-4"
-                        >
-                        </div>
-                        <div
-                            class="w-[10px] h-[10px] bg-yellow-600 rounded-full ml-2"
-                        >
-                        </div>
-                        <div
-                            class="w-[10px] h-[10px] bg-green-700 rounded-full ml-2"
-                        >
-                        </div>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[10%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[20%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[30%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[40%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[50%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[60%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[70%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[80%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[90%]"
+                        ></span>
+                        <!-- <span class="w-full bg-neutral-950 absolute h-[1px] top-[100%]"></span> -->
+
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[20%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[30%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[40%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[50%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[60%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[70%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[80%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[90%]"
+                        ></span>
+
+                        <span
+                            class="w-[30%] h-[40%] absolute top-[10%] left-[60%] bg-neutral-900 border border-neutral-800 rounded-[100%]"
+                        ></span>
+                        <span
+                            class="w-[18%] h-[24%] bg-black rounded-[100%] absolute top-[18%] left-[66%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[40%] bg-neutral-900 rounded-lg absolute bottom-0 left-[80%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[30%] bg-neutral-900 rounded-lg absolute bottom-0 left-[68%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[15%] bg-neutral-900 rounded-md absolute bottom-0 left-[56%] border border-neutral-800"
+                        ></span>
+
+                        <span
+                            class="w-[20%] h-[1px] absolute bg-neutral-700 top-[50%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[20%] h-[1px] absolute bg-neutral-700 top-[70%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[30%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[30%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[30%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[50%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[70%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[70%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[50%] translate-[-50%]"
+                        ></span>
                     </div>
                     <div
-                        class="w-[25%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        class="bg-black w-[48%] h-[60%] flex justify-center border border-neutral-700 rounded-xl absolute translate-x-[20%] translate-y-[30%]"
                     >
-                    </div>
-                    <div
-                        class="w-[55%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[35%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[75%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[85%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[10%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[20%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[30%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[40%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[50%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[60%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[70%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[80%]"
+                        ></span>
+                        <span
+                            class="w-full bg-neutral-900 absolute h-[1px] top-[90%]"
+                        ></span>
+                        <!-- <span class="w-full bg-neutral-950 absolute h-[1px] top-[100%]"></span> -->
+
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[20%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[30%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[40%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[50%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[60%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[70%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[80%]"
+                        ></span>
+                        <span
+                            class="w-[1px] bg-neutral-900 absolute h-full left-[90%]"
+                        ></span>
+
+                        <span
+                            class="w-[30%] h-[40%] absolute top-[10%] left-[60%] bg-neutral-900 border border-neutral-800 rounded-[100%]"
+                        ></span>
+                        <span
+                            class="w-[18%] h-[24%] bg-black rounded-[100%] absolute top-[18%] left-[66%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[40%] bg-neutral-900 rounded-md absolute bottom-0 left-[80%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[30%] bg-neutral-900 rounded-md absolute bottom-0 left-[68%] border border-neutral-800"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[15%] bg-neutral-900 rounded-md absolute bottom-0 left-[56%] border border-neutral-800"
+                        ></span>
+
+                        <span
+                            class="w-[20%] h-[1px] absolute bg-neutral-700 top-[50%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[20%] h-[1px] absolute bg-neutral-700 top-[70%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[50%] left-[30%]"
+                        ></span>
+                        <span
+                            class="w-[1px] h-[20%] absolute bg-neutral-700 top-[30%] left-[10%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[30%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[50%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[10%] top-[70%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[70%] translate-[-50%]"
+                        ></span>
+                        <span
+                            class="w-[10%] h-[14%] bg-neutral-900 border border-neutral-800 rounded-full absolute left-[30%] top-[50%] translate-[-50%]"
+                        ></span>
                     </div>
                 </div>
-                <div
-                    class="rounded-xl bg-black border border-neutral-800 w-[48%] h-[60%] absolute translate-y-[30%] translate-x-[-20%]"
-                >
-                    <div
-                        class="w-full p-[3%] border-b border-neutral-800 flex items-center"
+
+                <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
+                    <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                        1. Conceptual Overview
+                    </h1>
+                    <p
+                        class="mt-4 text-slate-600 dark:text-neutral-400 text-base font-light"
                     >
-                        <div
-                            class="w-[10px] h-[10px] bg-red-700 rounded-full ml-4"
-                        >
-                        </div>
-                        <div
-                            class="w-[10px] h-[10px] bg-yellow-600 rounded-full ml-2"
-                        >
-                        </div>
-                        <div
-                            class="w-[10px] h-[10px] bg-green-700 rounded-full ml-2"
-                        >
-                        </div>
-                    </div>
-                    <div
-                        class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[25%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[35%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[40%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
-                    <div
-                        class="w-[55%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
-                    >
-                    </div>
+                        We begin with a conceptual approach to problem-solving,
+                        followed by an in-depth exploration of the fundamental
+                        principles of <strong class="title"
+                            >data structure</strong
+                        > and
+                        <strong class="title">algorithms</strong> techniques.
+                    </p>
                 </div>
             </div>
-
-            <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
-                <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
-                    3. Code Implementation
-                </h1>
-                <p
-                    class="mt-4 text-slate-600 dark:text-neutral-400 text-lg font-light"
+            <div
+                class="flex-1 min-[900px]:border-r border-neutral-800 pb-20 pt-10 max-[900px]:border-b max-[950px]:px-0 max-[950px]:pb-0"
+            >
+                <div
+                    class="a aspect-video relative border border-amber-400 max-[900px]:w-[70%] max-[500px]:w-[80%] m-auto"
                 >
-                    Walkthrough of the code implementation of the <strong
-                        class="title">algorithm</strong
-                    > . We provide Solutions with the best time and space complexity
-                    analysis to ensure optimal performance and efficiency.
-                </p>
+                    <span
+                        class="w-full border border-neutral-800 block absolute top-[20%]"
+                    ></span>
+                    <span
+                        class="w-full border border-neutral-800 block absolute top-[40%]"
+                    ></span>
+                    <span
+                        class="w-full border border-neutral-800 block absolute top-[60%]"
+                    ></span>
+                    <span
+                        class="w-full border border-neutral-800 block absolute top-[80%]"
+                    ></span>
+                    <span
+                        class="w-full border border-neutral-800 block absolute top-[99%]"
+                    ></span>
+
+                    <span class="w-[20%] h-[3px] bg-red-900 absolute bottom-0"
+                    ></span>
+                    <span
+                        class="w-[20%] h-[3px] bg-red-900 absolute top-[80%] left-[30%]"
+                    ></span>
+                    <span
+                        class="w-[20%] h-[3px] bg-red-900 absolute top-[60%] left-[60%]"
+                    ></span>
+                    <span
+                        class="w-[10%] h-[3px] bg-red-900 absolute top-[40%] left-[90%]"
+                    ></span>
+
+                    <span
+                        class="w-[18%] h-[3px] bg-red-900 absolute top-[90%] left-[15.5%] rotate-[-55deg]"
+                    ></span>
+                    <span
+                        class="w-[18%] h-[3px] bg-red-900 absolute top-[70%] left-[46%] rotate-[-55deg]"
+                    ></span>
+                    <span
+                        class="w-[18%] h-[3px] bg-red-900 absolute top-[50%] left-[76%] rotate-[-55deg]"
+                    ></span>
+
+                    <span
+                        class="w-[18px] h-[18px] border-4 bg-red-900 absolute top-[100%] left-[20%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[80%] left-[30%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[80%] left-[50%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[60%] left-[60%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[60%] left-[80%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] bg-red-900 border-4 border-black absolute top-[40%] left-[90%] translate-[-50%] rounded-full"
+                    ></span>
+
+                    <span
+                        class="w-[25%] h-[3px] bg-blue-900 absolute top-[60%] left-[0%]"
+                    ></span>
+                    <span
+                        class="w-[25%] h-[3px] bg-blue-900 absolute top-[40%] left-[40%]"
+                    ></span>
+                    <span
+                        class="w-[25%] h-[3px] bg-blue-900 absolute top-[20%] left-[80%]"
+                    ></span>
+
+                    <span
+                        class="w-[20%] h-[3px] bg-blue-900 absolute top-[30%] left-[63%] rotate-[-45deg]"
+                    ></span>
+                    <span
+                        class="w-[20%] h-[3px] bg-blue-900 absolute top-[50%] left-[23%] rotate-[-45deg]"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[60%] left-[25%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[40%] left-[41%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[40%] left-[66%] translate-[-50%] rounded-full"
+                    ></span>
+                    <span
+                        class="w-[18px] h-[18px] border-4 bg-blue-900 absolute top-[20%] left-[81%] translate-[-50%] rounded-full"
+                    ></span>
+                </div>
+                <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
+                    <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                        2. Big O Notation Analysis
+                    </h1>
+                    <p
+                        class="mt-4 text-slate-600 dark:text-neutral-400 text-base font-light"
+                    >
+                        Understanding how much memory an <strong class="title"
+                            >algorithm</strong
+                        > uses and how fast it runs is crucial for providing an efficient
+                        solution, this involves analyzing the algorithm's space-time
+                        complexity.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="flex-1 pb-20 pt-10 max-[050px]:border max-[950px]:px-0 max-[950px]:pb-0"
+            >
+                <div
+                    class="aspect-video flex justify-center items-center relative max-[900px]:w-[70%] max-[500px]:w-[80%] m-auto"
+                >
+                    <div
+                        class="rounded-xl bg-black border border-neutral-700 w-[48%] h-[60%] translate-y-[-30%] translate-x-[20%]"
+                    >
+                        <div
+                            class="w-full py-[3%] border-b border-neutral-800 flex items-center"
+                        >
+                            <div
+                                class="w-[10px] h-[10px] bg-red-700 rounded-full ml-4"
+                            >
+                            </div>
+                            <div
+                                class="w-[10px] h-[10px] bg-yellow-600 rounded-full ml-2"
+                            >
+                            </div>
+                            <div
+                                class="w-[10px] h-[10px] bg-green-700 rounded-full ml-2"
+                            >
+                            </div>
+                        </div>
+                        <div
+                            class="w-[25%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[55%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[35%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[75%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[85%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl bg-black border border-neutral-700 w-[48%] h-[60%] absolute translate-y-[30%] translate-x-[-20%]"
+                    >
+                        <div
+                            class="w-full p-[3%] border-b border-neutral-800 flex items-center"
+                        >
+                            <div
+                                class="w-[10px] h-[10px] bg-red-700 rounded-full ml-4"
+                            >
+                            </div>
+                            <div
+                                class="w-[10px] h-[10px] bg-yellow-600 rounded-full ml-2"
+                            >
+                            </div>
+                            <div
+                                class="w-[10px] h-[10px] bg-green-700 rounded-full ml-2"
+                            >
+                            </div>
+                        </div>
+                        <div
+                            class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[25%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[35%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[45%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[40%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[65%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                        <div
+                            class="w-[55%] h-[5%] bg-neutral-600 rounded-3xl m-[3%] ml-[7%]"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-10 max-[950px]:p-15 max-[700px]:p-5">
+                    <h1 class="mt-2 text-xl font-medium lg:text-2xl text-white">
+                        3. Code Implementation
+                    </h1>
+                    <p
+                        class="mt-4 text-slate-600 dark:text-neutral-400 text-base font-light"
+                    >
+                        Walkthrough of the code implementation of the <strong
+                            class="title">algorithm</strong
+                        > . We provide Solutions with the best time and space complexity
+                        analysis to ensure optimal performance and efficiency.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -526,8 +503,5 @@ import platformImage from "../assets/platform.avif";
         );
     }
     li {
-
     }
 </style>
-
-
