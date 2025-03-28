@@ -1,34 +1,52 @@
+---
+import Image from "astro/components/Image.astro";
+import downloadIcon from "../assets/download.svg";
+---
+
 <section
-    class="  text-white m-auto p-5  flex mb-20 items-center justify-center"
+    class="aa py-30 text-white m-auto flex mb-20 items-center justify-center border-y border-neutral-800"
 >
-<div class="border border-neutral-800 p-15 max-[950px]:p-8 flex max-w-[1200px] gap-30 max-[950px]:gap-20 max-[950px]:flex-col">
-    <div class="w-[60%] max-[950px]:w-full max-[950px]:text-center">
-        <h1 class="text-3xl max-[950px]:text-2xl text-balance">
-            Ready to start? <span class="text-neutral-400"
-                >Invest in quality preparation and start
-                master the art of <span class="title">algorithms</span> today.</span
+    <div
+        class="max-w-[1200px] px-10 max-[950px]:w-full max-[950px]:text-center flex items-center"
+    >
+        <div class="flex-2">
+            <h1 class="text-3xl max-[950px]:text-2xl text-balance">
+                Ready to start? <span class="text-neutral-400"
+                    >Invest in quality preparation and start master the art of <span
+                        class="title">algorithms</span
+                    > today!</span
+                >
+            </h1>
+        </div>
+
+        <div class="flex-1 flex justify-center items-center gap-3">
+            <button
+                class="bg-white px-8 py-3 rounded-full font-medium cursor-pointer hover:bg-neutral-200 flex text-black"
             >
-        </h1>
-        <div class="h-[45px] mt-8 justify-center items-center ">
-            <div class="flex-1 flex  gap-8 max-[500px]:gap-4  items-center">
-                <button
-                    class="bg-white px-4 py-2 rounded-full  cursor-pointer hover:bg-neutral-100 text-black"
-                    >Download for Windows</button
-                >
-                <button
-                    class="bg-black px-4 py-3 rounded-full cursor-pointer hover:bg-neutral-100 border border-neutral-800"
-                    >Download for Macos</button
-                >
-            </div>
+                <Image
+                    class="rounded-xl text-black mr-2"
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                />Download</button
+            >
+            <button
+                class="bg-black px-4 py-3 rounded-full cursor-pointer hover:bg-neutral-100 border border-neutral-800"
+                >Try demo for free</button
+            >
         </div>
     </div>
-    <div class="flex-1 flex  items-center gap-10 flex-col max-[950px]:text-center">
-        <h2 class=" text-xl text-balance">Want to try? <span class="text-neutral-400">Explore platform on your web browser right now</span></h2>
-        <button
-        class="bg-black px-4 py-3 w-[180px] rounded-full cursor-pointer hover:bg-neutral-100 border border-neutral-800"
-        >Try demo for free</button
-    >
-    </div>
-</div>
-
 </section>
+
+<style>
+    .aa {
+        background: linear-gradient(
+            180deg,
+            #000 30%,
+            #111111 50%,
+            #111111 100%
+        );
+        background: #111111;
+    }
+</style>
