@@ -2,101 +2,129 @@
 import menu from "../assets/menu.svg";
 import Image from "astro/components/Image.astro";
 import close from "../assets/close.svg";
+import downloadIcon from "../assets/download.svg";
 ---
 
-<header class="flex items-center px-6 p-3 w-full fixed z-10 animate-fade-in-3" id="headerMenu">
-    <h1 class="text-white text-2xl">Platform</h1>
-    <nav class="text-neutral-400 hidden lg:flex gap-3 text-lg ml-20 font-light">
-        <a
-            href="/"
-            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-            >About</a
+<header
+    class="px-6 p-2 w-full fixed z-10 animate-fade-in-3 flex justify-center"
+    id="headerMenu"
+>
+    <div class="max-w-[1200px] flex items-center w-full">
+        <h1 class="text-white text-2xl">Platform</h1>
+        <nav
+            class="text-neutral-400 hidden lg:flex gap-3 text-md m-auto font-light"
         >
-        <a
-            href="/"
-            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-            >Learning</a
-        >
-        <a
-            href="/"
-            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-            >Faq</a
-        >
-        <a
-            href="/"
-            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-            >Contact</a
-        >
-        <a
-            href="/"
-            class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-            >Pricing</a
-        >
-    </nav>
-    <nav class="gap-6 ml-auto hidden lg:flex">
-        <div class="backgroundStyle rounded-full">
-            <button
-                class="px-4 py-2 rounded-full font-bold cursor-pointer bg-black hover:bg-neutral-900 text-white"
-                >Get started for free</button
-            >
-        </div>
-        <button
-            class="bg-white px-4 py-2 rounded-full font-bold cursor-pointer hover:bg-neutral-100"
-            >Download for Mac</button
-        >
-    </nav>
-    <nav
-        class="ml-auto cursor-pointer border border-neutral-800 rounded-md inline lg:hidden"
-        id="toggle-menu-button"
-    >
-        <Image alt="menu icon" src={menu} width={40} height={40} id="menuImage" />
-        <Image alt="close icon" src={close} width={40} height={40} id="closeImage" style={{display:"none"}} />
-    </nav>
-    <nav
-        class="left-0 w-full text-lg top-15 p-5 bg-black absolute text-neutral-400 hidden flex-col lg:hidden"
-        id="toggle-menu"
-    >
-        <div class="flex flex-col border-t border-neutral-800 pt-5">
-            <div class="backgroundStyle rounded-xl">
-                <button
-                    class="px-4 w-full py-3 rounded-xl font-light cursor-pointer bg-black hover:bg-neutral-900 text-white"
-                    >Get started for free</button
-                >
-            </div>
-            <button
-                class="bg-white px-4 py-3 rounded-xl mt-5 mb-5 cursor-pointer text-black hover:bg-neutral-100"
-                >Download for Mac</button
-            >
-        </div>
-
-        <div class="border-b border-neutral-800 flex flex-col pb-5">
             <a
                 href="/"
-                class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >About</a
             >
             <a
                 href="/"
-                class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >Learning</a
             >
             <a
                 href="/"
-                class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >Faq</a
             >
             <a
                 href="/"
-                class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >Contact</a
             >
             <a
                 href="/"
-                class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >Pricing</a
             >
-        </div>
-    </nav>
+        </nav>
+        <nav class="gap-3 hidden lg:flex">
+            <div class="backgroundStyle rounded-full">
+                <button
+                    class="px-5 py-2 rounded-full font-base cursor-pointer bg-black hover:bg-neutral-900 text-white"
+                    >Try Web Demo</button
+                >
+            </div>
+            <button
+                class="bg-white px-5 py-1 rounded-full text-sm font-medium cursor-pointer hover:bg-neutral-100 flex items-center"
+            >
+                <Image
+                    class="rounded-xl text-black mr-2"
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                />Download</button
+            >
+        </nav>
+        <nav
+            class="ml-auto cursor-pointer border border-neutral-800 rounded-md inline lg:hidden"
+            id="toggle-menu-button"
+        >
+            <Image
+                alt="menu icon"
+                src={menu}
+                width={40}
+                height={40}
+                id="menuImage"
+            />
+            <Image
+                alt="close icon"
+                src={close}
+                width={40}
+                height={40}
+                id="closeImage"
+                style={{ display: "none" }}
+            />
+        </nav>
+        <nav
+            class="left-0 w-full text-lg top-15 p-5 bg-black absolute text-neutral-400 hidden flex-col lg:hidden"
+            id="toggle-menu"
+        >
+            <div class="flex flex-col border-t border-neutral-800 pt-5">
+                <div class="backgroundStyle rounded-xl">
+                    <button
+                        class="px-4 w-full py-3 rounded-xl font-light cursor-pointer bg-black hover:bg-neutral-900 text-white"
+                        >Get started for free</button
+                    >
+                </div>
+                <button
+                    class="bg-white px-4 py-3 rounded-xl mt-5 mb-5 cursor-pointer text-black hover:bg-neutral-100"
+                    >Download for Mac</button
+                >
+            </div>
+
+            <div class="border-b border-neutral-800 flex flex-col pb-5">
+                <a
+                    href="/"
+                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                    >About</a
+                >
+                <a
+                    href="/"
+                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                    >Learning</a
+                >
+                <a
+                    href="/"
+                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                    >Faq</a
+                >
+                <a
+                    href="/"
+                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                    >Contact</a
+                >
+                <a
+                    href="/"
+                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
+                    >Pricing</a
+                >
+            </div>
+        </nav>
+    </div>
 </header>
 
 <script>
@@ -135,6 +163,4 @@ import close from "../assets/close.svg";
             menuImage.style.display = "block";
         }
     });
-
-
 </script>
