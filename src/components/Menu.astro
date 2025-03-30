@@ -22,7 +22,7 @@ import downloadIcon from "../assets/download.svg";
             <a
                 href="/"
                 class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-                >Learning</a
+                >Content</a
             >
             <a
                 href="/"
@@ -30,12 +30,7 @@ import downloadIcon from "../assets/download.svg";
                 >Faq</a
             >
             <a
-                href="/"
-                class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
-                >Contact</a
-            >
-            <a
-                href="/"
+                href="/pricing"
                 class="cursor-pointer px-4 py-2 hover:bg-neutral-900 rounded-lg"
                 >Pricing</a
             >
@@ -43,15 +38,15 @@ import downloadIcon from "../assets/download.svg";
         <nav class="gap-3 hidden lg:flex">
             <div class="backgroundStyle rounded-full">
                 <button
-                    class="px-5 py-2 rounded-full font-base cursor-pointer bg-black hover:bg-neutral-900 text-white"
+                    class="px-4 py-2 rounded-full font-base cursor-pointer bg-black hover:bg-neutral-900 text-white"
                     >Try Web Demo</button
                 >
             </div>
             <button
-                class="bg-white px-5 py-1 rounded-full text-sm font-medium cursor-pointer hover:bg-neutral-100 flex items-center"
+                class="bg-white px-4 py-1 rounded-full text-sm font-medium cursor-pointer hover:bg-neutral-100 flex items-center"
             >
                 <Image
-                    class="rounded-xl text-black mr-2 filter invert"
+                    class="rounded-xl text-black mr-2"
                     src={downloadIcon}
                     alt="landing image"
                     width="22"
@@ -80,19 +75,26 @@ import downloadIcon from "../assets/download.svg";
             />
         </nav>
         <nav
-            class="left-0 w-full text-lg top-15 p-5 bg-black absolute text-neutral-400 hidden flex-col lg:hidden"
+            class="left-0 w-full text-lg top-14 px-4 bg-black absolute text-neutral-400 hidden flex-col lg:hidden"
             id="toggle-menu"
         >
             <div class="flex flex-col border-t border-neutral-800 pt-5">
                 <div class="backgroundStyle rounded-xl">
                     <button
                         class="px-4 w-full py-3 rounded-xl font-light cursor-pointer bg-black hover:bg-neutral-900 text-white"
-                        >Get started for free</button
+                        >Try Web Demo</button
                     >
                 </div>
                 <button
-                    class="bg-white px-4 py-3 rounded-xl mt-5 mb-5 cursor-pointer text-black hover:bg-neutral-100"
-                    >Download for Mac</button
+                    class="bg-white px-4 py-3 rounded-xl mt-5 mb-5 cursor-pointer text-black hover:bg-neutral-100 flex justify-center"
+                >
+                    <Image
+                        class="rounded-xl text-black mr-2"
+                        src={downloadIcon}
+                        alt="landing image"
+                        width="22"
+                        height="22"
+                    />Download</button
                 >
             </div>
 
@@ -102,11 +104,8 @@ import downloadIcon from "../assets/download.svg";
                     class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
                     >About</a
                 >
-                <a
-                    href="/"
-                    class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
-                    >Learning</a
-                >
+               
+                
                 <a
                     href="/"
                     class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
@@ -118,7 +117,7 @@ import downloadIcon from "../assets/download.svg";
                     >Contact</a
                 >
                 <a
-                    href="/"
+                    href="/pricing"
                     class="cursor-pointer px-4 py-3 hover:bg-neutral-900 hover:text-white rounded-lg"
                     >Pricing</a
                 >
@@ -135,7 +134,13 @@ import downloadIcon from "../assets/download.svg";
     const closeImage = document.getElementById("closeImage")!;
     const menuImage = document.getElementById("menuImage")!;
 
+    setMenuStyle();
+
     window.addEventListener("scroll", () => {
+        setMenuStyle();
+    });
+
+    function setMenuStyle() {
         if (window.scrollY > 80) {
             menu.style.backgroundColor = "black";
             menu.style.borderBottom = "1px solid oklch(0.269 0 0)";
@@ -143,7 +148,7 @@ import downloadIcon from "../assets/download.svg";
             menu.style.backgroundColor = "transparent";
             menu.style.borderBottom = "none";
         }
-    });
+    }
 
     menuToggleButton.addEventListener("click", () => {
         const isMenuDisplayed = menuToggle.classList.contains("flex");
