@@ -6,28 +6,26 @@ import { Code } from "astro:components";
 import javaIcon from "../assets/java.svg";
 import pythonIcon from "../assets/python.svg";
 import javaScriptIcon from "../assets/javascript.svg";
-import Carrousel from "./carrousel.astro"
-import Carrousel2 from "./carrousel2.astro"
+import Carrousel from "./carrousel.astro";
+import Carrousel2 from "./carrousel2.astro";
 ---
 
 <section class="m-auto text-white pt-0 p-5 mb-20">
-
-
     <div
         class="max-w-[1200px] m-auto border-x p-15 max-[800px]:p-5 border-neutral-800 border-dashed"
     >
         <h1
             class="text-white text-3xl py-10 border-b mb-10 border-dashed border-neutral-800 max-[600px]:text-2xl"
         >
-            Environment that gives the best development experience.
+            100 challenges across 15 categories.
         </h1>
         <div
-            class="flex items-center gap-5 relative mb-30 max-[1000px]:mb-10 max-[1000px]:flex-col-reverse"
+            class="flex items-center gap-5 relative max-[1000px]:flex-col-reverse mb-30"
         >
             <div
-                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-20  w-[50%] max-[1000px]:w-[100%] flex flex-col"
+                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-10 w-[50%] max-[1000px]:w-[100%] flex flex-col"
             >
-                <p class="mb-5 text-pretty text-xl max-[600px]:text-base">
+                <p class="mb-5 max-[600px]:text-base">
                     Cutting-edge coding platform with advanced features,
                     offering syntax highlighting, prettier formatting, and
                     customizable text settings for an unparalleled development
@@ -37,180 +35,10 @@ import Carrousel2 from "./carrousel2.astro"
                 <Carrousel2 />
             </div>
             <div
-                class="flex-1 relative flex justify-end max-[1000px]:mt-20 max-[1000]:translate-x-[25%] max-[1000px]:translate-x-[30%]"
+                class="flex-1 relative flex justify-end max-[1000px]:mt-5 items-center max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[0%]"
             >
                 <div
-                    class="border border-neutral-800 rounded-lg text-xs rotate-[-4deg] overflow-hidden translate-y-[-10%] translate-x-[-65%] absolute"
-                >
-                    <div
-                        class="w-full p-2 border-b border-neutral-800 bg-neutral-950 flex items-center"
-                    >
-                        <svg
-                            height="13"
-                            viewBox="0 0 50 50"
-                            width="13"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="mr-1"
-                            ><path
-                                d="M 43.335938 4 L 6.667969 4 C 5.195313 4 4 5.195313 4 6.667969 L 4 43.332031 C 4 44.804688 5.195313 46 6.667969 46 L 43.332031 46 C 44.804688 46 46 44.804688 46 43.335938 L 46 6.667969 C 46 5.195313 44.804688 4 43.335938 4 Z M 27 36.183594 C 27 40.179688 24.65625 42 21.234375 42 C 18.140625 42 15.910156 39.925781 15 38 L 18.144531 36.097656 C 18.75 37.171875 19.671875 38 21 38 C 22.269531 38 23 37.503906 23 35.574219 L 23 23 L 27 23 Z M 35.675781 42 C 32.132813 42 30.121094 40.214844 29 38 L 32 36 C 32.816406 37.335938 33.707031 38.613281 35.589844 38.613281 C 37.171875 38.613281 38 37.824219 38 36.730469 C 38 35.425781 37.140625 34.960938 35.402344 34.199219 L 34.449219 33.789063 C 31.695313 32.617188 29.863281 31.148438 29.863281 28.039063 C 29.863281 25.179688 32.046875 23 35.453125 23 C 37.878906 23 39.621094 23.84375 40.878906 26.054688 L 37.910156 27.964844 C 37.253906 26.789063 36.550781 26.328125 35.453125 26.328125 C 34.335938 26.328125 33.628906 27.039063 33.628906 27.964844 C 33.628906 29.109375 34.335938 29.570313 35.972656 30.28125 L 36.925781 30.691406 C 40.171875 32.078125 42 33.496094 42 36.683594 C 42 40.117188 39.300781 42 35.675781 42 Z"
-                                fill="currentColor"></path></svg
-                        >
-                        <p class="text-neutral-500">
-                            solution/mostFrequentChar.js
-                        </p>
-                    </div>
-                    <div
-                        class="p-2 bg-black overflow-hidden text-[9px] max-[800px]:text-[1vw]"
-                    >
-                        <Code
-                            code={`export function tokenTransform(s, tokens) {
-   let output = [];
-   let i = 0;
-   let j = 1;
-   while (i < s.length) {
-      if (s[i] !== '$') {
-         output.push(s[i]);
-         i += 1;
-         j = i + 1;
-      } else if (s[j] !== '$') {
-         j += 1;
-      } else {
-         const key = s.slice(i, j + 1);
-         const value = tokens[key];
-         const evaluatedValue = tokenTransform();
-         tokens[key] = evaluatedValue;
-         output.push(evaluatedValue);
-         i = j + 1;
-         j = i + 1;
-      }
-   }
-   return output.join('');
-};`}
-                            lang="js"
-                            theme="dark-plus"
-                        />
-                    </div>
-                </div>
-                <div
-                    class="border border-neutral-800 rounded-lg text-xs rotate-[-2deg] overflow-hidden translate-y-[0px] translate-x-[-35%] absolute"
-                >
-                    <div
-                        class="w-full p-2 border-b border-neutral-800 bg-white flex items-center"
-                    >
-                        <svg
-                            height="13"
-                            viewBox="0 0 50 50"
-                            width="13"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="mr-1"
-                            ><path
-                                d="M 43.335938 4 L 6.667969 4 C 5.195313 4 4 5.195313 4 6.667969 L 4 43.332031 C 4 44.804688 5.195313 46 6.667969 46 L 43.332031 46 C 44.804688 46 46 44.804688 46 43.335938 L 46 6.667969 C 46 5.195313 44.804688 4 43.335938 4 Z M 27 36.183594 C 27 40.179688 24.65625 42 21.234375 42 C 18.140625 42 15.910156 39.925781 15 38 L 18.144531 36.097656 C 18.75 37.171875 19.671875 38 21 38 C 22.269531 38 23 37.503906 23 35.574219 L 23 23 L 27 23 Z M 35.675781 42 C 32.132813 42 30.121094 40.214844 29 38 L 32 36 C 32.816406 37.335938 33.707031 38.613281 35.589844 38.613281 C 37.171875 38.613281 38 37.824219 38 36.730469 C 38 35.425781 37.140625 34.960938 35.402344 34.199219 L 34.449219 33.789063 C 31.695313 32.617188 29.863281 31.148438 29.863281 28.039063 C 29.863281 25.179688 32.046875 23 35.453125 23 C 37.878906 23 39.621094 23.84375 40.878906 26.054688 L 37.910156 27.964844 C 37.253906 26.789063 36.550781 26.328125 35.453125 26.328125 C 34.335938 26.328125 33.628906 27.039063 33.628906 27.964844 C 33.628906 29.109375 34.335938 29.570313 35.972656 30.28125 L 36.925781 30.691406 C 40.171875 32.078125 42 33.496094 42 36.683594 C 42 40.117188 39.300781 42 35.675781 42 Z"
-                                fill="currentColor"></path></svg
-                        >
-                        <p class="text-neutral-500">
-                            solution/mostFrequentChar.js
-                        </p>
-                    </div>
-                    <div
-                        class="p-2 bg-neutral-100 overflow-hidden text-[9px] max-[800px]:text-[1vw]"
-                    >
-                        <Code
-                            code={`export function tokenTransform(s, tokens) {
-   let output = [];
-   let i = 0;
-   let j = 1;
-   while (i < s.length) {
-      if (s[i] !== '$') {
-         output.push(s[i]);
-         i += 1;
-         j = i + 1;
-      } else if (s[j] !== '$') {
-         j += 1;
-      } else {
-         const key = s.slice(i, j + 1);
-         const value = tokens[key];
-         const evaluatedValue = tokenTransform();
-         tokens[key] = evaluatedValue;
-         output.push(evaluatedValue);
-         i = j + 1;
-         j = i + 1;
-      }
-   }
-   return output.join('');
-};`}
-                            lang="js"
-                            theme="light-plus"
-                        />
-                    </div>
-                </div>
-                <div
-                    class="border border-neutral-800 rounded-lg text-xs rotate-[-0deg] overflow-hidden translate-y-[10%]"
-                >
-                    <div
-                        class="w-full p-2 border-b border-neutral-800 bg-black flex items-center"
-                    >
-                        <svg
-                            height="13"
-                            viewBox="0 0 50 50"
-                            width="13"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="mr-1"
-                            ><path
-                                d="M 43.335938 4 L 6.667969 4 C 5.195313 4 4 5.195313 4 6.667969 L 4 43.332031 C 4 44.804688 5.195313 46 6.667969 46 L 43.332031 46 C 44.804688 46 46 44.804688 46 43.335938 L 46 6.667969 C 46 5.195313 44.804688 4 43.335938 4 Z M 27 36.183594 C 27 40.179688 24.65625 42 21.234375 42 C 18.140625 42 15.910156 39.925781 15 38 L 18.144531 36.097656 C 18.75 37.171875 19.671875 38 21 38 C 22.269531 38 23 37.503906 23 35.574219 L 23 23 L 27 23 Z M 35.675781 42 C 32.132813 42 30.121094 40.214844 29 38 L 32 36 C 32.816406 37.335938 33.707031 38.613281 35.589844 38.613281 C 37.171875 38.613281 38 37.824219 38 36.730469 C 38 35.425781 37.140625 34.960938 35.402344 34.199219 L 34.449219 33.789063 C 31.695313 32.617188 29.863281 31.148438 29.863281 28.039063 C 29.863281 25.179688 32.046875 23 35.453125 23 C 37.878906 23 39.621094 23.84375 40.878906 26.054688 L 37.910156 27.964844 C 37.253906 26.789063 36.550781 26.328125 35.453125 26.328125 C 34.335938 26.328125 33.628906 27.039063 33.628906 27.964844 C 33.628906 29.109375 34.335938 29.570313 35.972656 30.28125 L 36.925781 30.691406 C 40.171875 32.078125 42 33.496094 42 36.683594 C 42 40.117188 39.300781 42 35.675781 42 Z"
-                                fill="currentColor"></path></svg
-                        >
-                        <p class="text-neutral-500">
-                            solution/mostFrequentChar.js
-                        </p>
-                    </div>
-                    <div
-                        class="p-2 bg-black overflow-hidden text-[9px] max-[800px]:text-[1vw]"
-                    >
-                        <Code
-                            code={`export function tokenTransform(s, tokens) {
-   let output = [];
-   let i = 0;
-   let j = 1;
-   while (i < s.length) {
-      if (s[i] !== '$') {
-         output.push(s[i]);
-         i += 1;
-         j = i + 1;
-      } else if (s[j] !== '$') {
-         j += 1;
-      } else {
-         const key = s.slice(i, j + 1);
-         const value = tokens[key];
-         const evaluatedValue = tokenTransform();
-         tokens[key] = evaluatedValue;
-         output.push(evaluatedValue);
-         i = j + 1;
-         j = i + 1;
-      }
-   }
-   return output.join('');
-};`}
-                            lang="js"
-                            theme="dark-plus"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h1
-            class="text-white text-3xl py-10 border-b mb-10 border-dashed border-neutral-800 pl-[50%] max-[1000px]:pl-[0%] max-[600px]:text-2xl"
-        >
-            100 challenges across 15 categories.
-        </h1>
-        <div
-            class="flex items-center gap-5 relative mb-30 max-[1000px]:mb-10 max-[1000px]:flex-col"
-        >
-            <div
-                class="flex-1 relative flex justify-normal max-[1000px]:mt-20 max-[1000px]:translate-x-[20%] max-[700px]:translate-x-[10%]"
-            >
-                <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[4deg] overflow-hidden translate-y-[-10%] translate-x-[65%] absolute"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-4deg] overflow-hidden translate-y-[-10%] translate-x-[-70%] absolute"
                 >
                     <Image
                         class="rounded-lg"
@@ -221,7 +49,7 @@ import Carrousel2 from "./carrousel2.astro"
                     />
                 </div>
                 <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[2deg] overflow-hidden translate-y-[0px] translate-x-[35%] absolute"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-2deg] overflow-hidden translate-y-[0px] translate-x-[-35%] absolute"
                 >
                     <Image
                         class="rounded-lg"
@@ -232,7 +60,53 @@ import Carrousel2 from "./carrousel2.astro"
                     />
                 </div>
                 <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[0deg] overflow-hidden translate-y-[10%]"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-0deg] overflow-hidden translate-y-[10%]"
+                >
+                    <Image
+                        class="rounded-lg"
+                        src={challenge1}
+                        alt="landing image"
+                        width="1790"
+                        height="1354"
+                    />
+                </div>
+            </div>
+        </div>
+        <h1
+            class="text-white text-3xl py-10 border-b mb-10 border-dashed border-neutral-800 pl-[50%] max-[1000px]:pl-[0%] max-[600px]:text-2xl"
+        >
+            100 challenges across 15 categories.
+        </h1>
+        <div
+            class="flex items-center gap-5 relative mb-30 max-[1000px]:mb-10 max-[1000px]:flex-col"
+        >
+            <div
+                class="flex-1 relative flex justify-normal max-[1000px]:mt-5 max-[1000px]:translate-x-[20%] max-[700px]:translate-x-[0%]"
+            >
+                <div
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[4deg] overflow-hidden translate-y-[-10%] translate-x-[65%] absolute"
+                >
+                    <Image
+                        class="rounded-lg"
+                        src={challenge1}
+                        alt="landing image"
+                        width="1790"
+                        height="1354"
+                    />
+                </div>
+                <div
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[2deg] overflow-hidden translate-y-[0px] translate-x-[35%] absolute"
+                >
+                    <Image
+                        class="rounded-lg"
+                        src={challenge2}
+                        alt="landing image"
+                        width="1790"
+                        height="1354"
+                    />
+                </div>
+                <div
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[0deg] overflow-hidden translate-y-[10%]"
                 >
                     <Image
                         class="rounded-lg"
@@ -244,7 +118,7 @@ import Carrousel2 from "./carrousel2.astro"
                 </div>
             </div>
             <div
-                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-20 w-[50%] max-[1000px]:w-[100%] flex flex-col"
+                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-10 w-[50%] max-[1000px]:w-[100%] flex flex-col"
             >
                 <p class="mb-5 max-[600px]:text-base">
                     Cutting-edge coding platform with advanced features,
@@ -256,7 +130,6 @@ import Carrousel2 from "./carrousel2.astro"
                 <Carrousel />
             </div>
         </div>
-
         <h1
             class="text-white text-3xl py-10 border-b mb-10 border-dashed border-neutral-800 max-[600px]:text-2xl"
         >
@@ -266,7 +139,7 @@ import Carrousel2 from "./carrousel2.astro"
             class="flex items-center gap-5 relative max-[1000px]:flex-col-reverse"
         >
             <div
-                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-20 w-[50%] max-[1000px]:w-[100%] flex flex-col"
+                class="flex-1 text-xl max-[1000px]:text-lg font-light text-neutral-500 max-[1000px]:mt-10 w-[50%] max-[1000px]:w-[100%] flex flex-col"
             >
                 <p class="mb-5 max-[600px]:text-base">
                     Cutting-edge coding platform with advanced features,
@@ -278,10 +151,10 @@ import Carrousel2 from "./carrousel2.astro"
                 <Carrousel2 />
             </div>
             <div
-                class="flex-1 relative flex justify-end max-[1000px]:mt-20 items-center max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[-5%]"
+                class="flex-1 relative flex justify-end max-[1000px]:mt-5 items-center max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[0%]"
             >
                 <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[-4deg] overflow-hidden translate-y-[-10%] translate-x-[-70%] absolute"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-4deg] overflow-hidden translate-y-[-10%] translate-x-[-70%] absolute"
                 >
                     <Image
                         class="rounded-lg"
@@ -292,7 +165,7 @@ import Carrousel2 from "./carrousel2.astro"
                     />
                 </div>
                 <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[-2deg] overflow-hidden translate-y-[0px] translate-x-[-35%] absolute"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-2deg] overflow-hidden translate-y-[0px] translate-x-[-35%] absolute"
                 >
                     <Image
                         class="rounded-lg"
@@ -303,7 +176,7 @@ import Carrousel2 from "./carrousel2.astro"
                     />
                 </div>
                 <div
-                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[50%] border border-neutral-800 rounded-lg text-xs rotate-[-0deg] overflow-hidden translate-y-[10%]"
+                    class="w-[60%] max-[1000px]:w-[35%] max-[700px]:w-[60%] border border-neutral-800 rounded-lg text-xs rotate-[-0deg] overflow-hidden translate-y-[10%]"
                 >
                     <Image
                         class="rounded-lg"
@@ -317,5 +190,3 @@ import Carrousel2 from "./carrousel2.astro"
         </div>
     </div>
 </section>
-
-
