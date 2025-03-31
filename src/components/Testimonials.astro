@@ -1,0 +1,114 @@
+---
+const items = ["1", "2", "3","4", "5", "6","7", "8", "9", "10"];
+---
+
+<section class="text-white text-center my-40 max-w-[1200px] m-auto">
+    <h1 class="text-6xl mb-10 max-[900px]:text-5xl max-[700px]:text-4xl">
+        Beyond <span class="title">expectations</span>
+    </h1>
+    <p class="text-xl text-neutral-400 max-w-[900px] text-balance m-auto mb-20">
+        XXX is driving remarkable developer experiences that enable success
+        stories, empower businesses, and fuel growth across industries and
+        individuals.
+    </p>
+
+    <div class="carousel">
+        <ul class="group text-neutral-400">
+            {
+                items.map((item, index) => (
+                    <li class="testimonialCard ">
+                        <p class="mb-6">
+                            {index} Our team loves Resend. It makes email sending so
+                            easy and reliable. After we switched to Dedicated
+                            IPs, our deliverability improved tremendously and we
+                            don't hear complaints about emails landing on spam
+                            anymore.
+                        </p>
+                        <div class="flex items-center">
+                            <div>
+                                <div class="w-[30px] h-[30px] bg-white rounded-full mr-5" />
+                            </div>
+                            <div>
+                                <p class="text-white">Sam smith</p>
+                                <p class="text-neutral-400">
+                                    Software Engineer
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+        <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
+        <ul aria-hidden class="group text-neutral-400">
+            {
+                items.map((item, index) => (
+                    <li class="testimonialCard ">
+                        <p class="mb-6">
+                            Our team loves Resend. It makes email sending so
+                            easy and reliable. After we switched to Dedicated
+                            IPs, our deliverability improved tremendously and we
+                            don't hear complaints about emails landing on spam
+                            anymore.
+                        </p>
+                        <div class="flex items-center">
+                            <div>
+                                <div class="w-[30px] h-[30px] bg-white rounded-full mr-5" />
+                            </div>
+                            <div>
+                                <p class="text-white">Sam smith</p>
+                                <p class="text-neutral-400">
+                                    Software Engineer
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>
+<style>
+    .carousel {
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+        &:hover .group {
+            animation-play-state: paused;
+        }
+    }
+
+    .group {
+        display: flex;
+        gap: 20px;
+        /* Add padding to the right to create a gap between the last and first card. */
+        padding-right: 20px;
+        will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+        animation: scrolling 160s linear infinite;
+    }
+
+    @keyframes scrolling {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .testimonialCard {
+        border-radius: 20px;
+        border: 1px solid oklch(0.269 0 0);
+        border-bottom: none;
+        width: 450px;
+        padding: 5px 10px;
+        font-size: 15px;
+        padding: 25px;
+        text-align: left;
+        background: linear-gradient(
+            rgba(80, 80, 80, 0.15) 0%,
+            rgba(0, 0, 0, 0) 70%
+        );
+    }
+</style>
