@@ -1,38 +1,26 @@
 ---
-const items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+const items = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 ---
 
-<section class="text-white text-center my-40 max-w-[1200px] m-auto">
-    <h1 class="text-6xl mb-10 max-[900px]:text-5xl max-[700px]:text-4xl">
+<section class="m-auto my-40 max-w-[1200px] text-center text-white" id="testimonials">
+    <h1 class="mb-10 text-6xl max-[900px]:text-5xl max-[700px]:text-4xl">
         Beyond <span class="title">expectations</span>
     </h1>
-    <p class="text-xl text-neutral-400 max-w-[900px] text-balance m-auto mb-20">
-        XXX is driving remarkable developer experiences that enable success
-        stories, empower businesses, and fuel growth across industries and
-        individuals.
-    </p>
+    <p class="m-auto mb-20 max-w-[900px] text-xl text-balance text-neutral-400">XXX is driving remarkable developer experiences that enable success stories, empower businesses, and fuel growth across industries and individuals.</p>
 
     <div class="carousel">
         <ul class="group text-neutral-400">
             {
                 items.map((item, index) => (
-                    <li class="testimonialCard ">
-                        <p class="mb-6">
-                            {index} Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Saepe nam iusto temporibus impedit
-                            excepturi incidunt illum architecto est aliquam
-                            recusandae, a cupiditate. Eum quaerat adipisci,
-                            voluptatum iure fugiat eaque alias.
-                        </p>
+                    <li class="testimonialCard">
+                        <p class="mb-6">{index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat adipisci, voluptatum iure fugiat eaque alias.</p>
                         <div class="flex items-center">
                             <div>
-                                <div class="w-[30px] h-[30px] bg-white rounded-full mr-5" />
+                                <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
                             </div>
                             <div>
                                 <p class="text-white">Sam smith</p>
-                                <p class="text-neutral-400">
-                                    Software Engineer
-                                </p>
+                                <p class="text-neutral-400">Software Engineer</p>
                             </div>
                         </div>
                     </li>
@@ -43,23 +31,15 @@ const items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         <ul aria-hidden class="group text-neutral-400">
             {
                 items.map((item, index) => (
-                    <li class="testimonialCard ">
-                        <p class="mb-6">
-                            {index} Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Saepe nam iusto temporibus impedit
-                            excepturi incidunt illum architecto est aliquam
-                            recusandae, a cupiditate. Eum quaerat adipisci,
-                            voluptatum iure fugiat eaque alias.
-                        </p>
+                    <li class="testimonialCard">
+                        <p class="mb-6">{index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat adipisci, voluptatum iure fugiat eaque alias.</p>
                         <div class="flex items-center">
                             <div>
-                                <div class="w-[30px] h-[30px] bg-white rounded-full mr-5" />
+                                <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
                             </div>
                             <div>
                                 <p class="text-white">Sam smith</p>
-                                <p class="text-neutral-400">
-                                    Software Engineer
-                                </p>
+                                <p class="text-neutral-400">Software Engineer</p>
                             </div>
                         </div>
                     </li>
@@ -106,12 +86,9 @@ const items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         font-size: 15px;
         padding: 25px;
         text-align: left;
-        background: linear-gradient(
-            rgba(80, 80, 80, 0.15) 0%,
-            rgba(0, 0, 0, 0) 70%
-        );
+        background: linear-gradient(rgba(80, 80, 80, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     }
-    @media screen  and (max-width: 700px){
+    @media screen and (max-width: 700px) {
         .testimonialCard {
             width: 350px;
             font-size: 12px;

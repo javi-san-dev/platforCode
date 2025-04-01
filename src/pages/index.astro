@@ -1,29 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Menu from "../components/Menu.astro"
-import Footer from "../components/Footer.astro";
-import Learn from "../components/Learn.astro"
-import Content from "../components/Content.astro"
-import JoinBox from "../components/JoinBox.astro";
-import A from "../components/a.astro"
-import B from "../components/b.astro"
-import Testimonials from "../components/Testimonials.astro";
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import About from '../components/About.astro'
+import Content from '../components/Content.astro'
+import JoinBox from '../components/JoinBox.astro'
+import A from '../components/a.astro'
+import Languages from '../components/Languages.astro'
+import Testimonials from '../components/Testimonials.astro'
+import { fixedTitle } from '../consts/pageTitles'
 
-export const prerender = true;
+export const prerender = true
+
 ---
 
-<Layout title="Welcome to challenge">
-	<Menu />
-	<Header />
-	<Learn />
-	<A />
-	<B />
-	<Content />
-	<Testimonials />
-	<div aria-hidden="true" class=" w-[600px] center pointer-events-none my-10 h-px max-w-full m-auto" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%);"></div>
-	<JoinBox />
-	<Footer />
+<Layout title={fixedTitle}>
+    <Header />
+    <About />
+    <A />
+    <Languages />
+    <Content />
+    <Testimonials />
+    <JoinBox />
 </Layout>
-
-

@@ -1,88 +1,16 @@
----
-import Image from "astro/components/Image.astro";
-import platformImage from "../assets/platform.avif";
-import { Code } from "astro:components";
----
-
-<section class="px-4">
-    <div
-        class="mx-auto mt-0 mb-0 flex flex-col text-center items-center justify-center max-w-[1200px] p-0 max-[900px]:p-20 max-[700px]:p-10 max-[500px]:p-4 border-x border-neutral-800"
-    >
-        <div
-            class="max-w-[1200px] flex m-auto max-[900px]:flex-col text-left"
-        >
-            <div
-                class="flex-1 min-[900px]:border-r border-neutral-800 pb-20 pt-10 max-[950px]:px-0 max-[950px]:pb-0"
-            >
-                <div
-                    class="pl-10 max-[900px]:pl-0 flex-1 pt-10 max-[900px]:text-center min-[900px]:pb-20"
-                >
-                    <h2
-                        class=" mb-10 text-5xl max-[900px]:text-5xl max-[700px]:text-4xl text-white text-balance"
-                    >
-                        A Better Way to learn <span class="title"
-                            >algorithms</span
-                        >
+<section class="my-20 px-3">
+    <div class="mx-auto mt-0 mb-0 flex max-w-[1200px] flex-col items-center justify-center border-x border-neutral-800 p-0 text-center max-[900px]:p-20 max-[700px]:p-10 max-[500px]:p-4">
+        <div class="m-auto flex max-w-[1200px] text-left max-[900px]:flex-col">
+            <div class="flex-1 border-neutral-800 pt-10 pr-[5px] pb-20 max-[950px]:px-0 max-[950px]:pb-0 min-[900px]:border-r">
+                <div class="flex-1 pt-10 pl-10 max-[900px]:pl-0 max-[900px]:text-center min-[900px]:pb-20">
+                    <h2 class="mb-10 text-5xl text-balance text-white max-[900px]:text-5xl max-[700px]:text-4xl">
+                        A Better Way to learn <span class="title">algorithms</span>
                     </h2>
-                    <p class="text-neutral-400 text-lg text-balance font-base">
-                        Platform offers a structured and guided path, breaking
-                        down challenging concepts into manageable steps, to
-                        enhance your skills and solve complex problems
-                        efficiently.
-                    </p>
+                    <p class="font-base text-lg text-balance text-neutral-400">Learning <span class="title">algorithms</span> can be challenging and tedious when relying solely on books. A better approach involves visualizing <span class="title">algorithms</span> through professional animations and actively coding solutions, emphasizing <span class="text-white">practice over passive reading.</span></p>
                 </div>
             </div>
-            <div
-                class="flex-2 pb-20 pt-20"
-            >
-            
-                <div
-                    class="a aspect-video relative border border-amber-400 w-[90%] max-[900px]:w-[100%] m-auto overflow-hidden"
-                >
-                    <div
-                        class="rounded-lg text-xs rotate-[-0deg] overflow-hidden translate-y-[0%] translate-x-[55%]"
-                    >
-                        <div
-                            class="p-2 bg-black overflow-hidden text-[10px] max-[800px]:text-[1vw]"
-                        >
-                            <Code
-                                code={`export function tokenTransform(s, tokens) {
-   let output = [];
-   let i = 0;
-   let j = 1;
-   while (i < s.length) {
-      if (s[i] !== '$') {
-         output.push(s[i]);
-         i += 1;
-         j = i + 1;
-      } else if (s[j] !== '$') {
-         j += 1;
-      } else {
-         const key = s.slice(i, j + 1);
-         const value = tokens[key];
-         const evaluatedValue = tokenT;
-         tokens[key] = evaluatedValue;
-         output.push(evaluatedValue);
-         i = j + 1;
-         j = i + 1;
-      } else if (s[i] !== '$') {
-         output.push(s[i]);
-         i += 1;
-         j = i + 1;
-         j = i + 1;
-         j = i + 1;
-      } 
-   }
-   return output.join('');
-};`}
-                                lang="js"
-                                theme="dark-plus"
-                            />
-                        </div>
-                    </div>
-                </div>
-               
-             
+            <div class="flex-2 pt-20 pb-20">
+                <div class="a relative m-auto aspect-video w-[90%] overflow-hidden border border-amber-400 max-[900px]:w-[100%]"></div>
             </div>
         </div>
     </div>
@@ -90,12 +18,6 @@ import { Code } from "astro:components";
 
 <style>
     .a {
-        mask-image: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 60%,
-            rgba(0, 0, 0, 0) 100%
-        );
-    }
-    li {
+        mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
     }
 </style>

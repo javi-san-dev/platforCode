@@ -1,54 +1,25 @@
 ---
-import Image from "astro/components/Image.astro";
-import platformImage from "../assets/platform.avif";
-import downloadIcon from "../assets/download.svg";
+import Image from 'astro/components/Image.astro'
+import platformImage from '../assets/platform.avif'
+import downloadIcon from '../assets/download.svg'
 ---
 
 <section class="w-screen overflow-hidden">
-    <div
-        class="text-center items-center h-screen flex flex-col justify-center gap-6 animate-fade-in"
-    >
-        <h1
-            class="text-white mt-[-8%] max-[550px]:mt-[-50%] text-[7vw] min-[1200px]:text-8xl max-[700px]:text-5xl text-balance"
-        >
-        The <span class="title">algorithms</span> platform
-            <!-- Embrace the challenge -->
+    <div class="animate-fade-in flex h-screen flex-col items-center justify-center gap-6 text-center">
+        <h1 class="mt-[-8%] text-[7vw] text-balance text-white max-[700px]:text-5xl max-[550px]:mt-[-50%] min-[1200px]:text-8xl">
+            The <span class="title">algorithms</span> platform
         </h1>
-        <p
-            class="text-neutral-400 text-3xl font-extralight max-[500px]:font-base max-[500px]:text-2xl text-balance"
-        >  Increase your <span class="title">algorithms</span> skills with this desktop platform
-        <div
-            class="flex max-[600px]:w-[80%] max-[600px]:flex-col gap-6 max-[600px]:gap-3 justify-center mt-6 max-[600px]:mt-0 items-center"
-        >
-            <div class="backgroundStyle rounded-full w-full">
-                <button
-                    class="px-8 py-3 rounded-full font-base cursor-pointer bg-black hover:bg-neutral-900 text-white text-nowrap w-full"
-                    >Try Web Demo</button
-                >
+        <p class="max-[500px]:font-base text-3xl font-extralight text-balance text-neutral-400 max-[500px]:text-2xl">Increase your <span class="title">algorithms</span> skills with this desktop platform</p>
+        <div>
+            <div class=" mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:flex-col max-[600px]:gap-3">
+                <div class="backgroundStyle w-full rounded-full">
+                    <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
+                </div>
+                <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 text-center font-medium"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
             </div>
-
-            <button
-                class="bg-white px-8 py-3 rounded-full font-medium cursor-pointer flex w-full text-center justify-center"
-            >
-                <Image
-                    class="rounded-xl text-black mr-2"
-                    src={downloadIcon}
-                    alt="landing image"
-                    width="22"
-                    height="22"
-                />Download</button
-            >
         </div>
     </div>
-    <div
-        class="flex justify-center mt-[-250px] border border-neutral-800 rounded-xl max-w-[1100px] overflow-hidden m-auto animate-fade-in max-[550px]:w-[180%] max-[550px]:ml-10 max-[1200px]:w-[95%]"
-    >
-        <Image
-            class="rounded-xl"
-            src={platformImage}
-            alt="landing image"
-            width="2878"
-            height="1800"
-        />
+    <div class="animate-fade-in m-auto mt-[-250px] flex max-w-[1100px] justify-center overflow-hidden rounded-xl border border-neutral-800 max-[1200px]:w-[95%] max-[550px]:ml-10 max-[550px]:w-[180%]">
+        <Image class="rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
     </div>
 </section>
