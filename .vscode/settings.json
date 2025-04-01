@@ -1,0 +1,14 @@
+{
+    "css.customData": [
+      ".vscode/tailwindcss.json"
+    ],
+    "prettier.documentSelectors": [
+      "**/*.astro"
+    ],
+    "[astro]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+  }
