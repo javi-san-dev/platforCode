@@ -11,4 +11,5 @@ export default [
       'comma-dangle': ['error', 'always-multiline'],
     },
   },
+  globalIgnores(['.astro/']),
 ];
