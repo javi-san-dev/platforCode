@@ -2,16 +2,18 @@
 import Image from 'astro/components/Image.astro'
 import platformImage from '../assets/platform.avif'
 import downloadIcon from '../assets/download.svg'
+import glow from '../assets/glow.png'
 ---
 
-<section class="w-screen overflow-hidden">
+<section class="w-screen  relative ">
     <div class="animate-fade-in flex h-screen flex-col items-center justify-center gap-6 text-center">
-        <h1 class="mt-[-8%] text-[7vw] text-balance text-white max-[700px]:text-5xl max-[550px]:mt-[-50%] min-[1200px]:text-8xl">
-            The <span class="title">algorithms</span> platform
+        <div class="absolute top-[15%] rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400 truncate  max-w-[65vw] m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <h1 class="mt-[-5%] bg-gradient-to-br from-white bg-clip-text px-2 text-7xl max-[1050px]:text-6xl max-[900px]:text-5xl max-[690px]:text-4xl leading-22 max-[1050px]:leading-16 max-[690px]:leading-12 font-medium tracking-tighter  text-transparent">
+            Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden">Our Powerful Desktop platform
         </h1>
-        <p class="max-[500px]:font-base text-3xl font-extralight text-balance text-neutral-400 max-[500px]:text-2xl">Increase your <span class="title">algorithms</span> skills with this desktop platform</p>
+        <p class=" text-3xl max-[520px]:text-xl font-extralight text-balance text-neutral-400">Practice real-world challenges, and become a coding pro.</p>
         <div>
-            <div class=" mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:flex-col max-[600px]:gap-3">
+            <div class="mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%]  max-[600px]:gap-3">
                 <div class="backgroundStyle w-full rounded-full">
                     <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
                 </div>
@@ -19,7 +21,10 @@ import downloadIcon from '../assets/download.svg'
             </div>
         </div>
     </div>
-    <div class="animate-fade-in m-auto mt-[-250px] flex max-w-[1100px] justify-center overflow-hidden rounded-xl border border-neutral-800 max-[1200px]:w-[95%] max-[550px]:ml-10 max-[550px]:w-[180%]">
-        <Image class="rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
+    <div class="absolute top-[30%] max-[520px]:top-[50%] inset-0 flex transform-gpu opacity-20 pointer-events-none scale-175 max-[520px]:scale-[300%]">
+        <img src={glow.src} alt="gradient blur " class=" w-full pointer-events-none" />
+    </div>
+    <div class="animate-fade-in m-auto mt-[-15%] max-[800px]:mt-[-25%] flex max-w-[1200px] justify-center overflow-hidden rounded-xl border border-neutral-800 max-[1200px]:w-[95%] max-[550px]:ml-10 max-[550px]:w-[180%]">
+        <Image priority class="rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
     </div>
 </section>
