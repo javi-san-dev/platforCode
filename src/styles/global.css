@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+.logo {
+	font-family:
+		Rubik Dirt,
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		Segoe UI,
+		Roboto;
+}
+
 @theme {
 	--animate-fade-in: fade-in-scale 0.8s ease-in-out both;
 	--animate-fade-in-delayed1: fade-in-scale 0.8s 0.3s ease-in-out both;
@@ -72,3 +83,76 @@ code .line::before {
 	text-align: right;
 	color: oklch(0.556 0 0);
 }
+
+.starfield-container {
+    perspective: 900px;
+    position: fixed;
+    position: absolute;
+    left: 50%;
+    top: 30%
+}
+.starfield {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 2px;
+    width: 1.5px;
+    height: 1.5px;
+    box-shadow: -1003px -462px #ededed, -5px 379px #ebebeb, 1475px -372px #e0e0e0, 78px 8px #dbdbdb, 427px 152px #f5f5f5, 938px 104px #fafafa, -771px 163px #f5f5f5, -403px -40px #d4d4d4, -752px -436px #fcfcfc, -115px -148px #ebebeb, 1409px -101px #f0f0f0, -917px -356px #c7c7c7, 872px -130px #d4d4d4, -446px 245px #d1d1d1, -284px 29px #ededed, -892px 357px #f0f0f0, -892px -266px #c7c7c7, 993px 122px #e3e3e3, -1429px -104px #e0e0e0, 448px -249px #c9c9c9, 134px 163px #ededed, 1325px -367px #fcfcfc, 494px 424px #e6e6e6, -1477px -53px #f0f0f0, 1399px 302px #ebebeb, -889px 273px #ebebeb, -1272px 50px #e6e6e6, 901px -331px #ccc, -1341px -244px #ebebeb, -296px 431px #e6e6e6, -1433px -218px #f2f2f2, 823px -210px #d1d1d1, 1051px 19px #f2f2f2, -391px -196px #c2c2c2, 757px 91px #f7f7f7, 622px -253px #c7c7c7, 429px -34px #fcfcfc, 464px 477px #e0e0e0, 1058px 394px #ccc, -383px 98px #dbdbdb, -797px 479px #e8e8e8, 910px -10px #ccc, 1200px -292px #dbdbdb, -872px -121px #d1d1d1, 563px -472px #fff, 295px 459px #ebebeb, -749px 310px #dbdbdb, 1190px -17px #ccc, -920px 162px #dbdbdb, -540px 185px #d4d4d4, 358px -396px #ededed, 343px -52px #fcfcfc, 1369px 136px #f0f0f0, -660px -443px #e6e6e6, -1285px 201px #e6e6e6, 1442px -55px #d9d9d9, -820px 405px #c9c9c9, -874px 311px #c7c7c7, -892px 23px #dbdbdb, -29px -192px #c2c2c2, 84px 459px #cfcfcf, 1159px 463px #ebebeb, -554px -167px #d6d6d6, 1426px 446px #f0f0f0, 73px -393px #dbdbdb, -690px 236px #c4c4c4, -1078px 163px #c4c4c4, -897px 354px #d6d6d6, 47px -299px #fafafa, 1079px -445px #d1d1d1, 622px 355px #dedede, 1278px -178px #c4c4c4, -54px 350px #d1d1d1, 1160px -234px #f2f2f2, 448px 6px #e8e8e8, 589px 210px #e0e0e0, 252px -454px #e6e6e6, -1070px 119px #cfcfcf, 1499px 418px #ebebeb, 379px -140px #c4c4c4, 1002px -473px #c4c4c4, 565px 426px #c4c4c4, 1382px 107px #fcfcfc, 225px 385px #d1d1d1, 1480px 138px #fafafa, -1415px -103px #fff, -693px -117px #c2c2c2, 358px -41px #d9d9d9, 1356px 134px #d4d4d4, -371px -162px #cfcfcf, 743px 37px #d1d1d1, 604px -414px #c9c9c9, -773px 160px #c2c2c2, -193px 381px #d4d4d4, 1310px -38px #fcfcfc, 400px -282px #cfcfcf, 702px 223px #ebebeb, -1247px 374px #c4c4c4, 396px 358px #d4d4d4, 1054px -30px #ccc, -340px -69px #ededed, 1121px -77px #f7f7f7, -606px -76px #d4d4d4, 1309px -253px #fff, -296px -338px #f7f7f7, 79px 432px #dbdbdb, -1066px -442px #f0f0f0, 303px 208px #f2f2f2, 763px -44px #e3e3e3, 534px -285px #fff, -19px 328px #ccc, -622px -72px #ededed, -1469px 41px #fafafa, -1182px -460px #fff, -1359px 301px #fff, -225px 12px #f7f7f7, 679px -334px #c4c4c4, -271px -394px #d6d6d6, 514px -21px #f7f7f7, -374px 147px #f7f7f7, -276px -59px #e8e8e8, -957px -411px #ededed, 664px -95px #ccc, 1434px -224px #c2c2c2, 1359px -248px #c7c7c7, 949px -119px #e3e3e3, 584px -210px #c7c7c7, -570px -215px #fcfcfc, 951px 450px #fafafa, 188px 335px #d6d6d6, 1033px -457px #dbdbdb, -1252px 116px #f7f7f7, -1309px 132px #d9d9d9, -1409px 246px #fcfcfc, 883px -152px #d6d6d6, -952px -89px #ebebeb, 49px -82px #e3e3e3, 655px 128px #e8e8e8, 450px 473px #e3e3e3, 869px -98px #fff, -760px -294px #e0e0e0, 438px -147px #f0f0f0, 414px -236px #cfcfcf, 1148px 331px #ededed, -814px -37px #e8e8e8, -761px 322px #e8e8e8, -407px -37px #c2c2c2, 1025px -214px #d6d6d6, -272px -4px #c9c9c9, 731px 95px #d9d9d9, 166px 334px #ededed, -694px -114px #e8e8e8, -1415px 132px #f0f0f0, 232px -212px #fafafa, 487px 299px #c9c9c9, -885px 399px #fafafa, -1307px 215px #d6d6d6, -707px -367px #c2c2c2, 1138px -126px #fff, 764px 210px #fafafa, -492px 173px #dbdbdb, 1354px -195px #ebebeb, -184px 181px #c9c9c9, -412px 341px #c7c7c7, -622px -181px #e3e3e3, -1405px 281px #e3e3e3, -1376px -263px #f7f7f7, -175px -352px #f2f2f2, 1080px 187px #f0f0f0, -1263px -139px #c2c2c2, 1135px 292px #f5f5f5, -847px -406px #fcfcfc, 470px -295px #e6e6e6, -1321px -372px #d4d4d4, -810px -200px #ccc, 1182px 357px #fcfcfc, 750px -217px #e3e3e3, 884px -154px #ededed, -214px -43px #d4d4d4, 1120px 243px #f5f5f5, 168px -34px #c7c7c7, -611px 289px #fcfcfc, -415px 118px #d6d6d6, 718px 394px #dedede;
+    animation: fly 30s ease-in-out infinite reverse;
+    transform-style: preserve-3d;
+}
+
+.starfield::before {
+    transform: translateZ(-300px);
+    animation: fade1 30s ease-in-out infinite reverse;
+}
+
+.starfield::after {
+    transform: translateZ(-600px);
+    animation: fade2 30s ease-in-out infinite reverse;
+}
+
+.starfield::before, .starfield::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    box-shadow: inherit;
+}
+
+@keyframes fly {
+    0% {
+      transform: translateZ(0px);
+    }
+    50% {
+      transform: translateZ(500px);
+    }
+    100% {
+        transform: translateZ(0px);
+      }
+  }
+
+  @keyframes fade1 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+      }
+  }
+
+  @keyframes fade2 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+      }
+  }
