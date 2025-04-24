@@ -3,17 +3,18 @@ import Image from 'astro/components/Image.astro'
 import platformImage from '../assets/platform.avif'
 import downloadIcon from '../assets/download.svg'
 import glow from '../assets/glow.webp'
+import 'atropos/atropos.css'
 ---
 
-<section class="w-screen  relative ">
+<section class="relative w-screen">
     <div class="animate-fade-in flex h-screen flex-col items-center justify-center gap-6 text-center">
-        <div class="absolute top-[15%] rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400 truncate  max-w-[65vw] m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-        <h1 class="mt-[-5%] bg-gradient-to-br from-white bg-clip-text px-2 text-7xl max-[1050px]:text-6xl max-[900px]:text-5xl max-[690px]:text-4xl leading-22 max-[1050px]:leading-16 max-[690px]:leading-12 font-medium tracking-tighter  text-transparent">
-            Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden">Our Powerful Desktop platform
+        <div class="absolute top-[15%] m-auto max-w-[65vw] truncate rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <h1 class="mt-[-5%] bg-gradient-to-br from-white bg-clip-text px-2 text-7xl leading-22 font-medium tracking-tighter text-transparent max-[1050px]:text-6xl max-[1050px]:leading-16 max-[900px]:text-5xl max-[690px]:text-4xl max-[690px]:leading-12">
+            Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden" />Our Powerful Desktop platform
         </h1>
-        <p class=" text-3xl max-[520px]:text-xl font-extralight text-balance text-neutral-400">Practice real-world challenges, and become a coding pro.</p>
+        <p class="text-3xl font-extralight text-balance text-neutral-400 max-[520px]:text-xl">Practice real-world challenges, and become a coding pro.</p>
         <div>
-            <div class="mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%]  max-[600px]:gap-3">
+            <div class="mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:gap-3">
                 <div class="backgroundStyle w-full rounded-full">
                     <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
                 </div>
@@ -21,10 +22,40 @@ import glow from '../assets/glow.webp'
             </div>
         </div>
     </div>
-    <div class="absolute top-[30%] max-[520px]:top-[50%] inset-0 flex transform-gpu opacity-20 pointer-events-none scale-175 max-[520px]:scale-[300%]">
-        <img src={glow.src} alt="gradient blur " class=" w-full pointer-events-none" />
+    <div class="pointer-events-none absolute inset-0 top-[30%] flex scale-175 transform-gpu opacity-20 max-[520px]:top-[50%] max-[520px]:scale-[300%]">
+        <img src={glow.src} alt="gradient blur " class="pointer-events-none w-full" />
     </div>
-    <div class="animate-fade-in m-auto mt-[-15%] max-[800px]:mt-[-25%] flex max-w-[1200px] justify-center overflow-hidden rounded-xl border border-neutral-800 max-[1200px]:w-[95%] max-[550px]:ml-10 max-[550px]:w-[180%]">
-        <Image priority class="rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
+    <div class="animate-fade-in m-auto mt-[-12%] flex max-w-[1200px] justify-center rounded-xl max-[1200px]:w-[95%] max-[800px]:mt-[-25%] max-[550px]:ml-10 max-[550px]:w-[180%]">
+        <div class={`atropos container1 shadow-none bg-transparent mx-auto [box-sizing:border-box] block h-auto w-full`}>
+            <!-- scale container (required) -->
+            <div class="atropos-scale">
+                <!-- rotate container (required) -->
+                <div class="atropos-rotate overflow-hidden">
+                    <!-- inner container (required) -->
+                    <div class="atropos-inner flex flex-col items-center justify-center bg-transparent text-center  rounded-2xl border border-neutral-700">
+                        <!-- put your custom content here -->
+                        <Image priority class="rounded-xl" src={platformImage} alt="landing image" width="2878" height="1800" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<script>
+    import Atropos from 'atropos'
+    // Initialize
+    Atropos({
+        el: '.container1',
+        // rest of parameters
+        highlight: true,
+        shadow: false,
+    })
+</script>
+
+<style>
+    .atropos {
+        width: 100%;
+        height: 100%;
+    }
+</style>
