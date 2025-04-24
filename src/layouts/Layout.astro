@@ -42,7 +42,7 @@ const { title = fixedTitle } = Astro.props
 </html>
 
 <style>
-    html {
+    html, body {
         background: black;
         font-family:
             Rubik,
@@ -52,5 +52,7 @@ const { title = fixedTitle } = Astro.props
             BlinkMacSystemFont,
             Segoe UI,
             Roboto;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 </style>
