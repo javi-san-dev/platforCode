@@ -1,17 +1,49 @@
-<section class="animate-fade-in relative flex flex-col items-center justify-center px-3 pt-60 pb-40">
-    <h1 class="mb-20 text-center text-8xl text-white max-[900px]:text-6xl max-[500px]:text-5xl">Pricing</h1>
-    <div class="w-full max-w-[500px] rounded-xl border border-neutral-800 bg-black p-10 text-white">
-        <h2 class="mb-10 text-center text-3xl text-white">Buy XXX License</h2>
-        <h2 class="text-center text-4xl">€ 10</h2>
-        <ul class="text-xl text-neutral-400">
-            <li class="py-2">✅ Available for macOS, Windows and Linux</li>
-            <li class="py-2">✅ License for 2 devices</li>
-            <li class="py-2">✅ Pay once, use forever</li>
-            <li class="py-2">✅ Free updates for 1 year</li>
-            <li class="py-2">✅ 30-day money-back guarantee</li>
-        </ul>
-        <div class="backgroundStyle mt-10 flex justify-center rounded-full">
-            <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-white hover:bg-neutral-900">Buy XXX - € 10</button>
-        </div>
-    </div>
+---
+import tick from '../assets/tick.svg'
+---
+
+<section class="animate-fade-in relative flex flex-col items-center justify-center px-3 pt-40 pb-40">
+    <h1 class="mb-20 text-center text-6xl text-white max-[900px]:text-5xl max-[500px]:text-4xl">Simple win-win pricing</h1>
+
+    <article class="flex flex-1 flex-col rounded-2xl border border-neutral-700 bg-neutral-800/20 p-8">
+        <header class="mb-10 flex flex-col gap-3">
+            <p class="text-xl font-medium text-teal-300">Price</p>
+            <h1 class="text-5xl font-medium text-white">€ 10 / License</h1>
+            <div>
+                <p class="text-lg text-white">The best price</p>
+                <p class="text-neutral-400">Access to every standard feature</p>
+            </div>
+            <div class="cursor-pointer">
+                <button class=" cursor-pointer hover:scale-105 transition transform transform-gpu rounded-full border-2 border-teal-700/30 bg-teal-300/10 px-7 py-2 text-xl font-medium text-teal-300">Buy XXX - € 10</button>
+            </div>
+        </header>
+        <footer>
+            <div class="flex items-center justify-center">
+                <h1 class="flex-2 text-lg font-medium text-teal-300">Standard Features</h1>
+                <div class="w-full flex-1 border-b border-neutral-700"></div>
+            </div>
+            <ul class="mt-5 text-xl text-white">
+                <li class="flex items-center py-2">
+                    <img src={tick.src} alt="tick" class="mr-4 text-xl text-teal-300" />
+                    <p>Available for macOS, Windows and Linux</p>
+                </li>
+                <li class="flex items-center py-2">
+                    <img src={tick.src} alt="tick" class="mr-4 text-teal-300" />
+                    <p>License for 2 devices</p>
+                </li>
+                <li class="flex items-center py-2">
+                    <img src={tick.src} alt="tick" class="mr-4 text-teal-300" />
+                    <p>Pay once, use forevers</p>
+                </li>
+                <li class="flex items-center py-2">
+                    <img src={tick.src} alt="tick" class="mr-4 text-teal-300" />
+                    <p>Free updates for 1 year</p>
+                </li>
+                <li class="flex items-center py-2">
+                    <img src={tick.src} alt="tick" class="mr-4 text-teal-300" />
+                    <p>30-day money-back guarantee</p>
+                </li>
+            </ul>
+        </footer>
+    </article>
 </section>
