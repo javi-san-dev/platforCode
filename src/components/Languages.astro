@@ -6,18 +6,19 @@ import { Code } from 'astro:components'
 import javaIcon from '../assets/java.svg'
 import pythonIcon from '../assets/python.svg'
 import javaScriptIcon from '../assets/javascript.svg'
+import glow from '../assets/glow.webp'
 ---
 
-<section class="aa m-auto my-20 px-3 text-white border-y border-neutral-800" id="languages">
-    <div class="m-auto flex max-w-[1200px] flex-col py-20 px-10 text-center text-3xl text-white max-[900px]:px-3">
+<section class="aa m-auto my-20 border-b border-neutral-800 px-3 text-white relative overflow-hidden" id="languages">
+    <div class="m-auto flex max-w-[1200px] flex-col px-10 py-20 pb-40 text-center text-3xl text-white max-[900px]:px-3">
         <h1 class="mb-10 text-5xl text-balance text-white max-[900px]:text-5xl max-[700px]:text-4xl">
             Chose a programming <span class="title">language</span>
         </h1>
-        <p class="m-auto mb-20 max-w-[800px] text-xl text-balance text-neutral-400 max-[600px]:text-xl">Is hard to learn algorithms in a language that you don't know. We support 3 of the most used programming languages.</p>
+        <p class="m-auto mb-20 max-w-[800px] text-2xl text-balance font-light text-neutral-400 max-[600px]:text-xl">Is hard to learn algorithms in a language that you don't know. We support 3 of the most used programming languages.</p>
 
-        <div class="relative flex justify-center gap-5 max-[900px]:gap-2">
+        <div class="relative flex justify-center gap-5 max-[900px]:gap-2 z-10">
             <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-950 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
+                <div class="b flex-col rounded-lg bg-black p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
                     <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={javaScriptIcon} alt="landing image" />
                     <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden">Javascript 🌐</h1>
                     <h1 class="mt-10 text-base min-[500px]:hidden">Javascript</h1>
@@ -50,11 +51,13 @@ import javaScriptIcon from '../assets/javascript.svg'
                 </div>
             </div>
         </div>
+        <img src={glow.src} class="absolute opacity-10 scale-175 mt-[10%]" />
     </div>
+
 </section>
 
 <style>
-    .aa {
+    /* .aa {
         background: linear-gradient(180deg, #000 30%, #111111 50%, #111111 100%);
     }
     .b {
@@ -63,5 +66,5 @@ import javaScriptIcon from '../assets/javascript.svg'
             0 1px 0 1px rgba(0, 0, 0, 0.02),
             0 4px 6px rgba(0, 0, 0, 0.02),
             inset 0 0 0 6px var(--accents-1);
-    }
+    } */
 </style>
