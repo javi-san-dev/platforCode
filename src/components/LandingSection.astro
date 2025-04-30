@@ -5,34 +5,23 @@ import downloadIcon from '../assets/download.svg'
 import glow from '../assets/glow.webp'
 ---
 
-<section class="relative w-screen max-w-screen">
-    <div class="top-0 mt-[150px] flex flex-col items-center justify-center gap-8 pb-[200px] text-center">
-        <div class="m-auto mb-10 max-w-[65vw] truncate rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-        <h1 class="bg-gradient-to-br from-white bg-clip-text px-2 text-7xl leading-22 font-medium tracking-tighter text-transparent max-[1050px]:text-6xl max-[1050px]:leading-16 max-[900px]:text-5xl max-[690px]:text-4xl max-[690px]:leading-12">
-            Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden" />our powerful Desktop platform
-        </h1>
-        <p class="text-3xl font-extralight text-balance text-neutral-400 max-[520px]:text-xl">Practice real-world challenges, and become a coding pro.</p>
-        <div>
-            <div class="mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:gap-3">
-                <div class="backgroundStyle w-full rounded-full">
-                    <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
-                </div>
-                <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 text-center font-medium"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
-            </div>
+<section class="relative mt-[150px] flex w-screen max-w-screen flex-col animate-fade-in">
+    <span class="m-auto mb-20 truncate rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    <h1 class="mb-8 bg-gradient-to-br from-white bg-clip-text px-2 text-center text-7xl leading-22 font-medium tracking-tighter text-transparent max-[1050px]:text-6xl max-[1050px]:leading-16 max-[900px]:text-5xl max-[690px]:text-4xl max-[690px]:leading-12">
+        Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden" />our powerful Desktop platform
+    </h1>
+    <p class="mb-8 text-center text-3xl font-extralight text-balance text-neutral-400 max-[520px]:text-xl">Practice real-world challenges, and become a coding pro.</p>
+
+    <div class="m-auto mt-6 mb-20 flex max-w-[300px] items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:gap-3">
+        <div class="backgroundStyle w-full rounded-full">
+            <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
         </div>
+        <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 text-center font-medium"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
     </div>
     <div class="pointer-events-none absolute inset-0 top-[30%] flex transform-gpu opacity-20 max-[520px]:top-[50%]">
-        <img src={glow.src} alt="gradient blur " class="pointer-events-none w-full scale-175 max-[520px]:scale-[300%]" />
+        <Image src={glow} alt="gradient blur " class="pointer-events-none w-full scale-175 max-[520px]:scale-[300%]" />
     </div>
-    <div class="m-auto mt-[-100px] flex max-w-[1200px] justify-center rounded-xl max-[1200px]:w-[95%]">
-        <div class={`atropos container1 shadow-none bg-transparent mx-auto [box-sizing:border-box] block h-auto w-full`}>
-            <div class="atropos-scale">
-                <div class="atropos-rotate overflow-hidden">
-                    <div class="atropos-inner flex flex-col items-center justify-center rounded-2xl border border-neutral-800 bg-transparent text-center max-[800px]:rounded-lg">
-                        <Image priority class="rounded-xl max-[800px]:rounded-lg" src={platformImage} alt="landing image" width="2878" height="1800" />
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="m-auto max-w-[1200px] rounded-xl border border-neutral-800 bg-black overflow-hidden z-10">
+        <Image priority class="" src={platformImage} alt="landing image" width="2878" height="1800" />
     </div>
 </section>
