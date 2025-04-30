@@ -1,57 +1,88 @@
 ---
+import menu from '../assets/menu.svg'
 import Image from 'astro/components/Image.astro'
-import platformImage from '../assets/platform.avif'
+import close from '../assets/close.svg'
 import downloadIcon from '../assets/download.svg'
-import glow from '../assets/glow.webp'
-import 'atropos/atropos.css'
+import logo from '../assets/logo.webp'
 ---
 
-<section class="relative w-screen max-w-screen ">
-    <div class=" flex flex-col items-center justify-center gap-8 text-center top-0 mt-[150px] pb-[200px]">
-        <div class=" m-auto max-w-[65vw] truncate rounded-full bg-fuchsia-400/20 px-5 py-2 text-fuchsia-400 mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-        <h1 class=" bg-gradient-to-br from-white bg-clip-text px-2 text-7xl leading-22 font-medium tracking-tighter text-transparent max-[1050px]:text-6xl max-[1050px]:leading-16 max-[900px]:text-5xl max-[690px]:text-4xl max-[690px]:leading-12">
-            Boost your <span class="title">algorithms </span>skills with<br class="max-[520px]:hidden" />our powerful Desktop platform
-        </h1>
-        <p class="text-3xl font-extralight text-balance text-neutral-400 max-[520px]:text-xl">Practice real-world challenges, and become a coding pro.</p>
-        <div>
-            <div class="mt-6 flex items-center justify-center gap-6 max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:gap-3">
-                <div class="backgroundStyle w-full rounded-full">
-                    <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
-                </div>
-                <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 text-center font-medium"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
+<header class=" fixed z-10 flex w-[100vw] justify-center p-2 px-6 z-20" id="headerMenu">
+    <div class="flex w-full max-w-[1200px] items-center">
+        <a href="/" class="absolute"><Image src={logo} alt="logo" class="w-[160px]" /></a>
+        <nav class="text-md m-auto hidden gap-3 font-medium text-neutral-400 lg:flex">
+            <a href="/#about" class="cursor-pointer rounded-lg px-3 py-2 hover:scale-110">About</a>
+            <a href="/#content" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Content</a>
+            <a href="/pricing/#faq" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Faq</a>
+            <a href="/pricing" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Pricing</a>
+        </nav>
+        <nav class="hidden gap-3 lg:flex">
+            <div class="backgroundStyle rounded-full">
+                <button class="font-base cursor-pointer rounded-full bg-black px-3 py-2 text-white hover:bg-neutral-900">Try Web Demo</button>
             </div>
-        </div>
-    </div>
-    <div class="pointer-events-none absolute inset-0 top-[30%] flex transform-gpu opacity-20 max-[520px]:top-[50%] ">
-        <img src={glow.src} alt="gradient blur " class="pointer-events-none w-full scale-175 max-[520px]:scale-[300%]" />
-    </div>
-    <div class=" m-auto mt-[-100px] flex max-w-[1200px] justify-center rounded-xl max-[1200px]:w-[95%]">
-        <div class={`atropos container1 shadow-none bg-transparent mx-auto [box-sizing:border-box] block h-auto w-full`}>
-            <div class="atropos-scale">
-                <div class="atropos-rotate overflow-hidden">
-                    <div class="atropos-inner flex flex-col items-center justify-center bg-transparent text-center  rounded-2xl max-[800px]:rounded-lg border border-neutral-800">
-                        <Image priority class="rounded-xl max-[800px]:rounded-lg" src={platformImage} alt="landing image" width="2878" height="1800" />
-                    </div>
+            <button class="flex cursor-pointer items-center rounded-full bg-white px-3 py-1 text-sm font-medium hover:bg-neutral-100"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
+        </nav>
+        <nav class="ml-auto inline cursor-pointer rounded-md border border-neutral-800 lg:hidden" id="toggle-menu-button">
+            <Image alt="menu icon" src={menu} width={40} height={40} id="menuImage" />
+            <Image alt="close icon" src={close} width={40} height={40} id="closeImage" style={{ display: 'none' }} />
+        </nav>
+        <nav class="absolute top-14 left-0 hidden w-full flex-col bg-black px-3 text-lg text-neutral-400 lg:hidden" id="toggle-menu">
+            <div class="flex flex-col border-t border-neutral-800 pt-5">
+                <div class="backgroundStyle rounded-xl">
+                    <button class="w-full cursor-pointer rounded-xl bg-black px-3 py-3 font-light text-white hover:bg-neutral-900">Try Web Demo</button>
                 </div>
+                <button class="mt-5 mb-5 flex cursor-pointer justify-center rounded-xl bg-white px-3 py-3 text-black hover:bg-neutral-100"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
             </div>
-        </div>
+
+            <div class="flex flex-col border-b border-neutral-800 pb-5">
+                <a href="/#about" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white">About</a>
+                <a href="/#content" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white">Content</a>
+                <a href="/pricing/#faq" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white">Faq</a>
+                <a href="/pricing/" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white">Pricing</a>
+            </div>
+        </nav>
     </div>
-</section>
+</header>
 
 <script>
-    import Atropos from 'atropos'
-    // Initialize
-    Atropos({
-        el: '.container1',
-        // rest of parameters
-        highlight: true,
-        shadow: false,
+    const menu = document.getElementById('headerMenu')!
+    const menuToggleButton = document.getElementById('toggle-menu-button')!
+    const menuToggle = document.getElementById('toggle-menu')!
+
+    const closeImage = document.getElementById('closeImage')!
+    const menuImage = document.getElementById('menuImage')!
+
+    setMenuStyle()
+
+    window.addEventListener('scroll', () => {
+        setMenuStyle()
+    })
+
+    function setMenuStyle() {
+        if (window.scrollY > 80) {
+            menu.style.backgroundColor = 'black'
+            menu.style.borderBottom = '1px solid oklch(0.269 0 0)'
+        } else {
+            menu.style.backgroundColor = 'transparent'
+            menu.style.borderBottom = 'none'
+        }
+    }
+
+    menuToggleButton.addEventListener('click', () => {
+        const isMenuDisplayed = menuToggle.classList.contains('flex')
+        if (!isMenuDisplayed) {
+            menuToggle.classList.add('flex')
+            menuToggle.classList.remove('hidden')
+        } else {
+            menuToggle.classList.add('hidden')
+            menuToggle.classList.remove('flex')
+        }
+
+        if (closeImage.style.display === 'none') {
+            closeImage.style.display = 'block'
+            menuImage.style.display = 'none'
+        } else {
+            closeImage.style.display = 'none'
+            menuImage.style.display = 'block'
+        }
     })
 </script>
-
-<style>
-    .atropos {
-        width: 100%;
-        height: 100%;
-    }
-</style>
