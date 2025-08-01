@@ -7,25 +7,25 @@ import logo from '../assets/logo.webp'
 ---
 
 <header class=" fixed flex w-[100vw] justify-center p-2 px-6 z-20 animate-fade-in-3" id="headerMenu">
-    <div class="flex w-full max-w-[1200px] items-center">
-        <a href="/" class="absolute"><Image src={logo} alt="logo" class="w-[160px]" /></a>
-        <nav class="text-md m-auto hidden gap-3 font-medium text-neutral-400 lg:flex">
-            <a href="/#about" class="cursor-pointer rounded-lg px-3 py-2 hover:scale-110">About</a>
+    <div class="flex justify-between w-full max-w-[1200px] items-center">
+        <a href="/" class="  border-white"><Image src={logo} alt="logo" class="w-[160px]" /></a>
+        <nav class=" text-md  hidden gap-3 font-normal text-neutral-400 lg:flex">
+            <a href="/#about" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">About</a>
             <a href="/#content" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Content</a>
-            <a href="/pricing/#faq" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Faq</a>
-            <a href="/pricing" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Pricing</a>
+            <a href="/#faq" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Faq</a>
+            <!-- <a href="/pricing" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Pricing</a> -->
         </nav>
-        <nav class="hidden gap-3 lg:flex">
+        <nav class=" border-white hidden gap-3 lg:flex">
             <div class="backgroundStyle rounded-full">
-                <button class="font-base cursor-pointer rounded-full bg-black px-3 py-2 text-white hover:bg-neutral-900">Try Web Demo</button>
+                <button class="font-light text-sm cursor-pointer rounded-full bg-black px-3 py-1 text-white hover:bg-neutral-900">Try Web Demo</button>
             </div>
-            <button class="flex cursor-pointer items-center rounded-full bg-white px-3 py-1 text-sm font-medium hover:bg-neutral-100"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
+            <button class="flex cursor-pointer items-center rounded-full bg-white px-3 py-1 text-sm font-normal hover:bg-neutral-100"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
         </nav>
         <nav class="ml-auto inline cursor-pointer rounded-md border border-neutral-800 lg:hidden" id="toggle-menu-button">
             <Image alt="menu icon" src={menu} width={40} height={40} id="menuImage" />
             <Image alt="close icon" src={close} width={40} height={40} id="closeImage" style={{ display: 'none' }} />
         </nav>
-        <nav class="absolute top-14 left-0 hidden w-full flex-col bg-black px-3 text-lg text-neutral-400 lg:hidden" id="toggle-menu">
+        <nav class=" absolute top-14 left-0 hidden w-full flex-col bg-black px-3 text-lg text-neutral-400 lg:hidden" id="toggle-menu">
             <div class="flex flex-col border-t border-neutral-800 pt-5">
                 <div class="backgroundStyle rounded-xl">
                     <button class="w-full cursor-pointer rounded-xl bg-black px-3 py-3 font-light text-white hover:bg-neutral-900">Try Web Demo</button>
