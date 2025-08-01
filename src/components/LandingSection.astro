@@ -1,6 +1,7 @@
 ---
 import Image from 'astro/components/Image.astro'
 import platformImage from '../assets/platform.avif'
+import dark from '../assets/dark.png'
 import downloadIcon from '../assets/download.svg'
 import glow from '../assets/glow.webp'
 ---
@@ -18,10 +19,10 @@ import glow from '../assets/glow.webp'
         </div>
         <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 text-center font-medium"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download</button>
     </div>
-    <div class="pointer-events-none absolute inset-0 top-[30%] flex transform-gpu opacity-20 max-[520px]:top-[50%]">
+    <!-- <div class="pointer-events-none absolute inset-0 top-[30%] flex transform-gpu opacity-20 max-[520px]:top-[50%]">
         <Image src={glow} alt="gradient blur " class="pointer-events-none w-full scale-175 max-[520px]:scale-[300%]" />
-    </div>
+    </div> -->
     <div class="z-10 m-auto max-w-[1200px] overflow-hidden rounded-xl border border-neutral-800 bg-black max-[1200px]:w-[90%] max-[600px]:w-[95%] max-[600px]:rounded-lg">
-        <Image priority class="" src={platformImage} alt="landing image" width="2878" height="1800" />
+        <Image priority class="" src={dark} alt="landing image" width="2878" height="1800" />
     </div>
 </section>
