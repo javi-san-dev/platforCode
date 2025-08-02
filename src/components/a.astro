@@ -1,3 +1,8 @@
+---
+import Image from 'astro/components/Image.astro';
+import animation from '../assets/animation.avif';
+---
+
 <section class="my-20 px-3">
     <div class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col max-[900px]:p-20 max-[700px]:p-10 max-[500px]:p-4">
         <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:text-center">
@@ -7,7 +12,9 @@
             <p class="font-base font-light px-10 text-lg text-balance text-neutral-400 max-[1000px]:px-5">Learning <span class="title">algorithms</span> can be challenging and tedious when relying solely on books. A better approach involves visualizing <span class="title">algorithms</span> through professional animations and actively coding solutions, emphasizing <span class="text-white">practice over passive reading.</span></p>
         </div>
         <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
-            <div class="a bg-black relative m-auto aspect-video w-[90%] overflow-hidden border border-amber-400 max-[900px]:w-[100%]"></div>
+            <div class="a bg-black relative m-auto aspect-video w-[90%] overflow-hidden border border-amber-400 max-[900px]:w-[100%]">
+                <Image src={animation} alt="Animation" class="w-full h-full object-cover" />
+            </div>
         </div>
     </div>
 </section>
