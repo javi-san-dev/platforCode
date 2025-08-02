@@ -1,16 +1,14 @@
 ---
 import Image from 'astro/components/Image.astro'
+
 import challenge1 from '../assets/challenge1.avif'
 import challenge2 from '../assets/challenge2.avif'
-import challenge11 from '../assets/challenge1.2.png'
-import challenge22 from '../assets/challenge2.2.png'
-import code from '../assets/code2.png'
-import test from '../assets/test.png'
-import test2 from '../assets/test2.png'
-import dark from '../assets/dark.png'
-import light from '../assets/light.png'
+import code from '../assets/code.avif'
+import test from '../assets/test.avif'
+import test2 from '../assets/test2.avif'
+import dark from '../assets/dark.avif'
+import light from '../assets/light.avif'
 import Carrousel from './carrousel.astro'
-import Carrousel2 from './carrousel2.astro'
 ---
 
 <section class="px-3 py-20" id="content">
@@ -91,17 +89,17 @@ import Carrousel2 from './carrousel2.astro'
                             >Hard</span
                         > difficulty tiers.
                     </p>
-                    <Carrousel2 />
+                    <Carrousel />
                 </div>
                 <div class="relative flex flex-1 items-center justify-end max-[1000px]:mt-5 max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[0%]">
                     <div class="absolute w-[60%] translate-x-[-70%] translate-y-[-10%] rotate-[-4deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge11} alt="landing image" width="1790" height="1354" />
+                        <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
                     </div>
                     <div class="absolute w-[60%] translate-x-[-35%] translate-y-[0px] rotate-[-2deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge22} alt="landing image" width="1790" height="1354" />
+                        <Image class="rounded-lg" src={challenge2} alt="landing image" width="1790" height="1354" />
                     </div>
                     <div class="w-[60%] translate-y-[10%] rotate-[-0deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge11} alt="landing image" width="1790" height="1354" />
+                        <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
                     </div>
                 </div>
             </div>

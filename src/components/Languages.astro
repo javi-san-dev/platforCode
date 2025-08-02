@@ -1,16 +1,13 @@
 ---
 import Image from 'astro/components/Image.astro'
-import challenge1 from '../assets/challenge1.avif'
-import challenge2 from '../assets/challenge2.avif'
-import { Code } from 'astro:components'
 import javaIcon from '../assets/java.svg'
 import pythonIcon from '../assets/python.svg'
 import javaScriptIcon from '../assets/javascript.svg'
-import glow from '../assets/glow.webp'
 ---
 
-<section class="aa m-auto my-20 border-b border-neutral-800 px-3 text-white relative overflow-hidden" id="languages">
-    <div class="m-auto flex max-w-[1200px] flex-col px-10 py-20 pb-40 text-center text-3xl text-white max-[900px]:px-3">
+<section class="aa m-auto my-0 border-y border-neutral-800 px-3 text-white relative overflow-hidden py-20" id="languages">
+    
+    <div class="m-auto border-x border-neutral-800 flex max-w-[1200px] flex-col px-10 py-20 pb-20 text-center text-3xl text-white max-[900px]:px-3">
         <h1 class="mb-10 text-5xl text-balance text-white max-[900px]:text-5xl max-[700px]:text-4xl">
             Chose a programming <span class="title">language</span>
         </h1>
@@ -18,7 +15,7 @@ import glow from '../assets/glow.webp'
 
         <div class="relative flex justify-center gap-5 max-[900px]:gap-2 z-10">
             <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-black p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
+                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
                     <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={javaScriptIcon} alt="landing image" />
                     <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden">Javascript 🌐</h1>
                     <h1 class="mt-10 text-base min-[500px]:hidden">Javascript</h1>
@@ -28,7 +25,7 @@ import glow from '../assets/glow.webp'
                 </div>
             </div>
             <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-950 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
+                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
                     <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={pythonIcon} alt="landing image" width="100" height="100" />
                     <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Python 🐍</h1>
                     <h1 class="mt-10 text-base min-[500px]:hidden">Python</h1>
@@ -40,7 +37,7 @@ import glow from '../assets/glow.webp'
             </div>
 
             <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-950 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
+                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
                     <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={javaIcon} alt="landing image" width="100" height="100" />
                     <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Java ☕</h1>
                     <h1 class="mt-10 text-base min-[500px]:hidden">Java</h1>
