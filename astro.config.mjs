@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { URL } from "./src/consts/pageTitles"
 
-import vercelStatic from '@astrojs/vercel/static';
+import vercelServerless from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +22,6 @@ export default defineConfig({
 
   site: URL,
   integrations: [sitemap()],
-  output: 'static',
-  adapter: vercelStatic(),
+  output: 'server',
+  adapter: vercelServerless(),
 });
