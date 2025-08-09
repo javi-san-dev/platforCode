@@ -64,13 +64,18 @@ export async function POST({ request }) {
 
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-    resend.emails.send({
-      from: 'onboarding@resend.dev',
-      // to: userData.email,
-      to: "javier.san.mail@gmail.com",
+    const { data, error } = await resend.emails.send({
+      from: 'Acme <onboarding@resend.dev>',
+      to: ['javier.san.mail@gmail.com'],
       subject: 'Verification Email',
       html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.otpCode}</strong></p>`,
     });
+
+    if (error) {
+      return console.error({ error });
+    }
+
+    console.log({ data });
 
     return new Response(
       JSON.stringify({ message: "User data saved successfully." }),
