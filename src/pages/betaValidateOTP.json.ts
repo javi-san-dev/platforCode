@@ -1,7 +1,6 @@
 export const prerender = false;
 
 import { list, put, BlobNotFoundError } from '@vercel/blob';
-import { isValid } from 'astro:schema';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -24,10 +23,12 @@ export async function POST({ request }) {
             );
         }
 
-        const allBlobs = await list({ prefix: 'users/' });
-        const user = allBlobs.find(blob => blob.pathname === `users/${userData.email}.json`);
-
-
+        const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
+        const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${userData.email}.json`);
+        const fileUrl = userFile.url;
+        const res = await fetch(fileUrl);
+        const user = await res.json(); // si es JSON
+        console.log(user);
         // 2. Comprobar si el usuario existe
         if (!user) {
             return new Response(
@@ -66,7 +67,8 @@ export async function POST({ request }) {
         await put(`users/${userData.email}.json`, JSON.stringify(updateUserData), {
             access: 'public',
             addRandomSuffix: false,
-            allowOverwrite: false
+            allowOverwrite: true,
+            token: import.meta.env.BLOB_READ_WRITE_TOKEN
         });
         console.log('User data updated with license key:', updateUserData);
 
@@ -95,3 +97,21 @@ export async function POST({ request }) {
         );
     }
 }
+
+/**
+ async function name() {
+  const userData = {
+      otpCode: Number("951688"),
+        email: "javi@mail.com",
+  }
+  const response = await fetch('http://192.168.0.181:4321/betaValidateOTP.json', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+        body: JSON.stringify(userData),
+  });
+  const data = await response.json();
+  console.log('Response from server:', data);
+}
+ */

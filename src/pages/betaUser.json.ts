@@ -42,11 +42,13 @@ export async function POST({ request }) {
     }
 
     // 5. Generar OTP en servidor (ignorar si lo envían)
-    userData.otpCode = Math.floor(100000 + Math.random() * 900000);
+    userData.otpCode = Math.floor(100000 + Math.random() * 900000)
+
+  
 
     // 6. Comprobar si el email ya existe
     const filename = `users/${userData.email}.json`;
-    const existing = await list({ prefix: filename, limit: 1 });
+    const existing = await list({ prefix: filename, limit: 1, token: import.meta.env.BLOB_READ_WRITE_TOKEN });
     if (existing.blobs.length > 0) {
       return new Response(
         JSON.stringify({ message: "Email already exists." }),
@@ -58,7 +60,8 @@ export async function POST({ request }) {
     await put(filename, JSON.stringify(userData), {
       access: 'public',
       addRandomSuffix: false,
-      allowOverwrite: false
+      allowOverwrite: false,
+      token: import.meta.env.BLOB_READ_WRITE_TOKEN
     });
 
 
@@ -98,7 +101,7 @@ export async function POST({ request }) {
       name: "javi san",
       email: "javi@mail.com"
   }
-  const response = await fetch('https://platforcode.vercel.app/betaUser.json', {
+  const response = await fetch('http://192.168.0.181:4321/betaUser.json', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
