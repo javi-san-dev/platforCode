@@ -46,13 +46,13 @@ export async function POST({ request }) {
 
         if (user.licenseKey) {
             return new Response(
-                JSON.stringify({ message: "User alrady validated." }),
+                JSON.stringify({ message: "User already validated." }),
                 { status: 400, headers: { 'Content-Type': 'application/json' } }
             );
         }
 
         // 4. Generar license key única
-        const licenseKey = uuidv4().toUpperCase(); // Ejemplo: "550E8400-E29B-41D4-A716-446655440000"
+        const licenseKey = uuidv4().toUpperCase();
 
         const updateUserData = {
             name: user.name,
@@ -89,7 +89,7 @@ export async function POST({ request }) {
             });
         }
         return new Response(
-            JSON.stringify({ message: "An error occurred." }),
+            JSON.stringify({ message: "An error occurred.", error: error }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
     }
