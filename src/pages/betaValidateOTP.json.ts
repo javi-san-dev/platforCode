@@ -51,9 +51,10 @@ export async function POST({ request }) {
             );
         }
 
+        console.log('User found:', user);
         // 4. Generar license key única
         const licenseKey = uuidv4().toUpperCase();
-
+        console.log('Generated license key:', licenseKey);
         const updateUserData = {
             name: user.name,
             email: user.email,
@@ -67,7 +68,7 @@ export async function POST({ request }) {
             addRandomSuffix: false,
             allowOverwrite: false
         });
-
+        console.log('User data updated with license key:', updateUserData);
 
         // 6. Responder con éxito
         return new Response(
