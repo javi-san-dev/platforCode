@@ -1,8 +1,7 @@
 export const prerender = false;
 
-import { list, put, BlobNotFoundError, head } from '@vercel/blob';
+import { list, put, BlobNotFoundError } from '@vercel/blob';
 import { v4 as uuidv4 } from 'uuid';
-import challengesData from '../data/challenges.json';
 import { z } from 'zod';
 
 // --- Esquemas de Validación y Tipos ---
@@ -125,7 +124,12 @@ export async function POST({ request }) {
  * @returns Un string en base64 que contiene el IV y los datos encriptados.
  */
 async function encryptChallengesData(licenseKey: string, machineId: string): Promise<string> {
-    const jsonString = JSON.stringify(challengesData);
+    const allBlobs = await list({ prefix: 'challenges/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
+    const userFile = allBlobs.blobs.find(blob => blob.pathname === `challenges/challenges.json`);
+    const fileUrl = userFile.url;
+    const res = await fetch(fileUrl);
+    const resData = await res.json();
+    const jsonString = JSON.stringify(resData);
     const data = new TextEncoder().encode(jsonString);
 
     // 1. Derivar una clave criptográfica robusta desde el material de la clave (PBKDF2)
