@@ -50,22 +50,25 @@ export async function POST({ request }) {
         }
         const { email, activationKey, machineId } = validationResult.data;
         const userBlobPath = `users/${email}.json`;
+        console.log("2. Parsear y validar datos:", email, activationKey, machineId);
 
         // -------------- 3. Comprobar si el usuario existe en el blobs -------------- 
-        const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
-        const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${userData.email}.json`);
-        const fileUrl = userFile.url;
-        const res = await fetch(fileUrl);
-        const user = await res.json();
-        if (!user) {
+        try {
+            const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
+            const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${email}.json`);
+            const fileUrl = userFile.url;
+            const res = await fetch(fileUrl);
+            const user = await res.json();
+        } catch (error) {
             return new Response(
-                JSON.stringify({ message: "User not found." }),
+                JSON.stringify({ message: "User not found.", error }),
                 { status: 404, headers: { 'Content-Type': 'application/json' } }
             );
         }
+        console.log("3. Comprobar si el usuario existe en el blobs:", user);
 
         // -------------- 4. Comprobar activationKey -------------- 
-        if (user.activationKey !== activationKey) {
+        if (String(user.activationKey) !== activationKey) {
             return new Response(
                 JSON.stringify({ message: "Invalid Key." }),
                 { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -88,9 +91,11 @@ export async function POST({ request }) {
             allowOverwrite: true,
             token: import.meta.env.BLOB_READ_WRITE_TOKEN
         });
+        console.log("6. Guardar license key en el blob:", updatedUserData);
 
         // -------------- 7. Encripatcion datos --------------
         const encryptedChallenges = await encryptChallengesData(licenseKey, machineId);
+        console.log("7. Encriptar datos:")
         // -------------- 7. Responder con éxito --------------
         return new Response(
             JSON.stringify({
@@ -111,7 +116,8 @@ export async function POST({ request }) {
                 }
             });
         }
-        return new Response(JSON.stringify({ message: "An internal server error occurred." }), { status: 500 });;
+
+        return new Response(JSON.stringify({ message: "An internal server error occurred.", error }), { status: 500 });;
     }
 }
 
