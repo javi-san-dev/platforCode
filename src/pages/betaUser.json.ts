@@ -42,9 +42,7 @@ export async function POST({ request }) {
     }
 
     // 5. Generar OTP en servidor (ignorar si lo envían)
-    userData.otpCode = Math.floor(100000 + Math.random() * 900000)
-
-  
+    userData.activationKey = Math.floor(100000 + Math.random() * 900000)
 
     // 6. Comprobar si el email ya existe
     const filename = `users/${userData.email}.json`;
@@ -71,14 +69,12 @@ export async function POST({ request }) {
       from: 'Acme <onboarding@resend.dev>',
       to: ['javier.san.mail@gmail.com'],
       subject: 'Verification Email',
-      html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.otpCode}</strong></p>`,
+      html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.activationKey}</strong></p>`,
     });
 
     if (error) {
       return console.error({ error });
     }
-
-    console.log({ data });
 
     return new Response(
       JSON.stringify({ message: "User data saved successfully." }),
