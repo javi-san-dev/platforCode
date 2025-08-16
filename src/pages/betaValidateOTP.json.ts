@@ -1,12 +1,38 @@
 export const prerender = false;
 
-import { list, put, BlobNotFoundError } from '@vercel/blob';
+import { list, put, BlobNotFoundError, head } from '@vercel/blob';
 import { v4 as uuidv4 } from 'uuid';
+import challengesData from '../data/challenges.json';
+import { z } from 'zod';
 
+// --- Esquemas de Validación y Tipos ---
+
+// MEJORA: Se usa Zod para una validación de entrada robusta y clara.
+const UserDataSchema = z.object({
+    activationKey: z.string().min(1, { message: "Activation key cannot be empty" }),
+    email: z.string().email({ message: "Invalid email format" }),
+    machineId: z.string().min(1, { message: "Machine ID cannot be empty" }),
+});
+
+// MEJORA: Se define un tipo estricto para los datos almacenados en el blob.
+interface StoredUserData {
+    name: string;
+    email: string;
+    activationKey: string;
+    isValidated: boolean;
+    licenseKey?: string;
+    machineId?: string;
+}
+
+interface UserData {
+    activationKey: string;
+    email: string;
+    machineId?: string;
+}
 
 export async function POST({ request }) {
     try {
-        // 1. Validar Content-Type
+        // -------------- 1. Validar Content-Type -------------- 
         if (request.headers.get('content-type') !== 'application/json') {
             return new Response(
                 JSON.stringify({ message: "Content-Type must be application/json" }),
@@ -14,22 +40,24 @@ export async function POST({ request }) {
             );
         }
 
-        // 2. Parsear y validar datos
-        const userData = await request.json();
-        if (!userData?.otpCode) {
-            return new Response(
-                JSON.stringify({ message: "OTP code is required." }),
-                { status: 400, headers: { 'Content-Type': 'application/json' } }
-            );
+        // -------------- 2. Parsear y validar datos -------------- 
+        const body = await request.json();
+        const validationResult = UserDataSchema.safeParse(body);
+        if (!validationResult.success) {
+            return new Response(JSON.stringify({
+                message: "Incorrect request data",
+                errors: validationResult.error.flatten()
+            }), { status: 400 });
         }
+        const { email, activationKey, machineId } = validationResult.data;
+        const userBlobPath = `users/${email}.json`;
 
+        // -------------- 3. Comprobar si el usuario existe en el blobs -------------- 
         const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
         const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${userData.email}.json`);
         const fileUrl = userFile.url;
         const res = await fetch(fileUrl);
-        const user = await res.json(); // si es JSON
-        console.log(user);
-        // 2. Comprobar si el usuario existe
+        const user = await res.json();
         if (!user) {
             return new Response(
                 JSON.stringify({ message: "User not found." }),
@@ -37,47 +65,40 @@ export async function POST({ request }) {
             );
         }
 
-        // 3. Comprobar si el OTP es correcto
-        if (user.otpCode !== userData.otpCode) {
+        // -------------- 4. Comprobar activationKey -------------- 
+        if (user.activationKey !== activationKey) {
             return new Response(
-                JSON.stringify({ message: "Invalid OTP code." }),
+                JSON.stringify({ message: "Invalid Key." }),
                 { status: 400, headers: { 'Content-Type': 'application/json' } }
             );
         }
 
-        if (user.licenseKey) {
-            return new Response(
-                JSON.stringify({ message: "User already validated." }),
-                { status: 400, headers: { 'Content-Type': 'application/json' } }
-            );
-        }
-
-        console.log('User found:', user);
-        // 4. Generar license key única
+        // -------------- 5. Generar license key única -------------- 
         const licenseKey = uuidv4().toUpperCase();
-        console.log('Generated license key:', licenseKey);
-        const updateUserData = {
-            name: user.name,
-            email: user.email,
-            isValidated: true,
-            licenseKey
-        }
 
-        // 5. Guardar license key en un blob
-        await put(`users/${userData.email}.json`, JSON.stringify(updateUserData), {
+        // -------------- 6. Guardar license key en el blob -------------- 
+        const updatedUserData: StoredUserData = {
+            ...user,
+            isValidated: true,
+            licenseKey,
+            machineId,
+        };
+        await put(userBlobPath, JSON.stringify(updatedUserData), {
             access: 'public',
             addRandomSuffix: false,
             allowOverwrite: true,
             token: import.meta.env.BLOB_READ_WRITE_TOKEN
         });
-        console.log('User data updated with license key:', updateUserData);
 
-        // 6. Responder con éxito
+        // -------------- 7. Encripatcion datos --------------
+        const encryptedChallenges = await encryptChallengesData(licenseKey, machineId);
+        // -------------- 7. Responder con éxito --------------
         return new Response(
             JSON.stringify({
-                message: "OTP validated successfully.",
+                message: "validated successfully.",
                 validation: true,
-                licenseKey
+                licenseKey,
+                challengesData: encryptedChallenges,
             }),
             { status: 200, headers: { 'Content-Type': 'application/json' } }
         );
@@ -91,17 +112,69 @@ export async function POST({ request }) {
                 }
             });
         }
-        return new Response(
-            JSON.stringify({ message: "An error occurred.", error: error }),
-            { status: 500, headers: { 'Content-Type': 'application/json' } }
-        );
+        return new Response(JSON.stringify({ message: "An internal server error occurred." }), { status: 500 });;
     }
+}
+
+
+/**
+ * MEJORA: Encripta datos usando la Web Crypto API con AES-GCM, el estándar moderno.
+ * Deriva una clave segura usando PBKDF2.
+ * @param licenseKey - La clave de licencia.
+ * @param machineId - El ID de la máquina.
+ * @returns Un string en base64 que contiene el IV y los datos encriptados.
+ */
+async function encryptChallengesData(licenseKey: string, machineId: string): Promise<string> {
+    const jsonString = JSON.stringify(challengesData);
+    const data = new TextEncoder().encode(jsonString);
+
+    // 1. Derivar una clave criptográfica robusta desde el material de la clave (PBKDF2)
+    const salt = new TextEncoder().encode(machineId); // Usar machineId como salt es razonable aquí
+    const baseKey = await crypto.subtle.importKey(
+        'raw',
+        new TextEncoder().encode(licenseKey),
+        { name: 'PBKDF2' },
+        false,
+        ['deriveKey']
+    );
+
+    const cryptoKey = await crypto.subtle.deriveKey(
+        {
+            name: 'PBKDF2',
+            salt: salt,
+            iterations: 100000,
+            hash: 'SHA-256',
+        },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        true,
+        ['encrypt']
+    );
+
+    // 2. Encriptar los datos con AES-GCM
+    const iv = crypto.getRandomValues(new Uint8Array(12)); // IV de 12 bytes para AES-GCM
+    const encryptedData = await crypto.subtle.encrypt(
+        {
+            name: 'AES-GCM',
+            iv: iv,
+        },
+        cryptoKey,
+        data
+    );
+
+    // 3. Combinar IV y datos encriptados para su almacenamiento/transmisión
+    const ivAndEncryptedData = new Uint8Array(iv.length + encryptedData.byteLength);
+    ivAndEncryptedData.set(iv, 0);
+    ivAndEncryptedData.set(new Uint8Array(encryptedData), iv.length);
+
+    // Convertir a Base64 para una transmisión segura como string
+    return Buffer.from(ivAndEncryptedData).toString('base64');
 }
 
 /**
  async function name() {
   const userData = {
-      otpCode: Number("951688"),
+      activationKey: Number("951688"),
         email: "javi@mail.com",
   }
   const response = await fetch('http://192.168.0.181:4321/betaValidateOTP.json', {
@@ -115,3 +188,5 @@ export async function POST({ request }) {
   console.log('Response from server:', data);
 }
  */
+
+
