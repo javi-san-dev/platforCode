@@ -57,14 +57,14 @@ export async function POST({ request }) {
         const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
         const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${email}.json`);
         const fileUrl = userFile.url;
-        const res = await fetch(fileUrl);
-        const user = await res.json();
-        if (!user) {
+        if (!fileUrl) {
             return new Response(
                 JSON.stringify({ message: "User not found." }),
                 { status: 404, headers: { 'Content-Type': 'application/json' } }
             );
         }
+        const res = await fetch(fileUrl);
+        const user = await res.json();
         console.log("3. Comprobar si el usuario existe en el blobs:", user);
 
         // -------------- 4. Comprobar activationKey -------------- 
