@@ -53,18 +53,18 @@ export async function POST({ request }) {
         console.log("2. Parsear y validar datos:", email, activationKey, machineId);
 
         // -------------- 3. Comprobar si el usuario existe en el blobs -------------- 
-
         const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
         const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${email}.json`);
         const fileUrl = userFile.url;
-        if (!fileUrl) {
-            return new Response(
-                JSON.stringify({ message: "User not found." }),
-                { status: 404, headers: { 'Content-Type': 'application/json' } }
-            );
-        }
+        // if (userFile) {
+        //     return new Response(
+        //         JSON.stringify({ message: "User not found." }),
+        //         { status: 404, headers: { 'Content-Type': 'application/json' } }
+        //     );
+        // }
         const res = await fetch(fileUrl);
-        const user = await res.json();
+        const userText = await res.text();
+        const user = JSON.parse(userText);
         console.log("3. Comprobar si el usuario existe en el blobs:", user);
 
         // -------------- 4. Comprobar activationKey -------------- 
@@ -116,7 +116,7 @@ export async function POST({ request }) {
                 }
             });
         }
-
+        console.log(error)
         return new Response(JSON.stringify({ message: "An internal server error occurred.", error }), { status: 500 });;
     }
 }
