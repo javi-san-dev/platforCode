@@ -53,15 +53,15 @@ export async function POST({ request }) {
         console.log("2. Parsear y validar datos:", email, activationKey, machineId);
 
         // -------------- 3. Comprobar si el usuario existe en el blobs -------------- 
-        try {
-            const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
-            const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${email}.json`);
-            const fileUrl = userFile.url;
-            const res = await fetch(fileUrl);
-            const user = await res.json();
-        } catch (error) {
+
+        const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
+        const userFile = allBlobs.blobs.find(blob => blob.pathname === `users/${email}.json`);
+        const fileUrl = userFile.url;
+        const res = await fetch(fileUrl);
+        const user = await res.json();
+        if (!user) {
             return new Response(
-                JSON.stringify({ message: "User not found.", error }),
+                JSON.stringify({ message: "User not found." }),
                 { status: 404, headers: { 'Content-Type': 'application/json' } }
             );
         }
