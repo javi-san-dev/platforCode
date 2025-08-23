@@ -1,59 +1,71 @@
 ---
-import '../styles/global.css'
-import Footer from '../components/Footer.astro'
-import { fixedTitle } from '../consts/pageTitles'
-import { URL } from '../consts/pageTitles'
-import Header from '../components/Header.astro'
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import { fixedTitle } from '../consts/pageTitles';
+import { URL } from '../consts/pageTitles';
+import Header from '../components/Header.astro';
 
-const { title = fixedTitle } = Astro.props
+const { title = fixedTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="dark" id="htmlElement">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+      <meta name="generator" content={Astro.generator} />
+      <title>{title}</title>
 
-        <meta name="description" content="Desktop platform for macOS, Windows and Linux to increase your algorithms skills" />
-        <meta property="og:url" content={URL} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="PlatforCode - Algorithms platform for macOS, Windows and Linux" />
-        <meta property="og:description" content="Desktop platform for macOS, Windows and Linux to increase your algorithms skills" />
-        <meta property="og:image" content={URL} />
-        <meta property="og:locale" content="en_EN" />
-        <meta property="og:site_name" content="PlatforCode" />
+      <meta
+         name="description"
+         content="Desktop platform for macOS, Windows and Linux to increase your algorithms skills"
+      />
+      <meta property="og:url" content={URL} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="PlatforCode - Algorithms platform for macOS, Windows and Linux" />
+      <meta
+         property="og:description"
+         content="Desktop platform for macOS, Windows and Linux to increase your algorithms skills"
+      />
+      <meta property="og:image" content={URL} />
+      <meta property="og:locale" content="en_EN" />
+      <meta property="og:site_name" content="PlatforCode" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-        <Header />
-        <main>
-            <!-- <div class="absolute h-screen w-screen bg-black"><div class="absolute top-0 right-0 bottom-0 left-0 bg-[linear-gradient(to_right,#6969692e_1px,transparent_1px),linear-gradient(to_bottom,#6969692e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div></div> -->
-            <slot />
-        </main>
-        <Footer />
-    </body>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+         rel="stylesheet"
+      />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body>
+      <Header />
+      <main>
+         <!-- <div class="absolute h-screen w-screen bg-black"><div class="absolute top-0 right-0 bottom-0 left-0 bg-[linear-gradient(to_right,#6969692e_1px,transparent_1px),linear-gradient(to_bottom,#6969692e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div></div> -->
+         <slot />
+      </main>
+      <Footer />
+   </body>
 </html>
 
 <style>
-    html,
-    body {
-        background: black;
-        font-family:
-            Rubik,
-            ui-sans-serif,
-            system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto;
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
+   html,
+   body {
+      background: black;
+      font-family:
+         Rubik,
+         ui-sans-serif,
+         system-ui,
+         -apple-system,
+         BlinkMacSystemFont,
+         Segoe UI,
+         Roboto;
+      max-width: 100vw;
+      overflow-x: hidden;
+   }
 </style>

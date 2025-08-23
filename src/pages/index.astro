@@ -1,29 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import LandingSection from '../components/LandingSection.astro'
-import About from '../components/About.astro'
-import Content from '../components/Content.astro'
-import JoinBox from '../components/JoinBox.astro'
-import A from '../components/a.astro'
-import Languages from '../components/Languages.astro'
-import Testimonials from '../components/Testimonials.astro'
-import { fixedTitle } from '../consts/pageTitles'
-import Faq from '../components/Faq.astro'
+import Layout from '../layouts/Layout.astro';
+import LandingSection from '../components/LandingSection.astro';
+import About from '../components/About.astro';
+import Content from '../components/Content.astro';
+import JoinBox from '../components/JoinBox.astro';
+import A from '../components/a.astro';
+import Languages from '../components/Languages.astro';
+import Testimonials from '../components/Testimonials.astro';
+import { fixedTitle } from '../consts/pageTitles';
+import Faq from '../components/Faq.astro';
 
-export const prerender = true
-
+export const prerender = true;
 ---
 
 <Layout title={fixedTitle}>
-    <div style="transform-gpu transform: translateY(-28.8927px); perspective-origin: 50% 14.5px; opacity: 0.992599; z-index: 0; top: 20vh;" class="starfield-container fixed">
-        <div class="transform-gpu starfield"></div>
-    </div>
-    <LandingSection />
-    <About />
-    <A />
-    <Languages />
-    <Content />
-    <!-- <Testimonials /> -->
-    <JoinBox />
-    <Faq />
+   <div
+      style="transform-gpu transform: translateY(-28.8927px); perspective-origin: 50% 14.5px; opacity: 0.992599; z-index: 0; top: 20vh;"
+      class="starfield-container fixed"
+   >
+      <div class="starfield transform-gpu"></div>
+   </div>
+   <LandingSection />
+   <About />
+   <A />
+   <Languages />
+   <Content />
+   <!-- <Testimonials /> -->
+   <JoinBox />
+   <Faq />
 </Layout>

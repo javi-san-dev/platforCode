@@ -1,23 +1,39 @@
 ---
-import Image from 'astro/components/Image.astro'
-import downloadIcon from '../assets/download.svg'
-import glow from '../assets/glow.webp'
+import Image from 'astro/components/Image.astro';
+import downloadIcon from '../assets/download.svg';
+import glow from '../assets/glow.webp';
 ---
 
-<div aria-hidden="true" class="center pointer-events-none m-auto my-10 h-px w-[600px] max-w-full" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%);"></div>
+<div
+   aria-hidden="true"
+   class="center pointer-events-none m-auto my-10 h-px w-[600px] max-w-full"
+   style="background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%);"
+>
+</div>
 
-<section class="m-auto relative flex items-center justify-center px-3 py-50 text-white overflow-hidden">
-    <div class="flex max-w-[900px] flex-col items-center px-10 text-center max-[1050px]:w-full">
-        <div class="mb-10 flex-2">
-            <h1 class="text-3xl font-light text-balance max-[1050px]:text-3xl">
-                Ready to start? <span class="text-neutral-400">Invest in quality preparation and start master the art of <span class="title">algorithms</span> today!</span>
-            </h1>
-        </div>
+<section class="relative m-auto flex items-center justify-center overflow-hidden px-3 py-50 text-white">
+   <div class="flex max-w-[900px] flex-col items-center px-10 text-center max-[1050px]:w-full">
+      <div class="mb-10 flex-2">
+         <h1 class="text-3xl font-light text-balance max-[1050px]:text-3xl">
+            Ready to start? <span class="text-neutral-400"
+               >Invest in quality preparation and start master the art of <span class="title">algorithms</span> today!</span
+            >
+         </h1>
+      </div>
 
-        <div class="flex flex-1 items-center justify-center gap-3 max-[400px]:w-full max-[400px]:flex-col">
-            <button class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 font-medium text-black hover:bg-neutral-200"> <Image class="mr-2 rounded-xl text-black" src={downloadIcon} alt="landing image" width="22" height="22" />Download for Macos</button>
-            <!-- <button class="w-full cursor-pointer rounded-full border border-neutral-800 bg-black px-3 py-3 hover:bg-neutral-100">Try Web Demo</button> -->
-        </div>
-    </div>
-
+      <div class="flex flex-1 items-center justify-center gap-3 max-[400px]:w-full max-[400px]:flex-col">
+         <button
+            class="flex w-full cursor-pointer justify-center rounded-full bg-white px-8 py-3 font-medium text-black hover:bg-neutral-200"
+         >
+            <Image
+               class="mr-2 rounded-xl text-black"
+               src={downloadIcon}
+               alt="landing image"
+               width="22"
+               height="22"
+            />Download for Macos</button
+         >
+         <!-- <button class="w-full cursor-pointer rounded-full border border-neutral-800 bg-black px-3 py-3 hover:bg-neutral-100">Try Web Demo</button> -->
+      </div>
+   </div>
 </section>

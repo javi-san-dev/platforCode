@@ -1,60 +1,89 @@
 ---
-import Image from 'astro/components/Image.astro'
-import javaIcon from '../assets/java.svg'
-import pythonIcon from '../assets/python.svg'
-import javaScriptIcon from '../assets/javascript.svg'
+import Image from 'astro/components/Image.astro';
+import javaIcon from '../assets/java.svg';
+import pythonIcon from '../assets/python.svg';
+import javaScriptIcon from '../assets/javascript.svg';
 ---
 
-<section class="aa m-auto my-0 border-y border-neutral-800 px-3 text-white relative overflow-hidden py-20" id="languages">
-    
-    <div class="m-auto border-x border-neutral-800 flex max-w-[1200px] flex-col px-10 py-20 pb-20 text-center max-[600px]:text-left max-[600px]:px-10 text-3xl text-white max-[900px]:px-3">
-        <h1 class="mb-10 text-5xl text-balance text-white max-[900px]:text-5xl max-[700px]:text-4xl max-[500px]:text-3xl">
-            Chose a programming <span class="title">language</span>
-        </h1>
-        <p class="m-auto mb-20 max-w-[800px] text-2xl text-balance font-light text-neutral-400 max-[600px]:text-xl max-[500px]:text-base">Is hard to learn algorithms in a language that you don't know. We support 3 of the most used programming languages.</p>
+<section
+   class="aa relative m-auto my-0 overflow-hidden border-y border-neutral-800 px-3 py-20 text-white"
+   id="languages"
+>
+   <div
+      class="m-auto flex max-w-[1200px] flex-col border-x border-neutral-800 px-10 py-20 pb-20 text-center text-3xl text-white max-[900px]:px-3 max-[600px]:px-10 max-[600px]:text-left"
+   >
+      <h1 class="mb-10 text-5xl text-balance text-white max-[900px]:text-5xl max-[700px]:text-4xl max-[500px]:text-3xl">
+         Chose a programming <span class="title">language</span>
+      </h1>
+      <p
+         class="m-auto mb-20 max-w-[800px] text-2xl font-light text-balance text-neutral-400 max-[600px]:text-xl max-[500px]:text-base"
+      >
+         Is hard to learn algorithms in a language that you don't know. We support 3 of the most used programming
+         languages.
+      </p>
 
-        <div class="relative flex justify-center gap-5 max-[900px]:gap-2 z-10">
-            <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
-                    <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={javaScriptIcon} alt="landing image" />
-                    <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden">Javascript 🌐</h1>
-                    <h1 class="mt-10 text-base min-[500px]:hidden">Javascript</h1>
-                    <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
-                        Powering the <span class="title">web</span> with Asynchronous and Interactivity across every Platform!
-                    </p>
-                </div>
+      <div class="relative z-10 flex justify-center gap-5 max-[900px]:gap-2">
+         <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
+            <div
+               class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center"
+            >
+               <Image
+                  class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]"
+                  src={javaScriptIcon}
+                  alt="landing image"
+               />
+               <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden">Javascript 🌐</h1>
+               <h1 class="mt-10 text-base min-[500px]:hidden">Javascript</h1>
+               <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
+                  Powering the <span class="title">web</span> with Asynchronous and Interactivity across every Platform!
+               </p>
             </div>
-            <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
-                    <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={pythonIcon} alt="landing image" width="100" height="100" />
-                    <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Python 🐍</h1>
-                    <h1 class="mt-10 text-base min-[500px]:hidden">Python</h1>
-                    <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
-                        Powerful and readable language designed for simplicity. From <span class="title">web</span>
-                        Development to <span class="title">AI.</span>
-                    </p>
-                </div>
+         </div>
+         <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
+            <div
+               class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center"
+            >
+               <Image
+                  class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]"
+                  src={pythonIcon}
+                  alt="landing image"
+                  width="100"
+                  height="100"
+               />
+               <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Python 🐍</h1>
+               <h1 class="mt-10 text-base min-[500px]:hidden">Python</h1>
+               <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
+                  Powerful and readable language designed for simplicity. From <span class="title">web</span>
+                  Development to <span class="title">AI.</span>
+               </p>
             </div>
+         </div>
 
-            <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
-                <div class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center">
-                    <Image class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]" src={javaIcon} alt="landing image" width="100" height="100" />
-                    <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Java ☕</h1>
-                    <h1 class="mt-10 text-base min-[500px]:hidden">Java</h1>
-                    <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
-                        Object Oriented and Platform Independent. From Enterprise Systems to Mobile
-                        <span class="title">APPs!</span>
-                    </p>
-                </div>
+         <div class="flex flex-1 flex-col rounded-lg border border-neutral-800 p-1 text-left">
+            <div
+               class="b flex-col rounded-lg bg-neutral-900 p-5 max-[650px]:p-2 max-[500px]:flex max-[500px]:items-center max-[500px]:justify-center"
+            >
+               <Image
+                  class="w-[18%] max-[800px]:w-[30%] max-[500px]:w-[80%]"
+                  src={javaIcon}
+                  alt="landing image"
+                  width="100"
+                  height="100"
+               />
+               <h1 class="mt-10 mb-2 text-xl max-[500px]:hidden max-[500px]:text-base">Java ☕</h1>
+               <h1 class="mt-10 text-base min-[500px]:hidden">Java</h1>
+               <p class="text-sm text-balance text-neutral-400 max-[600px]:hidden">
+                  Object Oriented and Platform Independent. From Enterprise Systems to Mobile
+                  <span class="title">APPs!</span>
+               </p>
             </div>
-        </div>
-     
-    </div>
-
+         </div>
+      </div>
+   </div>
 </section>
 
 <style>
-    /* .aa {
+   /* .aa {
         background: linear-gradient(180deg, #000 30%, #111111 50%, #111111 100%);
     }
     .b {

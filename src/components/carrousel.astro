@@ -1,65 +1,65 @@
 <div class="carousel">
-    <div class="group">
-        <span class="card bg-[#d1772425] text-[#d17724]">String</span>
-        <span class="card bg-[#9162c025] text-[#9162c0]">Array</span>
-        <span class="card bg-[#449d5d25] text-[#449d5d]">Linked List</span>
-        <span class="card bg-[#3b88e925] text-[#3b88e9]">Stack & Queue</span>
-        <span class="card bg-[#e93b3b25] text-[#e93b3b]">Binary Tree</span>
-        <span class="card bg-[#d1772425] text-[#d17724]">Graph</span>
-        <span class="card bg-[#9162c025] text-[#9162c0]">Dynamic Programming</span>
-        <span class="card bg-[#449d5d25] text-[#449d5d]">Recursion</span>
-        <span class="card bg-[#3b88e925] text-[#3b88e9]">Searching</span>
-        <span class="card bg-[#e93b3b25] text-[#e93b3b]">Sorting</span>
-    </div>
-    <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
-    <div aria-hidden class="group">
-        <span class="card bg-[#d1772425] text-[#d17724]">String</span>
-        <span class="card bg-[#9162c025] text-[#9162c0]">Array</span>
-        <span class="card bg-[#449d5d25] text-[#449d5d]">Linked List</span>
-        <span class="card bg-[#3b88e925] text-[#3b88e9]">Stack & Queue</span>
-        <span class="card bg-[#e93b3b25] text-[#e93b3b]">Binary Tree</span>
+   <div class="group">
+      <span class="card bg-[#d1772425] text-[#d17724]">String</span>
+      <span class="card bg-[#9162c025] text-[#9162c0]">Array</span>
+      <span class="card bg-[#449d5d25] text-[#449d5d]">Linked List</span>
+      <span class="card bg-[#3b88e925] text-[#3b88e9]">Stack & Queue</span>
+      <span class="card bg-[#e93b3b25] text-[#e93b3b]">Binary Tree</span>
+      <span class="card bg-[#d1772425] text-[#d17724]">Graph</span>
+      <span class="card bg-[#9162c025] text-[#9162c0]">Dynamic Programming</span>
+      <span class="card bg-[#449d5d25] text-[#449d5d]">Recursion</span>
+      <span class="card bg-[#3b88e925] text-[#3b88e9]">Searching</span>
+      <span class="card bg-[#e93b3b25] text-[#e93b3b]">Sorting</span>
+   </div>
+   <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
+   <div aria-hidden class="group">
+      <span class="card bg-[#d1772425] text-[#d17724]">String</span>
+      <span class="card bg-[#9162c025] text-[#9162c0]">Array</span>
+      <span class="card bg-[#449d5d25] text-[#449d5d]">Linked List</span>
+      <span class="card bg-[#3b88e925] text-[#3b88e9]">Stack & Queue</span>
+      <span class="card bg-[#e93b3b25] text-[#e93b3b]">Binary Tree</span>
 
-        <span class="card bg-[#d1772425] text-[#d17724]">Graph</span>
-        <span class="card bg-[#9162c025] text-[#9162c0]">Dynamic Programming</span>
-        <span class="card bg-[#449d5d25] text-[#449d5d]">Recursion</span>
-        <span class="card bg-[#3b88e925] text-[#3b88e9]">Searching</span>
-        <span class="card bg-[#e93b3b25] text-[#e93b3b]">Sorting</span>
-    </div>
+      <span class="card bg-[#d1772425] text-[#d17724]">Graph</span>
+      <span class="card bg-[#9162c025] text-[#9162c0]">Dynamic Programming</span>
+      <span class="card bg-[#449d5d25] text-[#449d5d]">Recursion</span>
+      <span class="card bg-[#3b88e925] text-[#3b88e9]">Searching</span>
+      <span class="card bg-[#e93b3b25] text-[#e93b3b]">Sorting</span>
+   </div>
 </div>
 
 <style>
-    .carousel {
-        margin: 0 auto;
-        overflow: hidden;
-        display: flex;
-        width: 100%;
-        &:hover .group {
-            animation-play-state: paused;
-        }
-    }
+   .carousel {
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+      &:hover .group {
+         animation-play-state: paused;
+      }
+   }
 
-    .group {
-        display: flex;
-        gap: 20px;
-        /* Add padding to the right to create a gap between the last and first card. */
-        padding-right: 20px;
-        will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-        animation: scrolling2 35s linear infinite;
-    }
+   .group {
+      display: flex;
+      gap: 20px;
+      /* Add padding to the right to create a gap between the last and first card. */
+      padding-right: 20px;
+      will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+      animation: scrolling2 35s linear infinite;
+   }
 
-    @keyframes scrolling2 {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(0%);
-        }
-    }
+   @keyframes scrolling2 {
+      0% {
+         transform: translateX(-100%);
+      }
+      100% {
+         transform: translateX(0%);
+      }
+   }
 
-    .card {
-        border-radius: 100px;
-        padding: 5px 10px;
-        font-size: 15px;
-        white-space: nowrap;
-    }
+   .card {
+      border-radius: 100px;
+      padding: 5px 10px;
+      font-size: 15px;
+      white-space: nowrap;
+   }
 </style>

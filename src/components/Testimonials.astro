@@ -1,99 +1,115 @@
 ---
-const items = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+const items = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 ---
 
-<section class="m-auto my-20  w-full px-3 text-center text-white" id="testimonials">
-    <div aria-hidden="true" class="center pointer-events-none m-auto my-10 h-px w-[600px] max-w-full" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%);"></div>
+<section class="m-auto my-20 w-full px-3 text-center text-white" id="testimonials">
+   <div
+      aria-hidden="true"
+      class="center pointer-events-none m-auto my-10 h-px w-[600px] max-w-full"
+      style="background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%);"
+   >
+   </div>
 
-    <h1 class="mb-10 text-5xl max-[900px]:text-5xl max-[700px]:text-4xl pt-20">
-        Beyond <span class="title">expectations</span>
-    </h1>
-    <p class="m-auto mb-20 max-w-[900px] text-2xl text-balance font-light text-neutral-400">XXX is driving remarkable developer experiences that enable success stories, empower businesses, and fuel growth across industries and individuals.</p>
+   <h1 class="mb-10 pt-20 text-5xl max-[900px]:text-5xl max-[700px]:text-4xl">
+      Beyond <span class="title">expectations</span>
+   </h1>
+   <p class="m-auto mb-20 max-w-[900px] text-2xl font-light text-balance text-neutral-400">
+      XXX is driving remarkable developer experiences that enable success stories, empower businesses, and fuel growth
+      across industries and individuals.
+   </p>
 
-    <div class="carousel pb-20">
-        <ul class="group text-neutral-400">
-            {
-                items.map((item, index) => (
-                    <li class="testimonialCard">
-                        <p class="mb-6">{index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat adipisci, voluptatum iure fugiat eaque alias.</p>
-                        <div class="flex items-center">
-                            <div>
-                                <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
-                            </div>
-                            <div>
-                                <p class="text-white">Sam smith</p>
-                                <p class="text-neutral-400">Software Engineer</p>
-                            </div>
-                        </div>
-                    </li>
-                ))
-            }
-        </ul>
-        <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
-        <ul aria-hidden class="group text-neutral-400">
-            {
-                items.map((item, index) => (
-                    <li class="testimonialCard">
-                        <p class="mb-6">{index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat adipisci, voluptatum iure fugiat eaque alias.</p>
-                        <div class="flex items-center">
-                            <div>
-                                <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
-                            </div>
-                            <div>
-                                <p class="text-white">Sam smith</p>
-                                <p class="text-neutral-400">Software Engineer</p>
-                            </div>
-                        </div>
-                    </li>
-                ))
-            }
-        </ul>
-    </div>
+   <div class="carousel pb-20">
+      <ul class="group text-neutral-400">
+         {
+            items.map((item, index) => (
+               <li class="testimonialCard">
+                  <p class="mb-6">
+                     {index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus
+                     impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat
+                     adipisci, voluptatum iure fugiat eaque alias.
+                  </p>
+                  <div class="flex items-center">
+                     <div>
+                        <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
+                     </div>
+                     <div>
+                        <p class="text-white">Sam smith</p>
+                        <p class="text-neutral-400">Software Engineer</p>
+                     </div>
+                  </div>
+               </li>
+            ))
+         }
+      </ul>
+      <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
+      <ul aria-hidden class="group text-neutral-400">
+         {
+            items.map((item, index) => (
+               <li class="testimonialCard">
+                  <p class="mb-6">
+                     {index} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe nam iusto temporibus
+                     impedit excepturi incidunt illum architecto est aliquam recusandae, a cupiditate. Eum quaerat
+                     adipisci, voluptatum iure fugiat eaque alias.
+                  </p>
+                  <div class="flex items-center">
+                     <div>
+                        <div class="mr-5 h-[30px] w-[30px] rounded-full bg-white" />
+                     </div>
+                     <div>
+                        <p class="text-white">Sam smith</p>
+                        <p class="text-neutral-400">Software Engineer</p>
+                     </div>
+                  </div>
+               </li>
+            ))
+         }
+      </ul>
+   </div>
 </section>
 <style>
-    .carousel {
-        margin: 0 auto;
-        overflow: hidden;
-        display: flex;
-        width: 100%;
-        &:hover .group {
-            animation-play-state: paused;
-        }
-    }
+   .carousel {
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+      &:hover .group {
+         animation-play-state: paused;
+      }
+   }
 
-    .group {
-        display: flex;
-        gap: 20px;
-        /* Add padding to the right to create a gap between the last and first card. */
-        padding-right: 20px;
-        will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-        animation: scrolling 160s linear infinite;
-    }
+   .group {
+      display: flex;
+      gap: 20px;
+      /* Add padding to the right to create a gap between the last and first card. */
+      padding-right: 20px;
+      will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+      animation: scrolling 160s linear infinite;
+   }
 
-    @keyframes scrolling {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
+   @keyframes scrolling {
+      0% {
+         transform: translateX(0);
+      }
+      100% {
+         transform: translateX(-100%);
+      }
+   }
 
-    .testimonialCard {
-        border-radius: 20px;
-        border: 1px solid oklch(0.269 0 0);
-        border-bottom: none;
-        width: 450px;
-        padding: 5px 10px;
-        font-size: 15px;
-        padding: 25px;
-        text-align: left;
-        background: linear-gradient(rgba(80, 80, 80, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-    }
-    @media screen and (max-width: 700px) {
-        .testimonialCard {
-            width: 350px;
-            font-size: 12px;
-        }
-    }
+   .testimonialCard {
+      border-radius: 20px;
+      border: 1px solid oklch(0.269 0 0);
+      border-bottom: none;
+      width: 450px;
+      padding: 5px 10px;
+      font-size: 15px;
+      padding: 25px;
+      text-align: left;
+      background: linear-gradient(rgba(80, 80, 80, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+   }
+   @media screen and (max-width: 700px) {
+      .testimonialCard {
+         width: 350px;
+         font-size: 12px;
+      }
+   }
 </style>

@@ -1,100 +1,146 @@
 ---
-import Image from 'astro/components/Image.astro'
+import Image from 'astro/components/Image.astro';
 
-import challenge1 from '../assets/challenge1.avif'
-import challenge2 from '../assets/challenge2.avif'
-import code from '../assets/code.avif'
-import test from '../assets/test.avif'
-import test2 from '../assets/test2.avif'
-import dark from '../assets/dark.avif'
-import light from '../assets/light.avif'
-import Carrousel from './carrousel.astro'
+import challenge1 from '../assets/challenge1.avif';
+import challenge2 from '../assets/challenge2.avif';
+import code from '../assets/code.avif';
+import test from '../assets/test.avif';
+import test2 from '../assets/test2.avif';
+import dark from '../assets/dark.avif';
+import light from '../assets/light.avif';
+import Carrousel from './carrousel.astro';
 ---
 
 <section class="px-3 py-20" id="content">
-    <section class="">
-        <div class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5">
-            <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
-                <h2 class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:text-2xl max-[900px]:mb-5 max-[500px]:mb-2">
-                    Cutting-edge <span class="title">code editor.</span>
-                </h2>
-                <p class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base">Boost your productivity with a customizable code editor equipped with advanced features, including intelligent syntax highlighting, one-click Prettier formatting for instant code consistency, and powerful text settings to precisely match your ergonomic and aesthetic preferences.</p>
+   <section class="">
+      <div
+         class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5"
+      >
+         <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
+            <h2
+               class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:mb-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:mb-2 max-[500px]:text-2xl"
+            >
+               Cutting-edge <span class="title">code editor.</span>
+            </h2>
+            <p
+               class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base"
+            >
+               Boost your productivity with a customizable code editor equipped with advanced features, including
+               intelligent syntax highlighting, one-click Prettier formatting for instant code consistency, and powerful
+               text settings to precisely match your ergonomic and aesthetic preferences.
+            </p>
+         </div>
+         <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
+            <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
+               <Image class="rounded-lg" src={code} alt="landing image" width="1790" height="1354" />
             </div>
-            <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
-                <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
-                    <Image class="rounded-lg" src={code} alt="landing image" width="1790" height="1354" />
-                </div>
-            </div>
-        </div>
+         </div>
+      </div>
 
-        <div class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5">
-            <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
-                <h2 class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:text-2xl max-[900px]:mb-5 max-[500px]:mb-2">
-                    Run code against <span class="title">test suites.</span>
-                </h2>
-                <p class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base">Run and debug your code in real-time via our fully integrated terminal, receiving immediate and detailed feedback from a carefully crafted test suite designed specifically for every challenge, ensuring your solutions are robust and efficient.</p>
+      <div
+         class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5"
+      >
+         <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
+            <h2
+               class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:mb-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:mb-2 max-[500px]:text-2xl"
+            >
+               Run code against <span class="title">test suites.</span>
+            </h2>
+            <p
+               class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base"
+            >
+               Run and debug your code in real-time via our fully integrated terminal, receiving immediate and detailed
+               feedback from a carefully crafted test suite designed specifically for every challenge, ensuring your
+               solutions are robust and efficient.
+            </p>
+         </div>
+         <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
+            <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
+               <div>
+                  <Image class="rounded-lg" src={test} alt="landing image" width="1790" height="1354" />
+               </div>
+               <div>
+                  <Image class="rounded-lg" src={test2} alt="landing image" width="1790" height="1354" />
+               </div>
             </div>
-            <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
-                <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
-                    <div>
-                        <Image class="rounded-lg" src={test} alt="landing image" width="1790" height="1354" />
-                    </div>
-                    <div>
-                        <Image class="rounded-lg" src={test2} alt="landing image" width="1790" height="1354" />
-                    </div>
-                </div>
-            </div>
-        </div>
+         </div>
+      </div>
 
-        <div class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5">
-            <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
-                <h2 class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:text-2xl max-[900px]:mb-5 max-[500px]:mb-2">
-                    Support for dark and light <span class="title">Themes.</span>
-                </h2>
-                <p class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base">Ease your eyes with a calming dark theme for focused late-night sessions, or brighten your workspace with a crisp light one that offers vibrant clarity and optimal readability during daylight hours, ensuring your comfort is always prioritized.</p>
+      <div
+         class="m-auto flex max-w-[1200px] items-center justify-center border-x border-neutral-800 max-[900px]:flex-col-reverse max-[900px]:border-b max-[900px]:p-20 max-[700px]:p-10 max-[600px]:p-5 max-[500px]:p-0 max-[500px]:pb-5"
+      >
+         <div class="flex-1 pt-10 pb-20 max-[950px]:pb-0 max-[900px]:pt-0">
+            <h2
+               class="mb-10 px-10 text-4xl text-balance text-white max-[1000px]:px-5 max-[900px]:mb-5 max-[900px]:text-4xl max-[700px]:text-3xl max-[500px]:mb-2 max-[500px]:text-2xl"
+            >
+               Support for dark and light <span class="title">Themes.</span>
+            </h2>
+            <p
+               class="font-base px-10 text-lg font-light text-balance text-neutral-400 max-[1000px]:px-5 max-[500px]:text-base"
+            >
+               Ease your eyes with a calming dark theme for focused late-night sessions, or brighten your workspace with
+               a crisp light one that offers vibrant clarity and optimal readability during daylight hours, ensuring
+               your comfort is always prioritized.
+            </p>
+         </div>
+         <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
+            <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
+               <div class="absolute w-[80%] overflow-hidden rounded-lg border border-neutral-800">
+                  <Image class="img" src={dark} alt="landing image" width="1790" height="1354" />
+               </div>
+               <div class="absolute right-0 bottom-0 w-[80%] overflow-hidden rounded-lg border border-neutral-800">
+                  <Image class="img" src={light} alt="landing image" width="1790" height="1354" />
+               </div>
             </div>
-            <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
-                <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
-                    <div class="absolute w-[80%] overflow-hidden rounded-lg border border-neutral-800">
-                        <Image class="img" src={dark} alt="landing image" width="1790" height="1354" />
-                    </div>
-                    <div class="absolute right-0 bottom-0 w-[80%] overflow-hidden rounded-lg border border-neutral-800">
-                        <Image class="img" src={light} alt="landing image" width="1790" height="1354" />
-                    </div>
-                </div>
-            </div>
-        </div>
+         </div>
+      </div>
+   </section>
 
-       
-    </section>
-
-    <section class="mt-50">
-        <div class="m-auto mt-30 max-w-[1200px] border-x border-dashed border-neutral-800 px-10 py-10 max-[800px]:p-5">
-            <div class="relative mb-10 flex items-center gap-5 border-y border-dashed border-neutral-800 max-[1000px]:flex-col-reverse">
-                <div class="flex w-[50%] flex-1 flex-col text-xl font-light text-neutral-500 max-[1000px]:mt-10 max-[1000px]:w-[100%] max-[1000px]:text-lg">
-                    <h2 class="mb-10 text-4xl font-normal text-balance text-white  max-[900px]:text-4xl max-[700px]:text-4xl max-[500px]:text-3xl max-[900px]:mb-3">
-                        150 challenges across <span class="title">10 categories.</span>
-                    </h2>
-                    <p class="mb-5 text-lg max-[600px]:text-base">
-                        Dive deep into computer science fundamentals through 150 progressive code challenges, each thoughtfully designed and organized into 10 data structure categories preparing you for any complex coding scenario, offering a clear progression through <span class="rounded-md bg-[#449d5d25] px-2 py-1 text-[#449d5d]">Easy</span>, <span class="rounded-md bg-[#d1772425] px-2 py-1 text-[#d17724]">Medium</span> and <span class="rounded-md bg-[#e93b3b25] px-2 py-1 text-[#e93b3b]"
-                            >Hard</span
-                        > difficulty tiers.
-                    </p>
-                    <Carrousel />
-                </div>
-                <div class="relative flex flex-1 items-center justify-end max-[1000px]:mt-5 max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[0%]">
-                    <div class="absolute w-[60%] translate-x-[-70%] translate-y-[-10%] rotate-[-4deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
-                    </div>
-                    <div class="absolute w-[60%] translate-x-[-35%] translate-y-[0px] rotate-[-2deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge2} alt="landing image" width="1790" height="1354" />
-                    </div>
-                    <div class="w-[60%] translate-y-[10%] rotate-[-0deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
-                        <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
-                    </div>
-                </div>
+   <section class="mt-50">
+      <div class="m-auto mt-30 max-w-[1200px] border-x border-dashed border-neutral-800 px-10 py-10 max-[800px]:p-5">
+         <div
+            class="relative mb-10 flex items-center gap-5 border-y border-dashed border-neutral-800 max-[1000px]:flex-col-reverse"
+         >
+            <div
+               class="flex w-[50%] flex-1 flex-col text-xl font-light text-neutral-500 max-[1000px]:mt-10 max-[1000px]:w-[100%] max-[1000px]:text-lg"
+            >
+               <h2
+                  class="mb-10 text-4xl font-normal text-balance text-white max-[900px]:mb-3 max-[900px]:text-4xl max-[700px]:text-4xl max-[500px]:text-3xl"
+               >
+                  150 challenges across <span class="title">10 categories.</span>
+               </h2>
+               <p class="mb-5 text-lg max-[600px]:text-base">
+                  Dive deep into computer science fundamentals through 150 progressive code challenges, each
+                  thoughtfully designed and organized into 10 data structure categories preparing you for any complex
+                  coding scenario, offering a clear progression through <span
+                     class="rounded-md bg-[#449d5d25] px-2 py-1 text-[#449d5d]">Easy</span
+                  >, <span class="rounded-md bg-[#d1772425] px-2 py-1 text-[#d17724]">Medium</span> and <span
+                     class="rounded-md bg-[#e93b3b25] px-2 py-1 text-[#e93b3b]">Hard</span
+                  > difficulty tiers.
+               </p>
+               <Carrousel />
             </div>
-            <!-- <h1 class="mb-10 border-b border-dashed border-neutral-800 py-10 pl-[50%] text-3xl text-white max-[1000px]:pl-[0%] max-[600px]:text-2xl">Cutting-edge code editor.</h1>
+            <div
+               class="relative flex flex-1 items-center justify-end max-[1000px]:mt-5 max-[1000px]:translate-x-[-20%] max-[700px]:translate-x-[0%]"
+            >
+               <div
+                  class="absolute w-[60%] translate-x-[-70%] translate-y-[-10%] rotate-[-4deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]"
+               >
+                  <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
+               </div>
+               <div
+                  class="absolute w-[60%] translate-x-[-35%] translate-y-[0px] rotate-[-2deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]"
+               >
+                  <Image class="rounded-lg" src={challenge2} alt="landing image" width="1790" height="1354" />
+               </div>
+               <div
+                  class="w-[60%] translate-y-[10%] rotate-[-0deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]"
+               >
+                  <Image class="rounded-lg" src={challenge1} alt="landing image" width="1790" height="1354" />
+               </div>
+            </div>
+         </div>
+         <!-- <h1 class="mb-10 border-b border-dashed border-neutral-800 py-10 pl-[50%] text-3xl text-white max-[1000px]:pl-[0%] max-[600px]:text-2xl">Cutting-edge code editor.</h1>
         <div class="relative mb-30 flex items-center gap-5 max-[1000px]:mb-10 max-[1000px]:flex-col">
             <div class="relative flex flex-1 justify-normal max-[1000px]:mt-5 max-[1000px]:translate-x-[20%] max-[700px]:translate-x-[0%]">
                 <div class="absolute w-[60%] translate-x-[65%] translate-y-[-10%] rotate-[4deg] overflow-hidden rounded-lg border border-neutral-800 text-xs max-[1000px]:w-[35%] max-[700px]:w-[60%]">
@@ -130,12 +176,12 @@ import Carrousel from './carrousel.astro'
                 </div>
             </div>
         </div> -->
-        </div>
-    </section>
+      </div>
+   </section>
 </section>
 
 <style>
-    .a {
-        mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-    }
+   .a {
+      mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+   }
 </style>
