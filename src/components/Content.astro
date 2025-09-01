@@ -6,8 +6,8 @@ import challenge2 from '../assets/challenge2.avif';
 import code from '../assets/code.avif';
 import test from '../assets/test.avif';
 import test2 from '../assets/test2.avif';
-import dark from '../assets/dark.avif';
-import light from '../assets/light.avif';
+import dark from '../assets/darkTheme.avif';
+import light from '../assets/lightTheme.avif';
 import Carrousel from './carrousel.astro';
 ---
 
@@ -85,10 +85,10 @@ import Carrousel from './carrousel.astro';
          </div>
          <div class="w-full flex-2 border-l border-neutral-800 pt-20 pb-20 max-[900px]:border-none">
             <div class="a relative m-auto aspect-video w-[90%] overflow-hidden bg-black max-[900px]:w-[100%]">
-               <div class="absolute w-[80%] overflow-hidden rounded-lg border border-neutral-800">
+               <div class="absolute w-[80%] overflow-hidden rounded-sm border border-neutral-800">
                   <Image class="img" src={dark} alt="landing image" width="1790" height="1354" />
                </div>
-               <div class="absolute right-0 bottom-0 w-[80%] overflow-hidden rounded-lg border border-neutral-800">
+               <div class="absolute right-0 bottom-0 w-[80%] overflow-hidden rounded-sm border border-neutral-800">
                   <Image class="img" src={light} alt="landing image" width="1790" height="1354" />
                </div>
             </div>
