@@ -1,0 +1,73 @@
+---
+export interface Props {
+    className?: string;
+    size?: number;
+    duration?: number;
+    anchor?: number;
+    borderWidth?: number;
+    colorFrom?: string;
+    colorTo?: string;
+    delay?: number;
+}
+
+const {
+    className,
+    size = 200,
+    duration = 10,
+    anchor = 90,
+    borderWidth = 3,
+    colorFrom = "#ffaa40",
+    colorTo = "#9c40ff",
+    delay = 0,
+} = Astro.props;
+---
+
+
+   <div class="borderBeam"
+         style={{
+            "--size": `${size}px`,
+            "--duration": `${duration}s`,
+            "--anchor": `${anchor}%`,
+            "--border-width": `${borderWidth}px`,
+            "--color-from": colorFrom,
+            "--color-to": colorTo,
+            "--delay": `-${delay}s`,
+         }}
+   />
+
+
+
+<style>
+   .borderBeam {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border: calc(var(--border-width, 1.5px)) solid transparent;
+      border-radius: inherit;
+      -webkit-mask-clip: padding-box, border-box !important;
+               mask-clip: padding-box, border-box !important;
+      -webkit-mask-composite: source-in, xor !important;
+               mask-composite: intersect !important;
+      -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+               mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+      will-change: auto;
+   }
+   .borderBeam::after {
+      content: "";
+      position: absolute;
+      aspect-ratio: 1/1;
+      width: calc(var(--size, 200px));
+      background: linear-gradient(to left, var(--color-from, #ffaa40), var(--color-to, #9c40ff), transparent);
+      offset-anchor: calc(var(--anchor, 90)) 50%;
+      offset-path: rect(0 auto auto 0 round calc(var(--size)));
+      animation: border-beam calc(var(--duration, 15s)) infinite linear;
+      animation-delay: calc(var(--delay, 0s));
+      will-change: auto;
+   }
+
+   @keyframes border-beam {
+      100% {
+         offset-distance: 100%;
+      }
+   }
+</style>
