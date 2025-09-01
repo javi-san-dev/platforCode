@@ -66,7 +66,7 @@ export async function POST({ request }) {
 
       const { data, error } = await resend.emails.send({
          from: 'Platforcode <mail.platforcode.app>',
-         to: [userData.email],
+         to: [`${userData.email}`],
          subject: 'Platforcode OTP code',
          html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.activationKey}</strong></p>`,
       });
