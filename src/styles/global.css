@@ -47,7 +47,7 @@ html {
 
 .backgroundStyle,
 .borderStyle {
-   background: linear-gradient(72.83deg, #4285f4 11.63%, #9b72cb 40.43%, #d96570 68.07%);
+   background: linear-gradient(72.83deg, #4285f4 11.63%, #9b72cb 40.43%, rgb(247, 44, 213) 68.07%);
    padding: 1px;
    border: none;
 }
@@ -55,8 +55,8 @@ html {
 .title {
    color: transparent;
    background-clip: text;
-   background-image: -webkit-linear-gradient(17.17deg, #4285f4 11.63%, #9b72cb 40.43%, #d96570 68.07%);
-   background-image: linear-gradient(72.83deg, #4285f4 11.63%, #9b72cb 40.43%, #d96570 68.07%);
+   background-image: -webkit-linear-gradient(17.17deg, #4285f4 11.63%, #9b72cb 40.43%, rgb(247, 44, 213) 68.07%);
+   background-image: linear-gradient(72.83deg, #4285f4 11.63%, #9b72cb 40.43%, rgb(247, 44, 213) 68.07%);
 }
 
 pre {
