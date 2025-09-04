@@ -64,15 +64,19 @@ export async function POST({ request }) {
 
       const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-      const { data, error } = await resend.emails.send({
-         from: 'Platforcode <mail.platforcode.app>',
+      const { error } = await resend.emails.send({
+         from: 'Platforcode <no-reply@mail.platforcode.app>',
          to: [`${userData.email}`],
          subject: 'Platforcode OTP code',
          html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.activationKey}</strong></p>`,
       });
 
       if (error) {
-         return console.error({ error });
+         console.error({ error });
+         return new Response(JSON.stringify({ message: 'Failed to send email.' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+         });
       }
 
       return new Response(JSON.stringify({ message: 'User data saved successfully.' }), {
