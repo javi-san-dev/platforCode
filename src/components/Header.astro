@@ -6,80 +6,53 @@ import downloadIcon from '../assets/download.svg';
 import logo from '../assets/logo.webp';
 ---
 
-<header class="animate-fade-in-3 fixed z-20 flex w-[100vw] justify-center p-2 px-6" id="headerMenu">
-   <div class="flex w-full max-w-[1200px] items-center justify-between">
-      <a href="/" class="border-white"><Image src={logo} alt="logo" class="w-[160px]" /></a>
-      <nav class="text-md hidden gap-3 font-normal text-neutral-400 lg:flex">
-         <a href="/#about" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">About</a>
-         <a href="/#content" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Content</a>
-         <a href="/#faq" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Faq</a>
-         <!-- <a href="/pricing" class="cursor-pointer rounded-lg px-3 py-2 hover:bg-neutral-900">Pricing</a> -->
-      </nav>
-      <nav class="hidden gap-3 border-white lg:flex">
-         <!-- <div class="backgroundStyle rounded-full">
-                <button class="font-light text-sm cursor-pointer rounded-full bg-black px-3 py-1 text-white hover:bg-neutral-900">Try Web Demo</button>
-            </div> -->
-         <button
-            class="flex cursor-pointer items-center rounded-full bg-white px-3 py-1 text-sm font-normal hover:bg-neutral-100"
+
+<nav class="bg-black animate-fade-in-3 fixed z-20 w-full" id="headerMenu">
+  <div class="max-w-[1200px] max-[1200px]:px-4 flex flex-wrap items-center justify-between mx-auto py-4">
+      <a href="/" class="mr-10"><Image src={logo} alt="logo" class="w-[140px]" /></a>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-neutral-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+    <div class="bg-black w-full md:block md:w-auto" id="navbar-default">
+      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-neutral-400 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0   dark:border-gray-700">
+        <li>
+           <a href="#about" class="block py-2 px-3 text-white rounded-sm hover:bg-neutral-400 md:hover:bg-transparent md:border-0 md:hover:text-neutral-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+        </li>
+        <li>
+          <a href="#content" class="block py-2 px-3 text-white rounded-sm hover:bg-neutral-400 md:hover:bg-transparent md:border-0 md:hover:text-neutral-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Content</a>
+        </li>
+        <li>
+          <a href="#faq" class="block py-2 px-3 text-white rounded-sm hover:bg-neutral-400 md:hover:bg-transparent md:border-0 md:hover:text-neutral-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Faq</a>
+        </li>
+        <li>
+          <a href="/pricing" class="block py-2 px-3 text-white rounded-sm hover:bg-neutral-400 md:hover:bg-transparent md:border-0 md:hover:text-neutral-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+        </li>
+        <li>
+            <a
+        href="/download"
+            class="flex  cursor-pointer items-center rounded-md bg-white px-3 py-1 text-sm font-normal hover:bg-neutral-300"
          >
             <Image
-               class="mr-2 rounded-xl text-black"
+               class="mr-2 text-black"
                src={downloadIcon}
                alt="landing image"
                width="22"
                height="22"
-            />Download</button
+            />Download</a
          >
-      </nav>
-      <nav class="ml-auto inline cursor-pointer rounded-md border border-neutral-800 lg:hidden" id="toggle-menu-button">
-         <Image alt="menu icon" src={menu} width={40} height={40} id="menuImage" />
-         <Image alt="close icon" src={close} width={40} height={40} id="closeImage" style={{ display: 'none' }} />
-      </nav>
-      <nav
-         class="absolute top-14 left-0 hidden w-full flex-col bg-black px-3 text-lg text-neutral-400 lg:hidden"
-         id="toggle-menu"
-      >
-         <div class="flex flex-col border-t border-neutral-800 pt-5">
-            <div class="backgroundStyle rounded-xl">
-               <button
-                  class="w-full cursor-pointer rounded-xl bg-black px-3 py-3 font-light text-white hover:bg-neutral-900"
-                  >Try Web Demo</button
-               >
-            </div>
-            <button
-               class="mt-5 mb-5 flex cursor-pointer justify-center rounded-xl bg-white px-3 py-3 text-black hover:bg-neutral-100"
-            >
-               <Image
-                  class="mr-2 rounded-xl text-black"
-                  src={downloadIcon}
-                  alt="landing image"
-                  width="22"
-                  height="22"
-               />Download</button
-            >
-         </div>
-
-         <div class="flex flex-col border-b border-neutral-800 pb-5">
-            <a href="/#about" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white">About</a
-            >
-            <a href="/#content" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white"
-               >Content</a
-            >
-            <a href="/pricing/#faq" class="cursor-pointer rounded-lg px-3 py-3 hover:bg-neutral-900 hover:text-white"
-               >Faq</a
-            >
-         </div>
-      </nav>
-   </div>
-</header>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <script>
-   const menu = document.getElementById('headerMenu')!;
-   const menuToggleButton = document.getElementById('toggle-menu-button')!;
-   const menuToggle = document.getElementById('toggle-menu')!;
-
-   const closeImage = document.getElementById('closeImage')!;
-   const menuImage = document.getElementById('menuImage')!;
+   const menu = document.getElementById('headerMenu');
+   const menuToggle = document.querySelector('[data-collapse-toggle="navbar-default"]');
+   const navbar = document.getElementById('navbar-default');
 
    setMenuStyle();
 
@@ -97,22 +70,13 @@ import logo from '../assets/logo.webp';
       }
    }
 
-   menuToggleButton.addEventListener('click', () => {
-      const isMenuDisplayed = menuToggle.classList.contains('flex');
-      if (!isMenuDisplayed) {
-         menuToggle.classList.add('flex');
-         menuToggle.classList.remove('hidden');
-      } else {
-         menuToggle.classList.add('hidden');
-         menuToggle.classList.remove('flex');
-      }
-
-      if (closeImage.style.display === 'none') {
-         closeImage.style.display = 'block';
-         menuImage.style.display = 'none';
-      } else {
-         closeImage.style.display = 'none';
-         menuImage.style.display = 'block';
-      }
+   // Toggle navbar on mobile
+   menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('hidden');
    });
+
+   // Oculta el menú por defecto en móvil
+   if (window.innerWidth < 768) {
+      navbar.classList.add('hidden');
+   }
 </script>
