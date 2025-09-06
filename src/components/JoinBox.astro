@@ -21,8 +21,13 @@ import glow from '../assets/glow.webp';
          </h1>
       </div>
 
-      <div class="flex flex-1 items-center justify-center gap-3 max-[400px]:w-full max-[400px]:flex-col">
-        <button class="flex w-full cursor-pointer justify-center rounded-md bg-white px-4 py-2 text-center font-sm text-base text-black">
+        <div
+      class="m-auto mt-6 mb-20 flex flex-col gap-3 max-w-[300px] items-center justify-center  max-[600px]:mt-0 max-[600px]:w-[100%] max-[600px]:gap-3"
+   >
+      <!-- <div class="backgroundStyle w-full rounded-full">
+            <button class="font-base w-full cursor-pointer rounded-full bg-black px-8 py-3 text-nowrap text-white hover:bg-neutral-900">Try Web Demo</button>
+        </div> -->
+      <button class="z-10 text-black flex w-full cursor-pointer justify-center rounded-md bg-white px-4 py-2 text-center font-sm text-base hover:scale-105 transition-transform duration-200">
          <Image
             class="mr-2 rounded-xl text-black"
             src={downloadIcon}
@@ -31,7 +36,7 @@ import glow from '../assets/glow.webp';
             height="22"
          />Download for Macos</button
       >
-         <!-- <button class="w-full cursor-pointer rounded-full border border-neutral-800 bg-black px-3 py-3 hover:bg-neutral-100">Try Web Demo</button> -->
-      </div>
+      <a href="/download" class="text-white p-0 m-0 underline text-xs cursor-pointer">other platforms</a>
+   </div>
    </div>
 </section>
