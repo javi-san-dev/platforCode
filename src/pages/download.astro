@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import windows from '../assets/windows.avif';
+import linux from '../assets/linux.avif';
+import macos from '../assets/macos.avif';
+import Image from 'astro/components/Image.astro';
+import downloadIcon from '../assets/download.svg';
+
+---
+
+<Layout title="Welcome to challenge">
+    <section class="animate-fade-in pt-40 max-w-[900px] m-auto">
+        <h1 class="text-center text-4xl text-white">Download Platforcode App for free</h1>
+        <p></p>
+        <div class=" mt-20 flex gap-8">
+            <div class="p-10 rounded-lg border border-neutral-800 flex-1  flex flex-col gap-2 items-center">
+                <Image src={windows} alt="windows logo" class="invertir mb-8 w-[60%]"/>
+                <button class="flex w-full justify-center bg-white cursor-pointer items-center rounded-md  px-3 py-3 text-md font-normal hover:bg-neutral-300">
+                    <Image
+                    class="mr-2 text-black"
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                    />Windows x64</button>
+                    <p class="text-white px-3 py-3 w-full text-center  border-white">Windows 10, 11</p>
+            </div>
+             <div class="p-10 rounded-lg border border-neutral-800 flex-1  flex flex-col gap-2 items-center">
+                 <Image src={linux} alt="linux logo" class="invertir mb-8 w-[60%]"/>
+                  <button class="flex w-full justify-center bg-white cursor-pointer items-center rounded-md  px-3 py-3 text-md font-normal hover:bg-neutral-300">
+                    <Image
+                    class="mr-2 text-black "
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                    />.deb</button>
+                     <button class="flex w-full justify-center bg-white cursor-pointer items-center rounded-md  px-3 py-3 text-md font-normal hover:bg-neutral-300">
+                    <Image
+                    class="mr-2 text-black "
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                    />AppImage</button>
+             </div>
+              <div class="p-10 rounded-lg border border-neutral-800 flex-1  flex flex-col gap-2 items-center">
+                  <Image src={macos} alt="macos logo" class="invertir mb-8 w-[60%] "/>
+                   <button class="flex w-full justify-center bg-white cursor-pointer items-center rounded-md  px-3 py-3 text-md font-normal hover:bg-neutral-300">
+                    <Image
+                    class="mr-2 text-black"
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                    />MacOs Silicon</button>
+                     <button class="flex w-full justify-center bg-white cursor-pointer items-center rounded-md  px-3 py-3 text-md font-normal hover:bg-neutral-300">
+                    <Image
+                    class="mr-2 text-black"
+                    src={downloadIcon}
+                    alt="landing image"
+                    width="22"
+                    height="22"
+                    />Macos Intel</button>
+              </div>
+        </div>
+        <p class="my-[80px] mb-[180px] text-neutral-400 m-auto text-center font-light text-sm">By downloading and using platforcode, you agree to the <span class="underline cursor-pointer text-white">license terms</span> and <span class="underline cursor-pointer text-white">privacy statement</span>.</p>
+        <h3 class="hidden text-center my-[80px] text-sm  underline cursor-pointer text-neutral-400">Get previous versions</h3>
+    </section>
+</Layout>
+
+
+<style>
+    .invertir {
+      
+filter: invert(90%);
+    }
+</style>
