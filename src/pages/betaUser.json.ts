@@ -83,7 +83,7 @@ export async function POST({ request }) {
          from: 'Platforcode <no-reply@mail.platforcode.app>',
          to: [`${userData.email}`],
          subject: 'Platforcode OTP code',
-         html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.activationKey}</strong></p>`,
+         html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.OTP}</strong></p>`,
       });
 
       if (error) {
