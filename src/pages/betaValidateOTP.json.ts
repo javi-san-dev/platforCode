@@ -1,37 +1,26 @@
 export const prerender = false;
 
-import { list, put, BlobNotFoundError } from '@vercel/blob';
+import { list, BlobNotFoundError } from '@vercel/blob';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
+import { createClient } from '@libsql/client/web';
 
 // --- Esquemas de Validación y Tipos ---
-
-// MEJORA: Se usa Zod para una validación de entrada robusta y clara.
 const UserDataSchema = z.object({
    activationKey: z.string().min(1, { message: 'Activation key cannot be empty' }),
    email: z.string().email({ message: 'Invalid email format' }),
    machineId: z.string().min(1, { message: 'Machine ID cannot be empty' }),
 });
 
-// MEJORA: Se define un tipo estricto para los datos almacenados en el blob.
-interface StoredUserData {
-   name: string;
-   email: string;
-   activationKey: string;
-   isValidated: boolean;
-   licenseKey?: string;
-   machineId?: string;
-}
 
-interface UserData {
-   activationKey: string;
-   email: string;
-   machineId?: string;
-}
+const turso = createClient({
+   url: import.meta.env.TURSO_DATABASE_URL,
+   authToken: import.meta.env.TURSO_AUTH_TOKEN,
+});
 
 export async function POST({ request }) {
    try {
-      // -------------- 1. Validar Content-Type --------------
+      // 1. Validar Content-Type
       if (request.headers.get('content-type') !== 'application/json') {
          return new Response(JSON.stringify({ message: 'Content-Type must be application/json' }), {
             status: 400,
@@ -39,7 +28,7 @@ export async function POST({ request }) {
          });
       }
 
-      // -------------- 2. Parsear y validar datos --------------
+      // 2. Parsear y validar datos
       const body = await request.json();
       const validationResult = UserDataSchema.safeParse(body);
       if (!validationResult.success) {
@@ -52,54 +41,41 @@ export async function POST({ request }) {
          );
       }
       const { email, activationKey, machineId } = validationResult.data;
-      const userBlobPath = `users/${email}.json`;
-      console.log('2. Parsear y validar datos:', email, activationKey, machineId);
 
-      // -------------- 3. Comprobar si el usuario existe en el blobs --------------
-      const allBlobs = await list({ prefix: 'users/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
-      const userFile = allBlobs.blobs.find((blob) => blob.pathname === `users/${email}.json`);
-      const fileUrl = userFile.url;
-      // if (userFile) {
-      //     return new Response(
-      //         JSON.stringify({ message: "User not found." }),
-      //         { status: 404, headers: { 'Content-Type': 'application/json' } }
-      //     );
-      // }
-      const res = await fetch(fileUrl);
-      const userText = await res.text();
-      const user = JSON.parse(userText);
-      console.log('3. Comprobar si el usuario existe en el blobs:', user);
+      // 3. Buscar usuario en Turso
+      const userRes = await turso.execute({
+         sql: 'SELECT * FROM users WHERE email = ?',
+         args: [email],
+      });
+      if (userRes.rows.length === 0) {
+         return new Response(JSON.stringify({ message: 'User not found.' }), {
+            status: 404,
+            headers: { 'Content-Type': 'application/json' },
+         });
+      }
+      const user = userRes.rows[0];
 
-      // -------------- 4. Comprobar activationKey --------------
-      if (String(user.activationKey) !== activationKey) {
+      // 4. Comprobar activationKey
+      if (String(user.activation_key) !== activationKey) {
          return new Response(JSON.stringify({ message: 'Invalid Key.' }), {
             status: 400,
             headers: { 'Content-Type': 'application/json' },
          });
       }
 
-      // -------------- 5. Generar license key única --------------
+      // 5. Generar license key única
       const licenseKey = uuidv4().toUpperCase();
 
-      // -------------- 6. Guardar license key en el blob --------------
-      const updatedUserData: StoredUserData = {
-         ...user,
-         isValidated: true,
-         licenseKey,
-         machineId,
-      };
-      await put(userBlobPath, JSON.stringify(updatedUserData), {
-         access: 'public',
-         addRandomSuffix: false,
-         allowOverwrite: true,
-         token: import.meta.env.BLOB_READ_WRITE_TOKEN,
+      // 6. Actualizar usuario en Turso con licenseKey y validación
+      await turso.execute({
+         sql: 'UPDATE users SET is_validated = 1, license_key = ?, machine_id = ? WHERE email = ?',
+         args: [licenseKey, machineId, email],
       });
-      console.log('6. Guardar license key en el blob:', updatedUserData);
 
-      // -------------- 7. Encripatcion datos --------------
+      // 7. Encriptar challenges.json desde Vercel Blob
       const encryptedChallenges = await encryptChallengesData(licenseKey, machineId);
-      console.log('7. Encriptar datos:');
-      // -------------- 7. Responder con éxito --------------
+
+      // 8. Responder con éxito
       return new Response(
          JSON.stringify({
             message: 'validated successfully.',
@@ -113,9 +89,7 @@ export async function POST({ request }) {
       if (error instanceof BlobNotFoundError) {
          return new Response(JSON.stringify({ message: 'User not found' }), {
             status: 404,
-            headers: {
-               'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
          });
       }
       console.log(error);
@@ -124,11 +98,8 @@ export async function POST({ request }) {
 }
 
 /**
- * MEJORA: Encripta datos usando la Web Crypto API con AES-GCM, el estándar moderno.
- * Deriva una clave segura usando PBKDF2.
- * @param licenseKey - La clave de licencia.
- * @param machineId - El ID de la máquina.
- * @returns Un string en base64 que contiene el IV y los datos encriptados.
+ * Encripta datos usando la Web Crypto API con AES-GCM.
+ * El JSON de retos sigue viniendo de Vercel Blob.
  */
 async function encryptChallengesData(licenseKey: string, machineId: string): Promise<string> {
    const allBlobs = await list({ prefix: 'challenges/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
@@ -139,8 +110,8 @@ async function encryptChallengesData(licenseKey: string, machineId: string): Pro
    const jsonString = JSON.stringify(resData);
    const data = new TextEncoder().encode(jsonString);
 
-   // 1. Derivar una clave criptográfica robusta desde el material de la clave (PBKDF2)
-   const salt = new TextEncoder().encode(machineId); // Usar machineId como salt es razonable aquí
+   // Derivar clave con PBKDF2
+   const salt = new TextEncoder().encode(machineId);
    const baseKey = await crypto.subtle.importKey(
       'raw',
       new TextEncoder().encode(licenseKey),
@@ -162,8 +133,8 @@ async function encryptChallengesData(licenseKey: string, machineId: string): Pro
       ['encrypt'],
    );
 
-   // 2. Encriptar los datos con AES-GCM
-   const iv = crypto.getRandomValues(new Uint8Array(12)); // IV de 12 bytes para AES-GCM
+   // Encriptar con AES-GCM
+   const iv = crypto.getRandomValues(new Uint8Array(12));
    const encryptedData = await crypto.subtle.encrypt(
       {
          name: 'AES-GCM',
@@ -173,7 +144,7 @@ async function encryptChallengesData(licenseKey: string, machineId: string): Pro
       data,
    );
 
-   // 3. Combinar IV y datos encriptados para su almacenamiento/transmisión
+   // Combinar IV y datos encriptados
    const ivAndEncryptedData = new Uint8Array(iv.length + encryptedData.byteLength);
    ivAndEncryptedData.set(iv, 0);
    ivAndEncryptedData.set(new Uint8Array(encryptedData), iv.length);

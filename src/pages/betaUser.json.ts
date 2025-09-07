@@ -1,7 +1,12 @@
 export const prerender = false;
 
-import { put, list } from '@vercel/blob';
 import { Resend } from 'resend';
+import { createClient } from '@libsql/client/web';
+
+const turso = createClient({
+   url: import.meta.env.TURSO_DATABASE_URL,
+   authToken: import.meta.env.TURSO_AUTH_TOKEN,
+});
 
 export async function POST({ request }) {
    try {
@@ -44,22 +49,22 @@ export async function POST({ request }) {
       // 5. Generar OTP en servidor (ignorar si lo envían)
       userData.activationKey = Math.floor(100000 + Math.random() * 900000);
 
-      // 6. Comprobar si el email ya existe
-      const filename = `users/${userData.email}.json`;
-      const existing = await list({ prefix: filename, limit: 1, token: import.meta.env.BLOB_READ_WRITE_TOKEN });
-      if (existing.blobs.length > 0) {
+      // 6. Comprobar si el email ya existe en Turso
+      const checkUser = await turso.execute({
+         sql: 'SELECT COUNT(*) as count FROM users WHERE email = ?',
+         args: [userData.email],
+      });
+      if (checkUser.rows[0].count > 0) {
          return new Response(JSON.stringify({ message: 'Email already exists.' }), {
             status: 409,
             headers: { 'Content-Type': 'application/json' },
          });
       }
 
-      // 7. Guardar datos
-      await put(filename, JSON.stringify(userData), {
-         access: 'public',
-         addRandomSuffix: false,
-         allowOverwrite: false,
-         token: import.meta.env.BLOB_READ_WRITE_TOKEN,
+      // 7. Guardar datos en Turso
+      await turso.execute({
+         sql: 'INSERT INTO users (email, name, activation_key) VALUES (?, ?, ?)',
+         args: [userData.email, userData.name || null, userData.activationKey],
       });
 
       const resend = new Resend(import.meta.env.RESEND_API_KEY);
@@ -84,7 +89,7 @@ export async function POST({ request }) {
          headers: { 'Content-Type': 'application/json' },
       });
    } catch (error) {
-      console.error('Error to save on vercel blob:', error);
+      console.error('Error saving to Turso:', error);
       return new Response(JSON.stringify({ message: 'Internal server error.' }), {
          status: 500,
          headers: { 'Content-Type': 'application/json' },
