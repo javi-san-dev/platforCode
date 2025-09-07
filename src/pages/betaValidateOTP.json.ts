@@ -1,7 +1,6 @@
 export const prerender = false;
 
 import { list, BlobNotFoundError } from '@vercel/blob';
-import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 import { createClient } from '@libsql/client/web';
 
@@ -11,7 +10,6 @@ const UserDataSchema = z.object({
    email: z.string().email({ message: 'Invalid email format' }),
    machineId: z.string().min(1, { message: 'Machine ID cannot be empty' }),
 });
-
 
 const turso = createClient({
    url: import.meta.env.TURSO_DATABASE_URL,
@@ -42,52 +40,49 @@ export async function POST({ request }) {
       }
       const { email, activationKey, machineId } = validationResult.data;
 
-      // 3. Buscar usuario en Turso
-      const userRes = await turso.execute({
-         sql: 'SELECT * FROM users WHERE email = ?',
+      // 3. Buscar licencia en Turso
+      const licenseRes = await turso.execute({
+         sql: 'SELECT * FROM licenses WHERE email = ?',
          args: [email],
       });
-      if (userRes.rows.length === 0) {
-         return new Response(JSON.stringify({ message: 'User not found.' }), {
+      if (licenseRes.rows.length === 0) {
+         return new Response(JSON.stringify({ message: 'License not found.' }), {
             status: 404,
             headers: { 'Content-Type': 'application/json' },
          });
       }
-      const user = userRes.rows[0];
+      const license = licenseRes.rows[0];
 
-      // 4. Comprobar activationKey
-      if (String(user.activation_key) !== activationKey) {
+      // 4. Comprobar activationKey (OTP)
+      if (String(license.is_email_verified) !== activationKey) {
          return new Response(JSON.stringify({ message: 'Invalid Key.' }), {
             status: 400,
             headers: { 'Content-Type': 'application/json' },
          });
       }
 
-      // 5. Generar license key única
-      const licenseKey = uuidv4().toUpperCase();
-
-      // 6. Actualizar usuario en Turso con licenseKey y validación
+      // 5. Actualizar licencia: activar y guardar hardware_fingerprint
       await turso.execute({
-         sql: 'UPDATE users SET is_validated = 1, license_key = ?, machine_id = ? WHERE email = ?',
-         args: [licenseKey, machineId, email],
+         sql: `UPDATE licenses SET activated_at = strftime('%Y-%m-%d %H:%M:%S', 'now'), hardware_fingerprint = ?, is_email_verified = 1 WHERE email = ?`,
+         args: [machineId, email],
       });
 
-      // 7. Encriptar challenges.json desde Vercel Blob
-      const encryptedChallenges = await encryptChallengesData(licenseKey, machineId);
+      // 6. Encriptar challenges.json desde Vercel Blob
+      const encryptedChallenges = await encryptChallengesData(license.license_key, machineId);
 
-      // 8. Responder con éxito
+      // 7. Responder con éxito
       return new Response(
          JSON.stringify({
             message: 'validated successfully.',
             validation: true,
-            licenseKey,
+            licenseKey: license.license_key,
             challengesData: encryptedChallenges,
          }),
          { status: 200, headers: { 'Content-Type': 'application/json' } },
       );
    } catch (error) {
       if (error instanceof BlobNotFoundError) {
-         return new Response(JSON.stringify({ message: 'User not found' }), {
+         return new Response(JSON.stringify({ message: 'License not found' }), {
             status: 404,
             headers: { 'Content-Type': 'application/json' },
          });
@@ -104,6 +99,7 @@ export async function POST({ request }) {
 async function encryptChallengesData(licenseKey: string, machineId: string): Promise<string> {
    const allBlobs = await list({ prefix: 'challenges/', token: import.meta.env.BLOB_READ_WRITE_TOKEN });
    const userFile = allBlobs.blobs.find((blob) => blob.pathname === `challenges/challenges.json`);
+   if (!userFile) throw new BlobNotFoundError();
    const fileUrl = userFile.url;
    const res = await fetch(fileUrl);
    const resData = await res.json();
@@ -152,21 +148,3 @@ async function encryptChallengesData(licenseKey: string, machineId: string): Pro
    // Convertir a Base64 para una transmisión segura como string
    return Buffer.from(ivAndEncryptedData).toString('base64');
 }
-
-/**
- async function name() {
-  const userData = {
-      activationKey: Number("951688"),
-        email: "javi@mail.com",
-  }
-  const response = await fetch('http://192.168.0.181:4321/betaValidateOTP.json', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-        body: JSON.stringify(userData),
-  });
-  const data = await response.json();
-  console.log('Response from server:', data);
-}
- */

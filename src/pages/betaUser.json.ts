@@ -47,24 +47,34 @@ export async function POST({ request }) {
       }
 
       // 5. Generar OTP en servidor (ignorar si lo envían)
-      userData.activationKey = Math.floor(100000 + Math.random() * 900000);
+      userData.OTP = Math.floor(100000 + Math.random() * 900000);
 
-      // 6. Comprobar si el email ya existe en Turso
-      const checkUser = await turso.execute({
-         sql: 'SELECT COUNT(*) as count FROM users WHERE email = ?',
+      // 6. Comprobar si el email ya existe en licenses
+      const checkLicense = await turso.execute({
+         sql: 'SELECT COUNT(*) as count FROM licenses WHERE email = ?',
          args: [userData.email],
       });
-      if (checkUser.rows[0].count > 0) {
+      if (checkLicense.rows[0].count > 0) {
          return new Response(JSON.stringify({ message: 'Email already exists.' }), {
             status: 409,
             headers: { 'Content-Type': 'application/json' },
          });
       }
 
-      // 7. Guardar datos en Turso
+      // 7. Generar license_key única
+      const licenseKey = crypto.randomUUID();
+
+      // 8. Guardar datos en licenses
       await turso.execute({
-         sql: 'INSERT INTO users (email, name, activation_key) VALUES (?, ?, ?)',
-         args: [userData.email, userData.name || null, userData.activationKey],
+         sql: `INSERT INTO licenses (
+            license_key, email, user_name, is_email_verified, created_at, activated_at, expires_at, revoked_at, revoked_reason, hardware_fingerprint
+         ) VALUES (?, ?, ?, ?, strftime('%Y-%m-%d %H:%M:%S', 'now'), NULL, NULL, NULL, NULL, NULL)`,
+         args: [
+            licenseKey,
+            userData.email,
+            userData.name || '',
+            userData.OTP, // is_email_verified
+         ],
       });
 
       const resend = new Resend(import.meta.env.RESEND_API_KEY);
@@ -84,7 +94,7 @@ export async function POST({ request }) {
          });
       }
 
-      return new Response(JSON.stringify({ message: 'User data saved successfully.' }), {
+      return new Response(JSON.stringify({ message: 'License created successfully.' }), {
          status: 200,
          headers: { 'Content-Type': 'application/json' },
       });
@@ -96,21 +106,3 @@ export async function POST({ request }) {
       });
    }
 }
-
-/**
- async function name() {
-  const userData = {
-      name: "javi san",
-      email: "javi@mail.com"
-  }
-  const response = await fetch('http://192.168.0.181:4321/betaUser.json', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-        body: JSON.stringify(userData),
-  });
-  const data = await response.json();
-  console.log('Response from server:', data);
-}
- */
