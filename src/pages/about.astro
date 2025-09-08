@@ -1,22 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Faq from '../components/Faq.astro';
-import Price from '../components/Price.astro';
 import { Image } from 'astro:assets';
-import me from '../assets/me.jpg';
+import me from '../assets/me.avif';
 ---
 
 <Layout title="About the product">
     <section class="text-neutral-400 text-lg font-light max-w-[900px] m-auto mt-40 mb-20">
    <h1 class="text-center text-8xl text-white mb-10">About</h1>
-   <p>👋 Hi there! I'm Javi Sanchez, the creator and sole developer behind PlatforCode.</p>
-<p>Platforcode is a project born of resilience, it is a testament to the power of purpose and perseverance. I started creating this app in 2024, not as a business venture, but as a lifeline during my long and challenging hospital admissions while fighting cancer. I needed something to occupy my mind and spirit. Coding became my escape, a source of entertainment a personal need: to sharpen my coding skills and a way to maintain a sense of normalcy and purpose during a difficult and uncertain period.</p>
-    <p>Now, I'm proud what started as a personal project grew into something I wanted to share with others. A platform for learning and growth, a reflection of that experience—a testament to turning adversity into a force for creation.</p>
-<p>As a self-funded and independent developer, I am able to dedicate all my time and energy to building this platform for you. I don't have investors to answer to; I only have you. This personal connection ensures that every feature and every support question is handled directly by me, with a level of care and understanding that reflects the project's deeply personal origins.</p>
-<p>This project has been incredibly meaningful to me, and I sincerely hope it provides you with as much value as it has given me. I'm here to support you personally, so if you have questions or need assistance, please reach out. I'll be there to assist you, not a chatbot.</p>
-<div class="flex items-center"><Image src={me} alt="image of me" class="my-10  rounded-full aspect-square object-cover" width={300}  />
-<h3 class="ml-5">Javi sanchez</h3></div>
-
+   <p>👋 Hi there! I'm Javi Sanchez, the creator and sole developer behind Platforcode.</p>
+   <p>Platforcode is a project born out of resilience—a testament to the power of purpose and perseverance. I started creating this app in 2024, not as a business venture, but as a lifeline during my long and challenging hospital stays while fighting cancer. I needed something to occupy my mind and spirit. Coding became my escape, a source of entertainment, and a personal need: to sharpen my coding skills and maintain a sense of normalcy and purpose during a difficult and uncertain period.</p>
+   <p>Now, I'm proud that what started as a personal project has grown into something I want to share with others. Platforcode is a platform for learning and growth, a reflection of my experience—a testament to turning adversity into a force for creation.</p>
+   <p>As a self-funded and independent developer, I am able to dedicate all my time and energy to building this platform for you. I don't have investors to answer to; I only have you. This personal connection ensures that every feature and every support question is handled directly by me, with a level of care and understanding that reflects the project's deeply personal origins.</p>
+   <p>This project has been incredibly meaningful to me, and I sincerely hope it provides you with as much value as it has given me. I'm here to support you personally, so if you have questions or need assistance, please reach out. I'll be there to assist you—not a chatbot.</p>
+   <div class="flex items-center">
+      <Image src={me} alt="image of me" class="my-10 rounded-full aspect-square object-cover" width={300} />
+      <h3 class="ml-5">Javi Sanchez</h3>
+   </div>
 </section>
 </Layout>
 
