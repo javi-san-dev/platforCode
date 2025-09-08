@@ -80,7 +80,7 @@ export async function POST({ request }) {
       const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
       const { error } = await resend.emails.send({
-         from: 'Platforcode <no-reply@mail.platforcode.app>',
+         from: 'Platforcode <no-reply@platforcode.app>',
          to: [`${userData.email}`],
          subject: 'Platforcode OTP code',
          html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.OTP}</strong></p>`,
