@@ -2,6 +2,7 @@ export const prerender = false;
 
 import { Resend } from 'resend';
 import { createClient } from '@libsql/client/web';
+import { emailTemplate } from '../consts/emailTemplate';
 
 const turso = createClient({
    url: import.meta.env.TURSO_DATABASE_URL,
@@ -83,7 +84,7 @@ export async function POST({ request }) {
          from: 'Platforcode <no-reply@platforcode.app>',
          to: [`${userData.email}`],
          subject: 'Platforcode OTP code',
-         html: `<p>Congrats on sending your <strong>first email</strong>!</p> <p>Here is your OTP code: <strong>${userData.OTP}</strong></p>`,
+         html: emailTemplate(userData.OTP),
       });
 
       if (error) {
